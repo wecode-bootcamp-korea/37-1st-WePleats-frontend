@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+@import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css';
+
+.navBox {
+  min-width: 720px;
+  height: 62px;
+  padding: 0 3%;
+  margin: 0 auto;
+  border-bottom: 1px solid #222;
+  line-height: 62px;
+  font-family: 'Montserrat', sans-serif;
+  color: #222;
+
+  .nav {
+    display: flex;
+    justify-content: space-between;
+
+    .menu {
+      display: flex;
+
+      .logo {
+        margin-right: 15px;
+        font-family: 'Josefin Sans', sans-serif;
+        font-size: 28px;
+      }
+
+      .best {
+        margin: 0 5px 0 10px;
+      }
+
+      .new {
+        margin: 0 10px;
+      }
+
+      .electronic {
+        margin: 0 10px;
+      }
+
+      .kitchen {
+        margin: 0 10px;
+      }
+
+      .etc {
+        margin: 0 10px;
+      }
+    }
+
+    .userInfo {
+      display: flex;
+      align-items: center;
+
+      .line {
+        width: 1px;
+        height: 10px;
+        background-color: #d3d3d3;
+        margin: 0 5px;
+      }
+
+      .name {
+        margin: 0 10px;
+        font-size: 12px;
+        line-height: 62px;
+      }
+
+      .myPage {
+        margin: 0 10px;
+        font-size: 18px;
+      }
+
+      .myPage:hover {
+        color: #696969;
+      }
+
+      .cart {
+        position: relative;
+        margin: 0 10px;
+        font-size: 18px;
+      }
+
+      .cart:hover {
+        color: #696969;
+      }
+
+      .count {
+        position: absolute;
+        top: 25%;
+        left: 60%;
+        width: 15px;
+        height: 15px;
+        line-height: 15px;
+        text-align: center;
+        color: #fff;
+        font-size: 10px;
+        background-color: #ff0000;
+        border-radius: 50%;
+      }
+
+      .search {
+        margin: 0 10px;
+        font-size: 18px;
+      }
+
+      .search:hover {
+        color: #696969;
+      }
+    }
+  }
+}
