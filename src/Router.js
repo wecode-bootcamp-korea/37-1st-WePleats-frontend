@@ -12,7 +12,7 @@ import Product from './pages/ProductList/Product/Product';
 const Router = () => {
   return (
     <BrowserRouter>
-      <Nav /> // nav 컴포넌트
+      <Nav />
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/signup" element={<SignUp />} />
@@ -21,7 +21,7 @@ const Router = () => {
         <Route path="/product" element={<Product />} />
         <Route path="/Cart" element={<Cart />} />
       </Routes>
-      <Footer /> // footer 컴포넌트
+      <Footer />
     </BrowserRouter>
   );
 };
