@@ -1,0 +1,22 @@
+.colorItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+
+  .color {
+    width: 18px;
+    height: 18px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    // background: dodgerblue;
+    cursor: pointer;
+  }
+
+  .name {
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: 100;
+    text-align: center;
+  }
+}
