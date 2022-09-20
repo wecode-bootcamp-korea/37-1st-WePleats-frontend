@@ -1,3 +1,5 @@
+@import '../../../styles/variables.scss';
+
 .colorItem {
   display: flex;
   flex-direction: column;
@@ -9,11 +11,11 @@
     height: 18px;
     margin-bottom: 20px;
     border-radius: 50%;
-    // background: dodgerblue;
     cursor: pointer;
   }
 
   .name {
+    color: $colorDarkGray;
     font-size: 14px;
     font-family: sans-serif;
     font-weight: 100;

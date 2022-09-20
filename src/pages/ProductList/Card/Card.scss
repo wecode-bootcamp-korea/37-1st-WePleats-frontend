@@ -1,0 +1,23 @@
+@import '../../../styles/variables.scss';
+
+.card {
+  width: 25%;
+  padding: 0 1px;
+  font-size: 14px;
+  font-family: sans-serif;
+
+  .img {
+    padding-bottom: 130%;
+    cursor: pointer;
+  }
+
+  .desc {
+    padding: 20px 0 50px;
+    color: $colorDarkGray;
+
+    .name {
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+  }
+}

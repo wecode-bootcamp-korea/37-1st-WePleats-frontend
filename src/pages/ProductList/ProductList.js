@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Product from './Product/Product';
+import Card from './Card/Card';
 import Filter from './Filter/Filter';
 import { COLOR_CATE } from './COLOR_CATE';
 import './ProductList.scss';
@@ -28,7 +28,7 @@ function ProductList() {
       <div className="outerBox">
         <ul className="listBox">
           {products.map(product => {
-            return <Product product={product} key={product.id} />;
+            return <Card product={product} key={product.id} />;
           })}
         </ul>
       </div>
