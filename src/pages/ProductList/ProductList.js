@@ -1,11 +1,31 @@
 import React from 'react';
 import './ProductList.scss';
+import { COLOR_CATE } from './COLOR_CATE';
 
 function ProductList() {
   return (
     <div className="productlist">
       <div className="outerBox">
-        <div className="filterBox">filter</div>
+        <div className="filterBox">
+          <ul className="colorBox">
+            {COLOR_CATE.map(info => {
+              return (
+                <li className="colorItem" id={info.id} key={info.id}>
+                  <div
+                    className="color"
+                    style={{ background: `${info.color}` }}
+                  />
+                  <p className="name">{info.name}</p>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </div>
+
+      <div className="colorBar" />
+
+      <div className="outerBox">
         <ul className="listBox">
           <li className="cardBox">
             <figure
