@@ -2,10 +2,257 @@
   box-sizing: border-box;
 
   .outerBox {
+    max-width: 1920px;
+    margin: 0 auto;
+    background-color: none;
+    // background-color: yellow;
+
     .couponBox {
-      width: 100vw;
       height: 30px;
-      border: 1px solid black;
+      // border: 1px solid black;
+      background-color: grey;
+    }
+
+    .contentsBox {
+      .upperBox {
+        padding: 0px 100px;
+        // border: 1px solid black;
+
+        .spaceBox {
+          height: 100px;
+        }
+
+        .mainPicBox {
+          display: flex;
+          background-color: blue($color: #000000);
+
+          .newestItem {
+            width: 50%;
+
+            .pictureBox1 {
+              width: 100%;
+
+              .mainPic {
+                width: 96%;
+              }
+            }
+
+            .mainPicTextBox {
+              height: 61.84px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              font-size: 16px;
+              font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+              .direction {
+                width: 15px;
+                margin-right: 10px;
+              }
+            }
+          }
+
+          .bestItem {
+            width: 50%;
+
+            .pictureBox2 {
+              width: 100%;
+              display: flex;
+              justify-content: end;
+
+              .mainPic {
+                width: 96%;
+              }
+            }
+
+            .mainPicTextBox {
+              height: 61.84px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              font-size: 16px;
+              font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+              .direction {
+                width: 15px;
+                margin-right: 10px;
+              }
+            }
+          }
+        }
+      }
+
+      .middleUpperBox {
+        position: relative;
+        // background-color: aquamarine;
+
+        .slideBtnLeft {
+          width: 30px;
+          position: absolute;
+          top: 43%;
+          left: 1%;
+          z-index: 1;
+        }
+
+        .slideBtnRight {
+          width: 26px;
+          position: absolute;
+          top: 43%;
+          right: 1%;
+          z-index: 1;
+        }
+
+        .slideBtnLeft:hover {
+          cursor: pointer;
+        }
+
+        .slideBtnRight:hover {
+          cursor: pointer;
+        }
+
+        .spaceBox {
+          width: 100%;
+          height: 100px;
+          // border: 1px solid yellow;
+        }
+
+        .productSlideBox {
+          width: 100%;
+          display: flex;
+          transition: all 0.8s ease-in-out;
+
+          .slideContents {
+            // width: 25%;
+
+            // background-color: red;
+
+            .slideImageBox {
+              // width: 100%;
+              height: 90%;
+
+              img {
+                width: 25vw;
+                height: 100%;
+              }
+            }
+
+            .slideTextBox {
+              padding-left: 10px;
+              height: 10%;
+              font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+          }
+        }
+      }
+
+      .middleBottomBox {
+        padding: 0px 100px;
+        // border: 1px solid black;
+        // background-color: green;
+
+        .spaceBox {
+          height: 100px;
+          // border: 1px solid yellow;
+        }
+
+        .mainPicBox {
+          display: flex;
+          background-color: blue($color: #000000);
+
+          .newestItem {
+            width: 50%;
+
+            .pictureBox1 {
+              width: 100%;
+
+              .mainPic {
+                width: 96%;
+              }
+            }
+
+            .mainPicTextBox {
+              height: 61.84px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              font-size: 16px;
+              font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+              .direction {
+                width: 15px;
+                margin-right: 10px;
+              }
+            }
+          }
+
+          .bestItem {
+            width: 50%;
+
+            .pictureBox2 {
+              width: 100%;
+              display: flex;
+              justify-content: end;
+
+              .mainPic {
+                width: 96%;
+              }
+            }
+
+            .mainPicTextBox {
+              height: 61.84px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              font-size: 16px;
+              font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+              .direction {
+                width: 15px;
+                margin-right: 10px;
+              }
+            }
+          }
+        }
+      }
+
+      .bottomBox {
+        .eventContentsBox {
+          width: 100%;
+
+          .eventInsideBox {
+            display: flex;
+            justify-content: center;
+            padding: 0 50px;
+
+            .innerContentsBox {
+              width: 100%;
+              height: 100%;
+              padding: 50px;
+
+              img {
+                width: 100%;
+                height: 100%;
+              }
+
+              div {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 16px;
+                height: 60px;
+              }
+            }
+          }
+        }
+        .spaceBox {
+          width: 100%;
+          height: 150px;
+          // border: 1px solid yellow;
+        }
+      }
+    }
+    .footerSpaceBox {
+      height: 100px;
     }
   }
 }
