@@ -5,32 +5,63 @@ function Nav() {
   return (
     <nav className="navBox">
       <div className="nav">
-        <div className="menu">
-          <div className="logo">WePleats</div>
-          <div className="best">Best</div>
-          <div className="new">New</div>
-          <div className="electronic">Electronic</div>
-          <div className="kitchen">Kitchen</div>
-          <div className="etc">Etc</div>
-        </div>
-        <div className="userInfo">
-          <div className="name">장문정</div>
-          <div className="line" />
-          <div className="myPage">
+        <ul className="menu">
+          <li className="li logo">WePleats</li>
+          <li className="li best">Best</li>
+          <li className="li new">New</li>
+          <li className="li monitor">Monitor</li>
+          <li className="li keyboard">Keyboard</li>
+          <li className="li mouse">Mouse</li>
+          <li className="li etc">Etc</li>
+        </ul>
+        <ul className="userInfo">
+          <li className="li name">장문정</li>
+          <li className="li line" />
+          <li className="li myPage">
             <i className="fa-solid fa-user" />
-          </div>
-          <div className="line" />
-          <div className="cart">
+          </li>
+          <li className="li line" />
+          <li className="li cart">
             <i className="fa fa-shopping-bag" />
             <div className="count">3</div>
-          </div>
-          <div className="line" />
-          <div className="search">
+          </li>
+          <li className="li line" />
+          <li className="li search">
             <i className="fa-solid fa-magnifying-glass" />
-          </div>
-        </div>
+          </li>
+        </ul>
       </div>
-      {/* <div className="navDropDown"></div> */}
+      <div className="navDropDown">
+        <ul className="dropDown">
+          <li className="li best">Best</li>
+          <li className="li new">New</li>
+          <li className="li Monitor">
+            <ul className="submenu">
+              <li className="sub">일반</li>
+              <li className="sub">고해상도</li>
+              <li className="sub">게이밍</li>
+              <li className="sub">터치</li>
+            </ul>
+          </li>
+          <li className="li Keyboard">
+            <ul className="submenu">
+              <li className="sub">유선</li>
+              <li className="sub">무선</li>
+              <li className="sub">블루투스</li>
+              <li className="sub">기계식</li>
+            </ul>
+          </li>
+          <li className="li Mouse">
+            <ul className="submenu">
+              <li className="sub">유션</li>
+              <li className="sub">무선</li>
+              <li className="sub">블루투스</li>
+              <li className="sub">버티컬</li>
+            </ul>
+          </li>
+          <li className="li etc">스티커</li>
+        </ul>
+      </div>
     </nav>
   );
 }
