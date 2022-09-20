@@ -12,17 +12,11 @@ li {
   list-style-type: none;
 }
 
-div,
-ul,
-li {
-  box-sizing: border-box;
-}
-
 /// components
 
 .productlist {
   .colorBar {
-    height: 10px;
+    height: 5px;
     background: linear-gradient(
       90deg,
       #e34466 0%,
@@ -74,23 +68,9 @@ li {
       }
     }
 
-    // .colorBar {
-    //   height: 10px;
-    //   background: linear-gradient(
-    //     90deg,
-    //     #e34466 0%,
-    //     #f9de52 20%,
-    //     #7cc344 40%,
-    //     #4386d6 60%,
-    //     #a866d2 80%,
-    //     #b0977e 100%
-    //   );
-    //   background-position: center;
-    //   margin: 0 3px 55px;
-    // }
-
     .listBox {
       display: flex;
+      overflow: hidden;
       flex-wrap: wrap;
 
       .cardBox {
