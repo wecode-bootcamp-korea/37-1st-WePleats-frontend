@@ -1,0 +1,76 @@
+@import '../../styles/variables.scss';
+
+.login {
+  @include flexSort(center, center);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-family: $NotoSans;
+
+  .loginBox {
+    width: 60vw;
+
+    .loginTitle {
+      // background: gray;
+      color: $colorLightGray;
+      text-align: center;
+      font-size: 40px;
+      font-family: $Montserrat;
+      margin-bottom: 30px;
+    }
+
+    .inputBox {
+      .userInput {
+        width: 100%;
+        padding: 15px 20px;
+        border: 0.5px solid $colorGray;
+        font-size: $fontSmall;
+        outline: none;
+
+        &:nth-child(2) {
+          border-top: 0px;
+        }
+
+        &::placeholder {
+          color: $colorGray;
+        }
+      }
+
+      .checkBox {
+        display: flex;
+        padding: 20px 0;
+        color: $colorDarkGray;
+        font-size: $fontSmall;
+
+        .checkLogin {
+          padding-left: 10px;
+          padding-bottom: 2px;
+          cursor: pointer;
+        }
+      }
+
+      .loginBtn {
+        width: 100%;
+        padding: 15px;
+        background: $colorWhite;
+        border: 0.5px solid $colorGray;
+        font-size: $fontSmall;
+        cursor: pointer;
+      }
+    }
+
+    .linkBox {
+      @include flexSort(space-between, center);
+      margin-top: 10px;
+      color: $colorDarkGray;
+      font-size: $fontSmall;
+
+      .signupLink,
+      .findLink {
+        cursor: pointer;
+      }
+    }
+  }
+}
