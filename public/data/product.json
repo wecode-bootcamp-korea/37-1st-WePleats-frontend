@@ -1,0 +1,31 @@
+{
+  "id": 1,
+  "name": "토트백 딥그린",
+  "price": "53,000원",
+  "img": [
+    {
+      "id": 0,
+      "imageUrl": "https://velog.velcdn.com/images/rayong/post/30a5de22-fd54-46bc-b540-e906c2c4bf48/image.jpg"
+    },
+    {
+      "id": 1,
+      "imageUrl": "https://velog.velcdn.com/images/rayong/post/e317c749-d647-4ec0-bf05-53e70a02432f/image.jpg"
+    },
+    {
+      "id": 2,
+      "imageUrl": "https://velog.velcdn.com/images/rayong/post/b298c719-8018-4b42-b866-67a4fd7254d4/image.jpg"
+    },
+    {
+      "id": 3,
+      "imageUrl": "https://velog.velcdn.com/images/rayong/post/ae80d4e8-47f2-4cf7-b30e-3b5744110650/image.jpg"
+    },
+    {
+      "id": 4,
+      "imageUrl": "https://velog.velcdn.com/images/rayong/post/95b53db9-e319-49b6-8c1e-0b1a141b4546/image.jpg"
+    },
+    {
+      "id": 5,
+      "imageUrl": "https://velog.velcdn.com/images/rayong/post/cf999560-88c1-4bd5-aabc-91e621936e82/image.jpg"
+    }
+  ]
+}

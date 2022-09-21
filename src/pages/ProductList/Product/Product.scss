@@ -1,0 +1,64 @@
+@import '../../../styles/variables.scss';
+
+.nav {
+  margin: 70px 0 20px 20px;
+  color: $colorGray;
+  font-size: $fontMicro;
+
+  .subMenu {
+    display: flex;
+
+    .li {
+      margin: 0 5px;
+    }
+
+    .product {
+      color: $colorBlack;
+    }
+  }
+}
+
+.product {
+  @include flexSort(space-between, '');
+
+  .img {
+    width: 50%;
+    background-color: tomato;
+
+    .main {
+      width: 100%;
+      height: 500px;
+      margin-bottom: 10px;
+      background-color: $colorLightGray;
+
+      .img {
+        width: 100%;
+        height: 100%;
+        background-color: aqua;
+        object-fit: cover;
+      }
+    }
+
+    .sub {
+      width: 100%;
+
+      .subImgs {
+        display: flex;
+
+        .subImg {
+          width: 70px;
+          height: 70px;
+          margin-right: 3px;
+          background-color: $colorLightGray;
+
+          .img {
+            width: 100%;
+            height: 100%;
+            background-color: aqua;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+  }
+}
