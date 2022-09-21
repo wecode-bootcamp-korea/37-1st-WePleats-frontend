@@ -1,21 +1,5 @@
 @import '../../styles/variables.scss';
 
-// reset 추가
-
-body,
-ul,
-p,
-figure {
-  margin: 0;
-  padding: 0;
-}
-
-li {
-  list-style-type: none;
-}
-
-/// components
-
 .productlist {
   .colorBar {
     height: 5px;
