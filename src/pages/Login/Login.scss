@@ -10,7 +10,7 @@
   font-family: $NotoSans;
 
   .loginBox {
-    width: 60vw;
+    width: 600px;
 
     .loginTitle {
       // background: gray;
@@ -54,7 +54,6 @@
       .loginBtn {
         width: 100%;
         padding: 15px;
-        background: $colorWhite;
         border: 0.5px solid $colorGray;
         font-size: $fontSmall;
         cursor: pointer;
