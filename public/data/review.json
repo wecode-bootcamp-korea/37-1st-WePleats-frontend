@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "userId": "qjel****",
+    "postTime": "2022-08-23 12:54",
+    "text": "가볍고졸아요 근대 너무 쳐지긴합니다",
+    "img": [
+      {
+        "id": 0,
+        "imageUrl": "https://velog.velcdn.com/images/rayong/post/30a5de22-fd54-46bc-b540-e906c2c4bf48/image.jpg"
+      },
+      {
+        "id": 1,
+        "imageUrl": "https://velog.velcdn.com/images/rayong/post/30a5de22-fd54-46bc-b540-e906c2c4bf48/image.jpg"
+      },
+      {
+        "id": 2,
+        "imageUrl": "https://velog.velcdn.com/images/rayong/post/30a5de22-fd54-46bc-b540-e906c2c4bf48/image.jpg"
+      },
+      {
+        "id": 3,
+        "imageUrl": "https://velog.velcdn.com/images/rayong/post/30a5de22-fd54-46bc-b540-e906c2c4bf48/image.jpg"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "userId": "qjel****",
+    "postTime": "2022-08-23 12:54",
+    "text": "가방 너무 예뻐요. ❤️❤️",
+    "img": [
+      {
+        "id": 0,
+        "imageUrl": "https://velog.velcdn.com/images/rayong/post/30a5de22-fd54-46bc-b540-e906c2c4bf48/image.jpg"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "userId": "qjel****",
+    "postTime": "2022-08-23 12:54",
+    "text": "가벼워서 잘 매고 다녀요 배송이 빨라서 좋아요",
+    "img": [
+      {
+        "id": 0,
+        "imageUrl": "https://velog.velcdn.com/images/rayong/post/30a5de22-fd54-46bc-b540-e906c2c4bf48/image.jpg"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "userId": "qjel****",
+    "postTime": "2022-08-23 12:54",
+    "text": "선물했는데 너무 이뿌다하세요!",
+    "img": [
+      {
+        "id": 0,
+        "imageUrl": "https://velog.velcdn.com/images/rayong/post/30a5de22-fd54-46bc-b540-e906c2c4bf48/image.jpg"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "userId": "qjel****",
+    "postTime": "2022-08-23 12:54",
+    "text": "빠른 배송 감사합니다",
+    "img": [
+      {
+        "id": 0,
+        "imageUrl": "https://velog.velcdn.com/images/rayong/post/30a5de22-fd54-46bc-b540-e906c2c4bf48/image.jpg"
+      }
+    ]
+  }
+]
