@@ -10,6 +10,45 @@
     font-size: $fontSmall;
     color: $colorDarkGray;
 
+    .title {
+      padding: 22px 0 13px;
+      font-weight: $weightSemiBold;
+    }
+
+    .mustInput {
+      &:after {
+        content: '';
+        display: inline-block;
+        width: 5px;
+        height: 5px;
+        margin: 0 0 3px 6px;
+        background: $colorRed;
+        border-radius: 50%;
+      }
+    }
+
+    .input {
+      width: 100%;
+      padding: 10px 15px;
+      border: 0.5px solid $colorGray;
+      font-size: $fontSmall;
+      outline: none;
+
+      &:nth-child(3) {
+        border-bottom: 0px;
+        border-top: 0px;
+      }
+    }
+
+    .label {
+      display: flex;
+      padding-bottom: 4px;
+
+      .text {
+        padding-left: 5px;
+      }
+    }
+
     .profileBox {
       @include flexSort(center, center);
       flex-direction: column;
@@ -37,32 +76,24 @@
       }
     }
 
-    .userInputEmail,
-    .userInputPw,
-    .userInputPwCheck,
-    .userInputName,
-    .userInputNumber {
-      width: 100%;
-      padding: 10px 15px;
-      border: 0.5px solid $colorGray;
-      font-size: $fontSmall;
-      outline: none;
-    }
-
-    .userGender,
-    .userName,
-    .userPhoneNum {
-      padding: 20px 0 15px;
-    }
-
-    .userMale,
-    .userFemale {
-      display: flex;
-      padding-bottom: 2px;
-
-      .text {
-        padding-left: 5px;
+    .selectBox {
+      .select {
+        padding: 8px 20px;
+        margin-right: 5px;
+        border: 0.5px solid $colorGray;
+        font-size: $fontSmall;
+        outline: none;
       }
+    }
+
+    .signupBtn {
+      padding: 10px 15px;
+      margin-top: 40px;
+      color: $colorWhite;
+      background: $colorDarkGray;
+      font-size: $fontSmall;
+      text-align: center;
+      cursor: pointer;
     }
   }
 }
