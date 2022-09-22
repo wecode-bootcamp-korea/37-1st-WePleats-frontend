@@ -6,13 +6,13 @@ function Nav() {
     <nav className="navBox">
       <div className="nav">
         <ul className="menu">
-          <li className="li logo">WePleats</li>
-          <li className="li best">Best</li>
-          <li className="li new">New</li>
-          <li className="li monitor">Monitor</li>
-          <li className="li keyboard">Keyboard</li>
-          <li className="li mouse">Mouse</li>
-          <li className="li etc">Etc</li>
+          {MENU_DATA.map(item => {
+            return (
+              <li className={item.name} key={item.id}>
+                {item.menu}
+              </li>
+            );
+          })}
         </ul>
         <ul className="userInfo">
           <li className="li name">장문정</li>
@@ -67,3 +67,13 @@ function Nav() {
 }
 
 export default Nav;
+
+const MENU_DATA = [
+  { id: 1, menu: 'WePleats', name: 'li logo' },
+  { id: 2, menu: 'Best', name: 'li best' },
+  { id: 3, menu: 'New', name: 'li new' },
+  { id: 4, menu: 'Monitor', name: 'li monitor' },
+  { id: 5, menu: 'Keyboard', name: 'li keyboard' },
+  { id: 6, menu: 'Mouse', name: 'li mouse' },
+  { id: 7, menu: 'Etc', name: 'li etc' },
+];
