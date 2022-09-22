@@ -1,0 +1,68 @@
+@import '../../../../styles/variables.scss';
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: $colorBlack;
+  opacity: 0.8;
+}
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  padding: 50px;
+  background-color: $colorWhite;
+  text-align: center;
+
+  .header {
+    .title {
+      padding-bottom: 20px;
+      border-bottom: 1px solid $colorBlack;
+    }
+
+    .button {
+      background-color: transparent;
+
+      .fa-xmark {
+        position: absolute;
+        top: 15px;
+        right: 25px;
+        font-size: 30px;
+        color: $colorGray;
+        transition: all 300ms ease;
+
+        &:hover {
+          color: $colorBlack;
+        }
+      }
+    }
+  }
+
+  .content {
+    .input {
+      width: 100%;
+      height: 120px;
+      border: none;
+      background-color: #f5f5f5;
+      border-radius: 3px;
+      text-align: left;
+    }
+
+    .button {
+      width: 100%;
+      @include flexSort(center, center);
+      padding: 30px;
+      background-color: transparent;
+      border: 1px dotted $colorBlack;
+
+      .name {
+        margin-left: 10px;
+      }
+    }
+  }
+}

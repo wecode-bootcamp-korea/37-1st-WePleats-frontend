@@ -272,10 +272,15 @@
           margin-bottom: 25px;
         }
 
+        .text {
+          margin: 20px 0;
+          font-size: $fontMedium;
+        }
+
         .color {
           font-size: $fontMedium;
           font-weight: $weightRegular;
-          margin-bottom: 20px;
+          margin-bottom: 30px;
         }
 
         .detailImgs {
@@ -377,6 +382,8 @@
     }
 
     .lists {
+      margin-bottom: 100px;
+
       .list {
         @include flexSort(space-between, center);
         padding: 20px 10px;
@@ -388,14 +395,13 @@
 
           .review {
             width: 100%;
-            margin-bottom: 10px;
             text-align: left;
             font-size: $fontRegular;
-            font-weight: $weightRegular;
           }
 
           .images {
             @include flexSort('', center);
+            // margin: 10px 0 0;
 
             .image {
               @include flexCenter;
