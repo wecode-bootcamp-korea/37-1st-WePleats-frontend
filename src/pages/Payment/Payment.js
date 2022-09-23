@@ -188,25 +188,91 @@ function Payment() {
             <div className="orderSummary box">
               <p className="title">주문 요약</p>
               <div className="outerBox">
-                <div className="orderProductPrice">
+                <div className="orderProductPrice boxFlex">
                   <p className="name">상품가격</p>
                   <p className="price">59,000</p>
                 </div>
-                <div className="orderShipPrice">
+                <div className="orderShipPrice boxFlex">
                   <p className="name">배송비</p>
                   <p className="price">무료</p>
                 </div>
               </div>
               <div className="outerBox">
-                <div className="orderTotalPrice">
+                <div className="orderTotalPrice boxFlex">
                   <p className="name">총 주문금액</p>
                   <p className="price">59,000원</p>
                 </div>
               </div>
               <p className="savePoint">1,770 포인트 적립 예정</p>
             </div>
-            <div className="paymentMethod box">결제 수단</div>
-            <div className="paymentBtn box">결제 하기</div>
+            <div className="paymentMethod box">
+              <p className="title">결제 수단</p>
+              <div className="methodBox">
+                <div className="leftBox flexBox">
+                  <label className="payA label">
+                    <input
+                      className="radio"
+                      name="pay"
+                      type="radio"
+                      value="은행"
+                    />
+                    <span className="text">신한은행</span>
+                  </label>
+                  <label className="payB label">
+                    <input
+                      className="radio"
+                      name="pay"
+                      type="radio"
+                      value="무통장"
+                    />
+                    <span className="text">무통장입금</span>
+                  </label>
+                  <label className="payC label">
+                    <input
+                      className="radio"
+                      name="pay"
+                      type="radio"
+                      value="페이코"
+                    />
+                    <span className="text">PAYCO</span>
+                  </label>
+                </div>
+                <div className="rightBox flexBox">
+                  <label className="payD label">
+                    <input
+                      className="radio"
+                      name="pay"
+                      type="radio"
+                      value="가상계좌"
+                    />
+                    <span className="text">가상계좌</span>
+                  </label>
+                  <label className="payE label">
+                    <input
+                      className="radio"
+                      name="pay"
+                      type="radio"
+                      value="카카오페이"
+                    />
+                    <span className="text">카카오페이</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div className="paymentBtnBox">
+              <div className="allAgree">
+                <label className="agreeCheck">
+                  <input
+                    className="checkBox"
+                    name="agree"
+                    type="checkBox"
+                    value="agree"
+                  />
+                  <span className="text">구매조건 확인 및 결제진행에 동의</span>
+                </label>
+              </div>
+              <div className="payBtn">결제하기</div>
+            </div>
           </div>
         </div>
       </div>
