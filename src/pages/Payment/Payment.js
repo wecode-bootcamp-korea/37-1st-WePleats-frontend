@@ -150,13 +150,61 @@ function Payment() {
               <p className="title">쿠폰/포인트</p>
               <p className="name">쿠폰</p>
               <div className="couponBox">
-                <input className="input" placeholder="보유쿠폰 0장" />
+                <input
+                  className="input"
+                  placeholder="보유쿠폰 0장"
+                  name="couponCount"
+                  type="text"
+                />
                 <div className="button">쿠폰적용</div>
               </div>
+              <p className="name">쿠폰번호</p>
+              <div className="couponBox">
+                <input
+                  className="input"
+                  placeholder="쿠폰 번호 입력"
+                  name="couponNum"
+                  type="text"
+                />
+                <div className="button">코드확인</div>
+              </div>
+              <p className="name">포인트</p>
+              <div className="couponBox">
+                <input
+                  className="input"
+                  placeholder="0"
+                  name="couponPoint"
+                  type="text"
+                />
+                <div className="button">전액사용</div>
+              </div>
+              <p className="userPoint subText">보유 포인트 5,000</p>
+              <p className="pointUseInfo subText">
+                10,000원 이상 구매시 사용 가능
+              </p>
             </div>
           </div>
           <div className="payRight">
-            <div className="orderSummary box">주문 요약</div>
+            <div className="orderSummary box">
+              <p className="title">주문 요약</p>
+              <div className="outerBox">
+                <div className="orderProductPrice">
+                  <p className="name">상품가격</p>
+                  <p className="price">59,000</p>
+                </div>
+                <div className="orderShipPrice">
+                  <p className="name">배송비</p>
+                  <p className="price">무료</p>
+                </div>
+              </div>
+              <div className="outerBox">
+                <div className="orderTotalPrice">
+                  <p className="name">총 주문금액</p>
+                  <p className="price">59,000원</p>
+                </div>
+              </div>
+              <p className="savePoint">1,770 포인트 적립 예정</p>
+            </div>
             <div className="paymentMethod box">결제 수단</div>
             <div className="paymentBtn box">결제 하기</div>
           </div>

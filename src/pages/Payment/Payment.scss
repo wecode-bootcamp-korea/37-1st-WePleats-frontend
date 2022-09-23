@@ -220,10 +220,58 @@
             }
           }
         }
+
+        .couponPoint {
+          .name {
+            font-size: small;
+            margin: 20px 0 10px;
+          }
+
+          .couponBox {
+            display: flex;
+
+            .input {
+              flex: 4;
+              width: 100%;
+              padding: 10px 15px;
+              border: 0.5px solid $colorGray;
+              font-size: $fontSmall;
+              outline: none;
+            }
+
+            .button {
+              @include flexCenter;
+              flex: 1;
+              margin-left: 10px;
+              font-size: $fontSmall;
+              color: $colorDarkGray;
+              background: $colorWhite;
+              border: 1px solid $colorGray;
+              cursor: pointer;
+            }
+          }
+
+          .subText {
+            font-size: $fontMicro;
+          }
+
+          .userPoint {
+            margin-top: 10px;
+            color: $colorBlack;
+          }
+
+          .pointUseInfo {
+            margin-bottom: 5px;
+            color: $colorGray;
+          }
+        }
       }
 
       .payRight {
         flex: 1;
+
+        .orderSummary {
+        }
       }
     }
   }
