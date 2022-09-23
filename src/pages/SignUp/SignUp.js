@@ -6,6 +6,13 @@ function SignUp() {
     email: '',
     pw: '',
     pwCheck: '',
+    name: '',
+    gender: '',
+    phoneNum: '',
+    year: '',
+    month: '',
+    day: '',
+    time: '',
   });
 
   const handleInput = e => {
@@ -93,6 +100,7 @@ function SignUp() {
         {/* 이름 입력 */}
         <p className="userName title mustInput">이름</p>
         <input
+          onChange={handleInput}
           className="userInputName input"
           name="name"
           type="text"
@@ -102,16 +110,29 @@ function SignUp() {
         {/* 성별 입력 */}
         <p className="userGender title mustInput">성별</p>
         <label className="userMale label">
-          <input className="radio" name="gender" type="radio" value="man" />
+          <input
+            onChange={handleInput}
+            className="radio"
+            name="gender"
+            type="radio"
+            value="man"
+          />
           <span className="text">남자</span>
         </label>
         <label className="userFemale label">
-          <input className="radio" name="gender" type="radio" value="woman" />
+          <input
+            onChange={handleInput}
+            className="radio"
+            name="gender"
+            type="radio"
+            value="woman"
+          />
           <span className="text">여자</span>
         </label>
         {/* 휴대폰 입력 */}
         <p className="userPhoneNum title mustInput">휴대폰</p>
         <input
+          onChange={handleInput}
           className="userInputNumber input"
           name="phoneNum"
           type="text"
@@ -122,20 +143,20 @@ function SignUp() {
         <div className="userBirth">
           <p className="title mustInput">생년월일</p>
           <div className="selectBox">
-            <select className="select" name="year">
+            <select className="select" name="year" onChange={handleInput}>
               <option>1990</option>
               <option>1991</option>
               <option>1992</option>
             </select>
-            <select className="select" name="month">
-              <option value="1">1월</option>
-              <option value="2">2월</option>
-              <option value="3">3월</option>
+            <select className="select" name="month" onChange={handleInput}>
+              <option>1월</option>
+              <option>2월</option>
+              <option>3월</option>
             </select>
-            <select className="select" name="day">
-              <option value="1">1일</option>
-              <option value="2">2일</option>
-              <option value="3">3일</option>
+            <select className="select" name="day" onChange={handleInput}>
+              <option>1일</option>
+              <option>2일</option>
+              <option>3일</option>
             </select>
           </div>
         </div>
@@ -143,19 +164,43 @@ function SignUp() {
         <div className="userDataSave">
           <p className="name title">개인정보 유효기간</p>
           <label className="one label">
-            <input className="radio" name="time" type="radio" value="1" />
+            <input
+              className="radio"
+              name="time"
+              type="radio"
+              value="1"
+              onChange={handleInput}
+            />
             <span className="text">1년</span>
           </label>
           <label className="two label">
-            <input className="radio" name="time" type="radio" value="2" />
+            <input
+              className="radio"
+              name="time"
+              type="radio"
+              value="2"
+              onChange={handleInput}
+            />
             <span className="text">2년</span>
           </label>
           <label className="five label">
-            <input className="radio" name="time" type="radio" value="3" />
+            <input
+              className="radio"
+              name="time"
+              type="radio"
+              value="5"
+              onChange={handleInput}
+            />
             <span className="text">5년</span>
           </label>
           <label className="out label">
-            <input className="radio" name="time" type="radio" value="exit" />
+            <input
+              className="radio"
+              name="time"
+              type="radio"
+              value="out"
+              onChange={handleInput}
+            />
             <span className="text">회원 탈퇴 시</span>
           </label>
         </div>
