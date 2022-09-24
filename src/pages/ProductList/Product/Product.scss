@@ -1,8 +1,7 @@
 @import '../../../styles/variables.scss';
 
 .productBox {
-  max-width: 1310px;
-  min-width: 1000px;
+  width: 80%;
   margin: 0 auto;
   font-family: $Montserrat, $NotoSans;
 
@@ -26,19 +25,18 @@
   }
 
   .product {
-    @include flexSort(space-between, '');
-
     .img {
-      width: 50%;
+      width: 100%;
+      min-width: 450px;
 
       .main {
-        width: 100%;
+        width: 50%;
         height: 800px;
         margin-bottom: 10px;
         background-color: $colorLightGray;
         transition: all 1s ease-in;
 
-        .img {
+        .mainImg {
           width: 100%;
           height: 100%;
           object-fit: cover;
@@ -46,193 +44,24 @@
       }
 
       .sub {
-        width: 100%;
+        width: 50%;
 
         .subImgs {
           display: flex;
+          width: 100%;
+          height: 100px;
 
           .subImg {
-            width: 70px;
-            height: 70px;
-            margin-right: 3px;
-            background-color: $colorLightGray;
+            width: 100px;
+            height: 100px;
+            margin-right: 5px;
 
-            .img {
+            .subImage {
               width: 100%;
               height: 100%;
               object-fit: cover;
             }
           }
-        }
-      }
-    }
-
-    .form {
-      width: 50%;
-      padding: 0 50px;
-
-      .header {
-        @include flexSort(space-between, flex-end);
-
-        .title {
-          .price {
-            margin-top: 10px;
-            font-size: $fontMedium;
-            font-weight: $weightRegular;
-          }
-        }
-
-        .share {
-          .fa-share-from-square {
-            font-size: $fontLarge;
-            color: $colorGray;
-            cursor: pointer;
-          }
-        }
-      }
-
-      .border {
-        width: 100%;
-        height: 1px;
-        margin: 35px 0;
-        background-color: $colorLightGray;
-      }
-
-      .colors {
-        display: flex;
-
-        .color {
-          width: 0;
-          height: 0;
-          margin-bottom: 30px;
-          border-top: 11px solid transparent;
-          border-left: 11px solid transparent;
-          border-right: 11px solid transparent;
-        }
-
-        .red {
-          border-bottom: 16px solid #e34466;
-        }
-
-        .orange {
-          border-bottom: 16px solid #ffa500;
-        }
-
-        .yellow {
-          border-bottom: 16px solid #f9de52;
-        }
-
-        .green {
-          border-bottom: 16px solid #7cc344;
-        }
-
-        .blue {
-          border-bottom: 16px solid #4386d6;
-        }
-
-        .navy {
-          border-bottom: 16px solid #4046bd;
-        }
-
-        .purple {
-          border-bottom: 16px solid #4b0082;
-        }
-      }
-
-      .options {
-        .option {
-          margin-bottom: 10px;
-          .name {
-            margin-right: 10px;
-          }
-        }
-      }
-
-      .quantity {
-        width: 100%;
-        margin: 50px 0;
-        padding: 15px;
-        background-color: #f5f5f5;
-
-        .title {
-          font-size: $fontMicro;
-        }
-
-        .border {
-          border: 1px solid #dddddd;
-          margin: 15px 0;
-        }
-
-        .btnWrap {
-          @include flexSort(space-between, center);
-
-          .count {
-            border: 1px solid #dddddd;
-
-            .countBtn {
-              width: 25px;
-              height: 35px;
-              text-align: center;
-              font-size: $fontSmall;
-              color: $colorGray;
-              background-color: $colorWhite;
-            }
-
-            .countInput {
-              width: 50px;
-              height: 35px;
-              border-radius: 0;
-              border: none;
-              border-right: 1px solid #dddddd;
-              border-left: 1px solid #dddddd;
-              text-align: center;
-            }
-          }
-        }
-      }
-
-      .total {
-        @include flexSort(space-between, center);
-        margin-bottom: 50px;
-
-        .title {
-          font-size: $fontSmall;
-        }
-
-        .price {
-          font-size: $fontMedium;
-        }
-      }
-
-      .buttons {
-        .button {
-          width: 30%;
-          height: 50px;
-          font-size: $fontRegular;
-          transition: all 500ms ease;
-        }
-
-        .color {
-          color: $colorWhite;
-          background-color: $colorDarkGray;
-
-          &:hover {
-            background-color: $colorBlack;
-          }
-        }
-
-        .border {
-          color: $colorDarkGray;
-          background-color: transparent;
-          border: 1px solid $colorGray;
-
-          &:hover {
-            border: 1px solid $colorBlack;
-          }
-        }
-
-        .cart {
-          margin: 0 5%;
         }
       }
     }
@@ -296,135 +125,6 @@
           padding: 20px 10px;
           background-color: #f5f5f5;
           font-size: $colorGray;
-        }
-      }
-    }
-
-    .accordion {
-      width: 100%;
-      margin: 0 auto;
-
-      .lists {
-        .list {
-          .titleBox {
-            @include flexSort(space-between, center);
-            padding: 0 20px;
-            line-height: 60px;
-            border-bottom: 1px solid $colorGray;
-
-            .title {
-              font-size: $fontRegular;
-            }
-          }
-
-          .text {
-            display: none;
-            padding: 20px;
-
-            .subtitle {
-              font-size: $fontRegular;
-              margin: 0 0 10px;
-            }
-
-            .subtext {
-              display: block;
-              margin-bottom: 20px;
-            }
-          }
-        }
-      }
-    }
-  }
-
-  .review {
-    width: 50%;
-    text-align: center;
-
-    .header {
-      .title {
-        margin: 60px 0 20px;
-      }
-
-      .text {
-        margin: 10px 0 30px;
-      }
-
-      .button {
-        width: 150px;
-        height: 50px;
-        font-size: $fontRegular;
-        color: $colorDarkGray;
-        background-color: transparent;
-        border: 1px solid $colorGray;
-
-        &:hover {
-          color: $colorBlack;
-          border: 1px solid $colorBlack;
-        }
-      }
-
-      .filter {
-        @include flexSort(center, center);
-        margin: 60px 0 20px;
-        font-size: $fontRegular;
-
-        .text {
-          margin: 0;
-          padding-left: 10px;
-        }
-      }
-    }
-
-    .border {
-      width: 100%;
-      height: 1px;
-      background-color: $colorBlack;
-    }
-
-    .lists {
-      margin-bottom: 100px;
-
-      .list {
-        @include flexSort(space-between, center);
-        padding: 20px 10px;
-        border-bottom: 1px solid $colorLightGray;
-        text-align: left;
-
-        .content {
-          width: 100%;
-
-          .review {
-            width: 100%;
-            text-align: left;
-            font-size: $fontRegular;
-          }
-
-          .images {
-            @include flexSort('', center);
-            // margin: 10px 0 0;
-
-            .image {
-              @include flexCenter;
-              width: 60px;
-              height: 60px;
-              margin-right: 5px;
-              overflow: hidden;
-
-              .img {
-                width: 100%;
-              }
-            }
-          }
-        }
-
-        .userInfo {
-          width: 30%;
-          color: $colorGray;
-          font-size: $fontMicro;
-
-          .userId {
-            margin-bottom: 5px;
-          }
         }
       }
     }

@@ -1,0 +1,39 @@
+@import '../../../../../styles/variables.scss';
+
+.productBox {
+  .accordion {
+    width: 100%;
+    margin: 0 auto;
+
+    .lists {
+      .list {
+        .titleBox {
+          @include flexSort(space-between, center);
+          padding: 0 20px;
+          line-height: 60px;
+          border-bottom: 1px solid $colorGray;
+
+          .title {
+            font-size: $fontRegular;
+          }
+
+          .accordionBtn {
+            background-color: transparent;
+          }
+        }
+
+        .textDown {
+          display: none;
+          padding: 20px;
+          line-height: 28px;
+        }
+
+        .textOpen {
+          display: block;
+          padding: 20px;
+          line-height: 28px;
+        }
+      }
+    }
+  }
+}
