@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './SignUp.scss';
 
 function SignUp() {
@@ -20,9 +20,18 @@ function SignUp() {
     setUserInput({ ...userInput, [name]: value });
   };
 
-  const isPwSame = userInput.pw === userInput.pwCheck ? true : false;
+  const isEmail = email => {
+    const emailRegex =
+      /^(([^<>()\[\].,;:\s@"]+(\.[^<>()\[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
+    return emailRegex.test(email);
+  };
 
-  // const signupForm = document.getElementById('signupForm');
+  const isEmailValid = isEmail(userInput.email);
+
+  console.log(isEmailValid);
+  // console.log(isEmail(userInput.email));
+
+  // const isPwSame = userInput.pw === userInput.pwCheck ? true : false;
 
   const checkSignUp = e => {
     e.preventDefault();
@@ -93,10 +102,9 @@ function SignUp() {
           placeholder="비밀번호 확인"
           autoComplete="current-password"
         />
-        {!isPwSame && (
-          <p className="notSameMsg">비밀번호가 일치하지 않습니다.</p>
+        {!isEmailValid && (
+          <p className="emailCheck">이메일 양식을 맞춰주세요!</p>
         )}
-
         {/* 이름 입력 */}
         <p className="userName title mustInput">이름</p>
         <input

@@ -49,6 +49,12 @@
       }
     }
 
+    .emailCheck {
+      padding: 10px 15px;
+      color: $colorRed;
+      font-size: $fontMicro;
+    }
+
     .profileBox {
       @include flexSort(center, center);
       flex-direction: column;
