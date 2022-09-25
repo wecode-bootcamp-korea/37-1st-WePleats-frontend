@@ -68,12 +68,23 @@
       flex-direction: column;
       margin-bottom: 30px;
 
-      .imgBox {
+      .imgBoxLabel {
         position: relative;
+        background: $colorLightGray;
         width: 80px;
         height: 80px;
-        background: $colorLightGray;
         border-radius: 50%;
+
+        .labelImg {
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+
+        .profileImgInput {
+          display: none;
+        }
 
         .imgUploadBtn {
           @include flexSort(center, center);
@@ -82,7 +93,7 @@
           right: 0;
           width: 30px;
           height: 30px;
-          background: $colorGray;
+          background: $colorDarkGray;
           color: white;
           border-radius: 50%;
           cursor: pointer;

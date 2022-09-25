@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { YEAR } from './YEAR';
 import { MONTH } from './MONTH';
 import { DAY } from './DAY';
@@ -6,6 +7,7 @@ import { LIMIT_TIME } from './LIMIT_TIME';
 import './SignUp.scss';
 
 function SignUp() {
+  const [imageUrl, setImageUrl] = useState(null);
   const [userInput, setUserInput] = useState({
     email: '',
     pw: '',
@@ -26,6 +28,20 @@ function SignUp() {
     const { name, value } = e.target;
     setUserInput({ ...userInput, [name]: value });
   };
+
+  // 프로필 사진 입력
+  const imgRef = useRef();
+
+  const onChangeImage = () => {
+    const reader = new FileReader();
+    const file = imgRef.current.files[0];
+
+    reader.readAsDataURL(file);
+    reader.onloadend = () => {
+      setImageUrl(reader.result);
+    };
+  };
+
   // 이메일 유효성 검사
   const isEmail = email => {
     const emailRegex = /^[a-z0-9_+.-]+@([a-z0-9-]+\.)+[a-z0-9]{2,4}$/;
@@ -86,34 +102,44 @@ function SignUp() {
         gender: gender,
         time: time,
       }),
-    });
-    // .then(response => {
-    //   if (response.ok === true) {
-    //     return response.json();
-    //   }
-    //   throw new Error('에러 발생!');
-    // })
-    // .catch(error => alert(error))
-    // .then(data => {
-    //   if (data.token) {
-    //     // localStorage.setItem('TOKEN', data.token);
-    //     alert('로그인 성공');
-    //     navigate('/rayong/Main');
-    //   } else {
-    //     alert('로그인 실패');
-    //   }
-    // });
+    })
+      .then(response => {
+        if (response.ok === true) {
+          return response.json();
+        }
+        throw new Error('에러 발생!');
+      })
+      .catch(error => alert(error))
+      .then(data => {
+        if (data.ok === '회원가입 성공') {
+          alert('회원가입 성공');
+          <Link to="/login" />;
+        } else {
+          alert('회원가입 실패');
+        }
+      });
   };
 
   return (
     <div className="signUp">
       <form className="signUpBox">
         <div className="profileBox">
-          <div className="imgBox">
+          <label className="imgBoxLabel" htmlFor="profileImg">
+            {imageUrl ? (
+              <img className="labelImg" src={imageUrl} alt="uploadImg" />
+            ) : null}
             <div className="imgUploadBtn">
               <i className="fa-sharp fa-solid fa-camera" />
             </div>
-          </div>
+            <input
+              id="profileImg"
+              className="profileImgInput"
+              type="file"
+              name="imageUrl"
+              ref={imgRef}
+              onChange={onChangeImage}
+            />
+          </label>
         </div>
         {/* 이메일 비밀번호 입력 */}
         <input
@@ -134,7 +160,6 @@ function SignUp() {
         />
         <input
           onChange={handleInput}
-          // className="userInputPwCheck input"
           className={`userInputPwCheck input ${pwDoubleCheck}`}
           name="pwCheck"
           type="password"
