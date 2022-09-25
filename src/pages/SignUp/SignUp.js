@@ -59,7 +59,7 @@ function SignUp() {
 
   // 패스워드 재확인
   const isPwSame = pw === pwCheck;
-  const pwDoubleCheck = !isPwSame ? 'pwDoubleCheck' : undefined;
+  // const pwDoubleCheck = !isPwSame ? 'pwDoubleCheck' : undefined;
 
   // 휴대폰 번호 유효성 검사
   const isPhoneNum = phoneNum => {
@@ -160,7 +160,7 @@ function SignUp() {
         />
         <input
           onChange={handleInput}
-          className={`userInputPwCheck input ${pwDoubleCheck}`}
+          className="userInputPwCheck input"
           name="pwCheck"
           type="password"
           placeholder="비밀번호 확인"
@@ -180,6 +180,14 @@ function SignUp() {
             style={{ display: pw.length > 0 ? 'block' : 'none' }}
           >
             * 비밀번호는 대소문자, 숫자, 특수문자 포함 8자리 이상 적어주세요!
+          </p>
+        )}
+        {!isPwSame && (
+          <p
+            className="inputCheck"
+            style={{ display: pwCheck.length > 0 ? 'block' : 'none' }}
+          >
+            * 비밀번호가 일치하지 않습니다.
           </p>
         )}
         {/* 이름 입력 */}
