@@ -22,7 +22,6 @@ function SignUp() {
     const { name, value } = e.target;
     setUserInput({ ...userInput, [name]: value });
   };
-
   // 이메일 유효성 검사
   const isEmail = email => {
     const emailRegex = /^[a-z0-9_+.-]+@([a-z0-9-]+\.)+[a-z0-9]{2,4}$/;
@@ -48,6 +47,23 @@ function SignUp() {
     return phoneNumRegex.test(phoneNum);
   };
   const isPhoneNumValid = isPhoneNum(phoneNum);
+
+  // 생년월일 입력여부 확인
+  const isBirth = Boolean(year && month && day);
+
+  // 개인정보 유효기간
+  const isTimeValid = Boolean(time);
+
+  // 전체 유효성 검사 후 버튼 활성화
+  const isAllValid =
+    isEmailValid &&
+    isPwValid &&
+    isPwSame &&
+    isPhoneNumValid &&
+    isBirth &&
+    isTimeValid;
+
+  const activeBtn = isAllValid ? 'undefined' : 'disabled';
 
   // 통신
   const checkSignUp = e => {
@@ -265,12 +281,9 @@ function SignUp() {
             <span className="text">회원 탈퇴 시</span>
           </label>
         </div>
-        <div className="signupBtn" onClick={checkSignUp} disabled={true}>
+        <div className={`signupBtn ${activeBtn}`} onClick={checkSignUp}>
           가입하기
         </div>
-        <button className="signupBtn" onClick={checkSignUp} disabled={false}>
-          가입하기
-        </button>
       </form>
     </div>
   );
