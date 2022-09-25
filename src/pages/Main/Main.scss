@@ -1,334 +1,328 @@
-* {
-  box-sizing: border-box;
+@import '../../styles/variables.scss';
 
-  .outerBox {
-    max-width: 100vw;
-    margin: 0 auto;
-    margin-top: 60px;
-    background-color: none;
-    overflow: hidden;
-    // background-color: yellow;
+.outerBox {
+  max-width: 100vw;
+  margin: 0 auto;
+  margin-top: 60px;
+  background-color: none;
+  overflow: hidden;
+  font-family: $Montserrat, $NotoSans;
+  // background-color: yellow;
 
-    .couponBox {
-      height: 30px;
-      width: 100vw;
-      border-top: 1px solid black;
-      // border: 1px solid black;
-      background-color: grey;
-      padding-top: 8px;
+  .couponBox {
+    height: 30px;
+    width: 100vw;
+    border-top: 1px solid black;
+    // border: 1px solid black;
+    background-color: grey;
+    padding-top: 8px;
+    display: flex;
+    position: relative;
+
+    .movingTextBox {
       display: flex;
-      position: relative;
+      position: absolute;
 
-      .movingTextBox {
-        display: flex;
+      .movingText1 {
+        color: white;
+        font-size: 13px;
         position: absolute;
-
-        .movingText1 {
-          color: white;
-          font-size: 13px;
-          position: absolute;
-          left: 0vw;
-          width: 7vw;
-        }
-
-        .movingText2 {
-          color: white;
-          font-size: 13px;
-          position: absolute;
-          left: -100vw;
-          width: 7vw;
-        }
+        left: 0vw;
+        width: 7vw;
       }
 
-      .movingTextBox.animate {
-        transition: all 2s ease-in-out;
+      .movingText2 {
+        color: white;
+        font-size: 13px;
+        position: absolute;
+        left: -100vw;
+        width: 7vw;
       }
     }
 
-    .contentsBox {
-      .upperBox {
-        padding: 0px 100px;
-        // border: 1px solid black;
+    .movingTextBox.animate {
+      transition: all 2s ease-in-out;
+    }
+  }
 
-        .spaceBox {
-          height: 100px;
-        }
+  .contentsBox {
+    .upperBox {
+      padding: 0px 100px;
+      // border: 1px solid black;
 
-        .mainPicBox {
+      .spaceBox {
+        height: 100px;
+      }
+
+      .mainPicBox {
+        display: flex;
+        justify-content: space-between;
+        // background-color: blue($color: #000000);
+
+        .newestItem {
+          width: 41vw;
+          overflow: hidden;
           display: flex;
-          justify-content: space-between;
-          // background-color: blue($color: #000000);
+          flex-direction: column;
+          position: relative;
 
-          .newestItem {
-            width: 41vw;
-            overflow: hidden;
+          .upperSlideBtnLeft {
+            width: 1.9vw;
+            position: absolute;
+            top: 43%;
+          }
+
+          .upperSlideBtnRight {
+            width: 1.6vw;
+            position: absolute;
+            top: 43%;
+            right: 2px;
+          }
+
+          .upperSlideBtnLeft:hover {
+            cursor: pointer;
+          }
+
+          .upperSlideBtnRight:hover {
+            cursor: pointer;
+          }
+
+          .upperSlideBox {
+            // background-color: orange;
             display: flex;
-            flex-direction: column;
-            position: relative;
+          }
 
-            .upperSlideBtnLeft {
-              width: 1.9vw;
-              position: absolute;
-              top: 43%;
-            }
+          .upperSlideBox.animate {
+            transition: all 0.6s ease-in-out;
+          }
 
-            .upperSlideBtnRight {
-              width: 1.6vw;
-              position: absolute;
-              top: 43%;
-              right: 2px;
-            }
+          .pictureBox1 {
+            // width: inherit;
 
-            .upperSlideBtnLeft:hover {
-              cursor: pointer;
-            }
-
-            .upperSlideBtnRight:hover {
-              cursor: pointer;
-            }
-
-            .upperSlideBox {
-              // background-color: orange;
-              display: flex;
-            }
-
-            .upperSlideBox.animate {
-              transition: all 0.6s ease-in-out;
-            }
-
-            .pictureBox1 {
-              // width: inherit;
-
-              .mainPic {
-                width: 41vw;
-                height: 51vw;
-              }
-            }
-
-            .mainPicTextBox {
-              height: 61.84px;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              font-size: 16px;
-              font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
-              .direction {
-                width: 15px;
-                margin-right: 10px;
-              }
+            .mainPic {
+              width: 41vw;
+              height: 51vw;
             }
           }
 
-          .bestItem {
-            width: 41vw;
-
-            .pictureBox2 {
-              width: 100%;
-              display: flex;
-              justify-content: end;
-
-              .mainPic {
-                width: 41vw;
-                height: 51vw;
-              }
-            }
-
-            .mainPicTextBox {
-              height: 61.84px;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              font-size: 16px;
-              font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
-              .direction {
-                width: 15px;
-                margin-right: 10px;
-              }
-            }
-          }
-        }
-      }
-
-      .middleUpperBox {
-        position: relative;
-        // background-color: aquamarine;
-
-        .lowerSlideBtnLeft {
-          width: 30px;
-          position: absolute;
-          top: 43%;
-          left: 1%;
-          z-index: 1;
-        }
-
-        .lowerSlideBtnRight {
-          width: 26px;
-          position: absolute;
-          top: 43%;
-          right: 1%;
-          z-index: 1;
-        }
-
-        .lowerSlideBtnLeft:hover {
-          cursor: pointer;
-        }
-
-        .lowerSlideBtnRight:hover {
-          cursor: pointer;
-        }
-
-        .spaceBox {
-          width: 100%;
-          height: 100px;
-          // border: 1px solid yellow;
-        }
-
-        .productSlideBox {
-          width: 100%;
-          display: flex;
-          // transition: all 0.8s ease-in-out;
-
-          .slideContents {
-            // width: 25%;
-
-            // background-color: red;
-
-            .slideImageBox {
-              // width: 100%;
-              height: 90%;
-
-              img {
-                width: 25vw;
-                height: 100%;
-              }
-            }
-
-            .slideTextBox {
-              padding-left: 10px;
-              height: 10%;
-              font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            }
-          }
-        }
-        .productSlideBox.animate {
-          transition: all 0.6s ease-in-out;
-        }
-      }
-
-      .middleBottomBox {
-        padding: 0px 100px;
-        // border: 1px solid black;
-        // background-color: green;
-
-        .spaceBox {
-          height: 100px;
-          // border: 1px solid yellow;
-        }
-
-        .mainPicBox {
-          display: flex;
-          background-color: blue($color: #000000);
-          justify-content: space-between;
-
-          .newestItem {
-            width: 41vw;
-
-            .pictureBox1 {
-              width: 100%;
-
-              .mainPic {
-                width: 41vw;
-                height: 51vw;
-              }
-            }
-
-            .mainPicTextBox {
-              height: 61.84px;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              font-size: 16px;
-              font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
-              .direction {
-                width: 15px;
-                margin-right: 10px;
-              }
-            }
-          }
-
-          .bestItem {
-            width: 41vw;
-
-            .pictureBox2 {
-              width: 100%;
-              display: flex;
-              justify-content: end;
-
-              .mainPic {
-                width: 41vw;
-                height: 51vw;
-              }
-            }
-
-            .mainPicTextBox {
-              height: 61.84px;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              font-size: 16px;
-              font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
-              .direction {
-                width: 15px;
-                margin-right: 10px;
-              }
-            }
-          }
-        }
-      }
-
-      .bottomBox {
-        .eventContentsBox {
-          width: 100%;
-
-          .eventInsideBox {
+          .mainPicTextBox {
+            height: 61.84px;
             display: flex;
             justify-content: center;
-            padding: 0 50px;
+            align-items: center;
+            font-size: 16px;
 
-            .innerContentsBox {
-              width: 100%;
-              height: 100%;
-              padding: 50px;
-
-              img {
-                width: 100%;
-                height: 100%;
-              }
-
-              div {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                font-size: 16px;
-                height: 60px;
-              }
+            .direction {
+              width: 15px;
+              margin-right: 10px;
             }
           }
         }
-        .spaceBox {
-          width: 100%;
-          height: 150px;
-          // border: 1px solid yellow;
+
+        .bestItem {
+          width: 41vw;
+
+          .pictureBox2 {
+            width: 100%;
+            display: flex;
+            justify-content: end;
+
+            .mainPic {
+              width: 41vw;
+              height: 51vw;
+            }
+          }
+
+          .mainPicTextBox {
+            height: 61.84px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+
+            .direction {
+              width: 15px;
+              margin-right: 10px;
+            }
+          }
         }
       }
     }
-    .footerSpaceBox {
-      height: 100px;
+
+    .middleUpperBox {
+      position: relative;
+      // background-color: aquamarine;
+
+      .lowerSlideBtnLeft {
+        width: 30px;
+        position: absolute;
+        top: 43%;
+        left: 1%;
+        z-index: 1;
+      }
+
+      .lowerSlideBtnRight {
+        width: 26px;
+        position: absolute;
+        top: 43%;
+        right: 1%;
+        z-index: 1;
+      }
+
+      .lowerSlideBtnLeft:hover {
+        cursor: pointer;
+      }
+
+      .lowerSlideBtnRight:hover {
+        cursor: pointer;
+      }
+
+      .spaceBox {
+        width: 100%;
+        height: 100px;
+        // border: 1px solid yellow;
+      }
+
+      .productSlideBox {
+        width: 100%;
+        display: flex;
+        // transition: all 0.8s ease-in-out;
+
+        .slideContents {
+          // width: 25%;
+
+          // background-color: red;
+
+          .slideImageBox {
+            // width: 100%;
+            height: 90%;
+
+            img {
+              width: 25vw;
+              height: 100%;
+            }
+          }
+
+          .slideTextBox {
+            padding-left: 10px;
+            height: 10%;
+          }
+        }
+      }
+      .productSlideBox.animate {
+        transition: all 0.6s ease-in-out;
+      }
     }
+
+    .middleBottomBox {
+      padding: 0px 100px;
+      // border: 1px solid black;
+      // background-color: green;
+
+      .spaceBox {
+        height: 100px;
+        // border: 1px solid yellow;
+      }
+
+      .mainPicBox {
+        display: flex;
+        background-color: blue($color: #000000);
+        justify-content: space-between;
+
+        .newestItem {
+          width: 41vw;
+
+          .pictureBox1 {
+            width: 100%;
+
+            .mainPic {
+              width: 41vw;
+              height: 51vw;
+            }
+          }
+
+          .mainPicTextBox {
+            height: 61.84px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+
+            .direction {
+              width: 15px;
+              margin-right: 10px;
+            }
+          }
+        }
+
+        .bestItem {
+          width: 41vw;
+
+          .pictureBox2 {
+            width: 100%;
+            display: flex;
+            justify-content: end;
+
+            .mainPic {
+              width: 41vw;
+              height: 51vw;
+            }
+          }
+
+          .mainPicTextBox {
+            height: 61.84px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+
+            .direction {
+              width: 15px;
+              margin-right: 10px;
+            }
+          }
+        }
+      }
+    }
+
+    .bottomBox {
+      .eventContentsBox {
+        width: 100%;
+
+        .eventInsideBox {
+          display: flex;
+          justify-content: center;
+          padding: 0 50px;
+
+          .innerContentsBox {
+            width: 100%;
+            height: 100%;
+            padding: 50px;
+
+            img {
+              width: 100%;
+              height: 100%;
+            }
+
+            div {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              font-size: 16px;
+              height: 60px;
+            }
+          }
+        }
+      }
+      .spaceBox {
+        width: 100%;
+        height: 150px;
+        // border: 1px solid yellow;
+      }
+    }
+  }
+  .footerSpaceBox {
+    height: 100px;
   }
 }
 
