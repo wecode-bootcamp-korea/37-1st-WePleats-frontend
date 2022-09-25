@@ -122,10 +122,18 @@ function SignUp() {
           autoComplete="current-password"
         />
         {!isEmailValid && (
-          <p className="inputCheck">* 이메일 양식을 맞춰주세요!</p>
+          <p
+            className="inputCheck"
+            style={{ display: email.length > 0 ? 'block' : 'none' }}
+          >
+            * 이메일 양식을 맞춰주세요!
+          </p>
         )}
         {!isPwValid && (
-          <p className="inputCheck">
+          <p
+            className="inputCheck"
+            style={{ display: pw.length > 0 ? 'block' : 'none' }}
+          >
             * 비밀번호는 대소문자, 숫자, 특수문자 포함 8자리 이상 적어주세요!
           </p>
         )}
@@ -172,7 +180,12 @@ function SignUp() {
           autoComplete="username"
         />
         {!isPhoneNumValid && (
-          <p className="inputCheck">* 숫자 사이에 하이픈(-)을 넣어주세요.</p>
+          <p
+            className="inputCheck"
+            style={{ display: phoneNum.length > 0 ? 'block' : 'none' }}
+          >
+            * 숫자 사이에 하이픈(-)을 넣어주세요.
+          </p>
         )}
         {/* 생년월일 입력 */}
         <div className="userBirth">
@@ -184,14 +197,27 @@ function SignUp() {
               <option>1992</option>
             </select>
             <select className="select" name="month" onChange={handleInput}>
-              <option>1월</option>
-              <option>2월</option>
-              <option>3월</option>
+              {[
+                '01',
+                '02',
+                '03',
+                '04',
+                '05',
+                '06',
+                '07',
+                '08',
+                '09',
+                '10',
+                '11',
+                '12',
+              ].map(m => {
+                return <option key={m}>{m}</option>;
+              })}
             </select>
             <select className="select" name="day" onChange={handleInput}>
-              <option>1일</option>
-              <option>2일</option>
-              <option>3일</option>
+              <option>01</option>
+              <option>02</option>
+              <option>03</option>
             </select>
           </div>
         </div>
@@ -239,9 +265,12 @@ function SignUp() {
             <span className="text">회원 탈퇴 시</span>
           </label>
         </div>
-        <div className="signupBtn" onClick={checkSignUp}>
+        <div className="signupBtn" onClick={checkSignUp} disabled={true}>
           가입하기
         </div>
+        <button className="signupBtn" onClick={checkSignUp} disabled={false}>
+          가입하기
+        </button>
       </form>
     </div>
   );
