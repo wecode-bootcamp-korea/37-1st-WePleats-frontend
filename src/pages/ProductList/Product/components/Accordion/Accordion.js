@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Accordion.scss';
 
-function Accordian({ title, text, productSize }) {
+function Accordion({ title, text, productSize }) {
   const [isArrow, setIsArrow] = useState(false);
 
   const changeArrow = e => {
@@ -27,4 +27,4 @@ function Accordian({ title, text, productSize }) {
   );
 }
 
-export default Accordian;
+export default Accordion;
