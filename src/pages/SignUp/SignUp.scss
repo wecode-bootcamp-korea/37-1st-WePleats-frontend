@@ -59,6 +59,10 @@
       font-size: $fontMicro;
     }
 
+    .pwDoubleCheck {
+      border: 1px solid red;
+    }
+
     .profileBox {
       @include flexSort(center, center);
       flex-direction: column;

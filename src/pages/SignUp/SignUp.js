@@ -38,7 +38,9 @@ function SignUp() {
   };
   const isPwValid = isPw(pw);
 
-  // const isPwSame = userInput.pw === userInput.pwCheck ? true : false;
+  // 패스워드 재확인
+  const isPwSame = userInput.pw === userInput.pwCheck;
+  const pwDoubleCheck = !isPwSame ? 'pwDoubleCheck' : undefined;
 
   const checkSignUp = e => {
     e.preventDefault();
@@ -103,7 +105,8 @@ function SignUp() {
         />
         <input
           onChange={handleInput}
-          className="userInputPwCheck input"
+          // className="userInputPwCheck input"
+          className={`userInputPwCheck input ${pwDoubleCheck}`}
           name="pwCheck"
           type="password"
           placeholder="비밀번호 확인"
