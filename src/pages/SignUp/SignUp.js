@@ -39,9 +39,17 @@ function SignUp() {
   const isPwValid = isPw(pw);
 
   // 패스워드 재확인
-  const isPwSame = userInput.pw === userInput.pwCheck;
+  const isPwSame = pw === pwCheck;
   const pwDoubleCheck = !isPwSame ? 'pwDoubleCheck' : undefined;
 
+  // 휴대폰 번호 유효성 검사
+  const isPhoneNum = phoneNum => {
+    const phoneNumRegex = /01[016789]-[^0][0-9]{2,3}-[0-9]{4,4}/;
+    return phoneNumRegex.test(phoneNum);
+  };
+  const isPhoneNumValid = isPhoneNum(phoneNum);
+
+  // 통신
   const checkSignUp = e => {
     e.preventDefault();
     fetch('https://8075-211-106-114-186.jp.ngrok.io/users/signup', {
@@ -50,12 +58,13 @@ function SignUp() {
         'Content-Type': 'application/json;charset=utf-8',
       },
       body: JSON.stringify({
-        email: userInput.email,
-        password: userInput.pw,
-        name: 'test6',
-        birthday: '1994-10-11',
-        phone_number: '010-3330-3333',
-        gender: 'man',
+        email: email,
+        password: pw,
+        name: name,
+        birthday: `${year}-${month}-${day}`,
+        phone_number: phoneNum,
+        gender: gender,
+        time: time,
       }),
     });
     // .then(response => {
@@ -162,6 +171,9 @@ function SignUp() {
           placeholder="000-0000-0000 형식으로 입력하세요"
           autoComplete="username"
         />
+        {!isPhoneNumValid && (
+          <p className="inputCheck">* 숫자 사이에 하이픈(-)을 넣어주세요.</p>
+        )}
         {/* 생년월일 입력 */}
         <div className="userBirth">
           <p className="title mustInput">생년월일</p>
