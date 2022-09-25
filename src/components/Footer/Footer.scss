@@ -1,0 +1,43 @@
+@import '../../styles/variables.scss';
+
+.footerBox {
+  width: 100%;
+  padding: 80px 0;
+  color: $colorDarkGray;
+  background-color: $colorLightGray;
+  text-align: center;
+  font-size: $fontSmall;
+
+  .title {
+    padding-bottom: 20px;
+    font-size: $fontMedium;
+    color: $colorBlack;
+  }
+
+  .describe {
+    color: $colorBlack;
+  }
+
+  .border {
+    width: 100%;
+    height: 0.5px;
+    margin: 40px auto 5px;
+    background-color: $colorGray;
+    opacity: 0.3;
+  }
+
+  .infos {
+    @include flexSort(center, center);
+    font-size: $fontXSmall;
+
+    .info {
+      margin: 15px 20px;
+      font-size: $fontMicro;
+    }
+  }
+
+  .copyright {
+    font-size: $fontMicro;
+    opacity: 0.6;
+  }
+}
