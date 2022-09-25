@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './SignUp.scss';
 
 function SignUp() {
@@ -15,21 +15,28 @@ function SignUp() {
     time: '',
   });
 
+  const { email, pw, pwCheck, name, gender, phoneNum, year, month, day, time } =
+    userInput;
+
   const handleInput = e => {
     const { name, value } = e.target;
     setUserInput({ ...userInput, [name]: value });
   };
 
+  // 이메일 유효성 검사
   const isEmail = email => {
-    const emailRegex =
-      /^(([^<>()\[\].,;:\s@"]+(\.[^<>()\[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
+    const emailRegex = /^[a-z0-9_+.-]+@([a-z0-9-]+\.)+[a-z0-9]{2,4}$/;
     return emailRegex.test(email);
   };
+  const isEmailValid = isEmail(email);
 
-  const isEmailValid = isEmail(userInput.email);
-
-  console.log(isEmailValid);
-  // console.log(isEmail(userInput.email));
+  // 패스워드 유효성 검사
+  const isPw = pw => {
+    const pwRegex =
+      /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
+    return pwRegex.test(pw);
+  };
+  const isPwValid = isPw(pw);
 
   // const isPwSame = userInput.pw === userInput.pwCheck ? true : false;
 
@@ -103,7 +110,12 @@ function SignUp() {
           autoComplete="current-password"
         />
         {!isEmailValid && (
-          <p className="emailCheck">이메일 양식을 맞춰주세요!</p>
+          <p className="inputCheck">* 이메일 양식을 맞춰주세요!</p>
+        )}
+        {!isPwValid && (
+          <p className="inputCheck">
+            * 비밀번호는 대소문자, 숫자, 특수문자 포함 8자리 이상 적어주세요!
+          </p>
         )}
         {/* 이름 입력 */}
         <p className="userName title mustInput">이름</p>

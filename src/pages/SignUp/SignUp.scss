@@ -38,6 +38,10 @@
         border-bottom: 0px;
         border-top: 0px;
       }
+
+      &:nth-child(4) {
+        margin-bottom: 5px;
+      }
     }
 
     .label {
@@ -49,8 +53,8 @@
       }
     }
 
-    .emailCheck {
-      padding: 10px 15px;
+    .inputCheck {
+      padding: 5px 0 0 5px;
       color: $colorRed;
       font-size: $fontMicro;
     }
