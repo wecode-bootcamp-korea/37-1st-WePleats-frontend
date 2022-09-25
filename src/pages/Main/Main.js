@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import './Main.scss';
 
 function Main() {
-<<<<<<< HEAD
   // ** 상단 쿠폰bar 무빙기능 **
   const [vwForCoupon, setVwForCoupon] = useState(0);
   const [animateForCoupon, setAnimateForCoupon] = useState(' animate');
@@ -299,9 +298,7 @@ function Main() {
       </div>
     </div>
   );
-=======
   return <div>Main!</div>;
->>>>>>> master
 }
 
 export default Main;
