@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Form from './components/Form/Form';
-import Accordian from './components/Accordian/Accordian';
+import Accordion from './components/Accordion/Accordion';
 import Review from './components/Review/Review';
 import './Product.scss';
 
@@ -126,8 +126,8 @@ function Product() {
         </article>
         <div className="accordion">
           <ul className="lists">
-            {ACCORDIAN_LIST.map(info => (
-              <Accordian
+            {ACCORDION_LIST.map(info => (
+              <Accordion
                 key={info.id}
                 title={info.title}
                 text={info.text}
@@ -144,7 +144,7 @@ function Product() {
 
 export default Product;
 
-const ACCORDIAN_LIST = [
+const ACCORDION_LIST = [
   {
     id: 1,
     title: '배송 안내',

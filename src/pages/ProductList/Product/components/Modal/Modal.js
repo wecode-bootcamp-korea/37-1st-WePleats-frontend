@@ -1,9 +1,14 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './Modal.scss';
 
 function Modal({ clickedModal, productId }) {
   const [imageUrl, setImageUrl] = useState(null);
   const imgRef = useRef();
+
+  useEffect(() => {
+    document.body.style = `overflow: hidden`;
+    return () => (document.body.style = `overflow: auto`);
+  }, []);
 
   const onChangeImage = () => {
     const reader = new FileReader();

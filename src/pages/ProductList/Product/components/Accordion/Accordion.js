@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Accordian.scss';
+import './Accordion.scss';
 
 function Accordian({ title, text, productSize }) {
   const [isArrow, setIsArrow] = useState(false);
