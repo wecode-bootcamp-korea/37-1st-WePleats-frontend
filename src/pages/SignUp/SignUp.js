@@ -1,4 +1,8 @@
 import React, { useState } from 'react';
+import { YEAR } from './YEAR';
+import { MONTH } from './MONTH';
+import { DAY } from './DAY';
+import { LIMIT_TIME } from './LIMIT_TIME';
 import './SignUp.scss';
 
 function SignUp() {
@@ -208,78 +212,39 @@ function SignUp() {
           <p className="title mustInput">생년월일</p>
           <div className="selectBox">
             <select className="select" name="year" onChange={handleInput}>
-              <option>1990</option>
-              <option>1991</option>
-              <option>1992</option>
+              {YEAR.map(y => {
+                return <option key={y}>{y}</option>;
+              })}
             </select>
             <select className="select" name="month" onChange={handleInput}>
-              {[
-                '01',
-                '02',
-                '03',
-                '04',
-                '05',
-                '06',
-                '07',
-                '08',
-                '09',
-                '10',
-                '11',
-                '12',
-              ].map(m => {
+              {MONTH.map(m => {
                 return <option key={m}>{m}</option>;
               })}
             </select>
             <select className="select" name="day" onChange={handleInput}>
-              <option>01</option>
-              <option>02</option>
-              <option>03</option>
+              {DAY.map(d => {
+                return <option key={d}>{d}</option>;
+              })}
             </select>
           </div>
         </div>
         {/* 개인정보 유효기간 */}
         <div className="userDataSave">
           <p className="name title">개인정보 유효기간</p>
-          <label className="one label">
-            <input
-              className="radio"
-              name="time"
-              type="radio"
-              value="1"
-              onChange={handleInput}
-            />
-            <span className="text">1년</span>
-          </label>
-          <label className="two label">
-            <input
-              className="radio"
-              name="time"
-              type="radio"
-              value="2"
-              onChange={handleInput}
-            />
-            <span className="text">2년</span>
-          </label>
-          <label className="five label">
-            <input
-              className="radio"
-              name="time"
-              type="radio"
-              value="5"
-              onChange={handleInput}
-            />
-            <span className="text">5년</span>
-          </label>
-          <label className="out label">
-            <input
-              className="radio"
-              name="time"
-              type="radio"
-              value="out"
-              onChange={handleInput}
-            />
-            <span className="text">회원 탈퇴 시</span>
-          </label>
+          {LIMIT_TIME.map(time => {
+            return (
+              <label key={time.id} className="one label">
+                <input
+                  className="radio"
+                  name="time"
+                  type="radio"
+                  value={time.value}
+                  onChange={handleInput}
+                />
+                <span className="text">{time.text}</span>
+              </label>
+            );
+          })}
         </div>
         <div className={`signupBtn ${activeBtn}`} onClick={checkSignUp}>
           가입하기
