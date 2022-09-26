@@ -32,7 +32,7 @@ function Login() {
 
   const login = e => {
     e.preventDefault();
-    fetch('api', {
+    fetch('http://192.168.47.96:3000/users/signin', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -50,8 +50,8 @@ function Login() {
       })
       .catch(error => alert(error))
       .then(data => {
-        if (data.token) {
-          localStorage.setItem('TOKEN', data.token);
+        if (data.accessToken) {
+          localStorage.setItem('TOKEN', data.accessToken);
           alert('로그인 성공');
           navigate('/main');
         } else {
