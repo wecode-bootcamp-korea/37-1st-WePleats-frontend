@@ -15,16 +15,18 @@ function Login() {
     setUserInput({ ...userInput, [name]: value });
   };
 
-  const isEmailValid = email => {
+  const isEmail = email => {
     const emailRegex = /^[a-z0-9_+.-]+@([a-z0-9-]+\.)+[a-z0-9]{2,4}$/;
     return emailRegex.test(email);
   };
+  const isEmailValid = isEmail(email);
 
-  const isPwValid = pw => {
+  const isPw = pw => {
     const pwRegex =
       /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
     return pwRegex.test(pw);
   };
+  const isPwValid = isPw(pw);
 
   const isAllValid = isEmailValid && isPwValid;
 
