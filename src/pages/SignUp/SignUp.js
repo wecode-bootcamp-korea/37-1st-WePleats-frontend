@@ -59,7 +59,6 @@ function SignUp() {
 
   // 패스워드 재확인
   const isPwSame = pw === pwCheck;
-  // const pwDoubleCheck = !isPwSame ? 'pwDoubleCheck' : undefined;
 
   // 휴대폰 번호 유효성 검사
   const isPhoneNum = phoneNum => {
