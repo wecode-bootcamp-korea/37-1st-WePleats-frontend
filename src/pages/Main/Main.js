@@ -2,6 +2,22 @@ import React, { useEffect, useState } from 'react';
 import './Main.scss';
 
 function Main() {
+  const [bestItems, setBestItems] = useState([]);
+  const [newItems, setNewItems] = useState([]);
+
+  useEffect(() => {
+    fetch('/data/mainNew.json', {
+      method: 'GET',
+      headers: {
+        authorization:
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJpYXQiOjE2NjM4NDU3ODF9.2aFMvfGNMWWlBhf0MNQhiUCN5cHp3OceDIvZqf2JylA',
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+    })
+      .then(response => response.json())
+      .then(json => console.log(json));
+  }, []);
+
   // ** 상단 쿠폰bar 무빙기능 **
   const [vwForCoupon, setVwForCoupon] = useState(0);
   const [animateForCoupon, setAnimateForCoupon] = useState(' animate');

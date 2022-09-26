@@ -1,0 +1,40 @@
+{
+  "mok_Main_Best": [
+    {
+      "id": 1,
+      "productName": "bad",
+      "imgURL1": "",
+      "imgURL2": "/images/sample1.jpeg"
+    },
+    {
+      "id": 2,
+      "productName": "bad",
+      "imgURL1": "",
+      "imgURL2": "/images/sample2.jpeg"
+    },
+    {
+      "id": 3,
+      "productName": "bad",
+      "imgURL1": "",
+      "imgURL2": "/images/sample12.jpeg"
+    },
+    {
+      "id": 4,
+      "productName": "bad",
+      "imgURL1": "",
+      "imgURL2": "/images/sample4.jpeg"
+    },
+    {
+      "id": 5,
+      "productName": "bad",
+      "imgURL1": "",
+      "imgURL2": "/images/sample5.jpeg"
+    },
+    {
+      "id": 6,
+      "productName": "bad",
+      "imgURL1": "",
+      "imgURL2": "/images/sample6.jpeg"
+    }
+  ]
+}
