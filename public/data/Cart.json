@@ -7,6 +7,7 @@
       "price": 200000,
       "quantity": 2,
       "thumbnailUrl": "https://bucket-pien6.s3.ap-northeast-1.amazonaws.com/1663814649764_dhru-j-1Ksz0Q1NU3k-unsplash.jpg",
+      "checkIn": 1,
       "deliveryfee": 0
     },
     {
@@ -16,6 +17,7 @@
       "price": 300000,
       "quantity": 1,
       "thumbnailUrl": "https://bucket-pien6.s3.ap-northeast-1.amazonaws.com/1663814706312_linus-mimietz-01hQvBUC7rI-unsplash.jpg",
+      "checkIn": 1,
       "deliveryfee": 0
     }
   ]

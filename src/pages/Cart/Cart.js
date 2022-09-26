@@ -7,7 +7,7 @@ function Cart() {
   const [cartProducts, setCartProducts] = useState({});
 
   useEffect(() => {
-    fetch('./data/Cart.json', {
+    fetch('http://172.20.10.10:3000/cart', {
       method: 'GET',
       headers: {
         authorization:

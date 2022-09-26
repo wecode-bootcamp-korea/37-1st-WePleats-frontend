@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function CartFilled(props) {
+  const navigate = useNavigate();
   const [isChecked, setIsChecked] = useState([]);
   const [checkAll, setCheckAll] = useState(false);
   const [totalPrices, setTotalPrices] = useState(0);
@@ -11,26 +13,127 @@ function CartFilled(props) {
 
   const products = props.products;
   const setCartProducts = props.setProducts;
+  const checkedArr = [];
+  for (let i in products) {
+    if (products[i].checkIn === 1) {
+      checkedArr.push(products[i].productId);
+    }
+  }
+  console.log(checkedArr);
 
   useEffect(() => {
     setTotalQuantity(products.length);
-  }, []);
+  }, [products.length]);
 
   const pushChecked = event => {
-    if (isChecked.includes(event.target.id)) {
-      const test = isChecked.filter(item => item !== event.target.id);
-      setIsChecked(test);
-      // setIsChecked();
+    if (checkedArr.includes(Number(event.target.id))) {
+      const rest = checkedArr.filter(item => item !== Number(event.target.id));
+
+      const newString = (checked => {
+        if (checked.length === 0) return '';
+
+        let string = '';
+        for (let i in checked) {
+          string += `productId=${checked[i]}&`;
+        }
+        string = string.slice(0, -1);
+        return string;
+      })(rest);
+
+      fetch(`http://172.20.10.10:3000/cart/check?${newString}`, {
+        method: 'PATCH',
+        headers: {
+          authorization:
+            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJpYXQiOjE2NjM4NDU3ODF9.2aFMvfGNMWWlBhf0MNQhiUCN5cHp3OceDIvZqf2JylA',
+          'Content-Type': 'application/json;charset=utf-8',
+        },
+      })
+        .then(response => response.json())
+        .then(json => {
+          setCartProducts(json.cart);
+        });
     } else {
-      setIsChecked([...isChecked, event.target.id]);
+      const addition = [...checkedArr, Number(event.target.id)];
+
+      const newString = (checked => {
+        if (checked.length === 0) return '';
+
+        let string = '';
+        for (let i in checked) {
+          string += `productId=${checked[i]}&`;
+        }
+        string = string.slice(0, -1);
+        return string;
+      })(addition);
+
+      fetch(`http://172.20.10.10:3000/cart/check?${newString}`, {
+        method: 'PATCH',
+        headers: {
+          authorization:
+            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJpYXQiOjE2NjM4NDU3ODF9.2aFMvfGNMWWlBhf0MNQhiUCN5cHp3OceDIvZqf2JylA',
+          'Content-Type': 'application/json;charset=utf-8',
+        },
+      })
+        .then(response => response.json())
+        .then(json => {
+          setCartProducts(json.cart);
+        });
+    }
+  };
+
+  const checkEvery = () => {
+    if (checkedArr.length !== products.length) {
+      const newArr = products.map(product => String(product.productId));
+
+      const newString = (checked => {
+        if (checked.length === 0) return '';
+
+        let string = '';
+        for (let i in checked) {
+          string += `productId=${checked[i]}&`;
+        }
+        string = string.slice(0, -1);
+        return string;
+      })(newArr);
+
+      fetch(`http://172.20.10.10:3000/cart/check?${newString}`, {
+        method: 'PATCH',
+        headers: {
+          authorization:
+            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJpYXQiOjE2NjM4NDU3ODF9.2aFMvfGNMWWlBhf0MNQhiUCN5cHp3OceDIvZqf2JylA',
+          'Content-Type': 'application/json;charset=utf-8',
+        },
+      })
+        .then(response => response.json())
+        .then(json => {
+          setCartProducts(json.cart);
+        });
+    } else {
+      fetch(`http://172.20.10.10:3000/cart/check`, {
+        method: 'PATCH',
+        headers: {
+          authorization:
+            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJpYXQiOjE2NjM4NDU3ODF9.2aFMvfGNMWWlBhf0MNQhiUCN5cHp3OceDIvZqf2JylA',
+          'Content-Type': 'application/json;charset=utf-8',
+        },
+      })
+        .then(response => response.json())
+        .then(json => {
+          setCartProducts(json.cart);
+        });
+
+      // if (isChecked.length === products.length) {
+      //   setIsChecked([]);
+      // }
+      // isChecked.length !== products.length ? setIsChecked() : null;
     }
   };
 
   useEffect(() => {
-    isChecked.length === products.length
+    checkedArr.length === products.length
       ? setCheckAll(true)
       : setCheckAll(false);
-  }, [isChecked]);
+  }, [checkedArr]);
 
   useEffect(() => {
     let totalProducts = 0;
@@ -42,7 +145,7 @@ function CartFilled(props) {
     const deliverArr = [];
     const quantityArr = [];
     for (let i in products) {
-      if (isChecked.includes(String(products[i].productId))) {
+      if (checkedArr.includes(products[i].productId)) {
         productArr.push(products[i].price);
         deliverArr.push(products[i].deliveryfee);
         quantityArr.push(products[i].quantity);
@@ -67,32 +170,25 @@ function CartFilled(props) {
     setTotalDeliver(totalDeliver);
     setOrderTotalQuantity(orderTotalQuantity);
     setTotal(totalPrice);
-  }, [isChecked, products]);
-
-  const checkEvery = () => {
-    if (isChecked.length !== products.length) {
-      const newArr = products.map(product => String(product.productId));
-      setIsChecked(newArr);
-    }
-
-    if (isChecked.length === products.length) {
-      setIsChecked([]);
-    }
-    // isChecked.length !== products.length ? setIsChecked() : null;
-  };
+  }, [checkedArr]);
 
   const orderInCart = () => {
-    fetch('http://172.20.10.10:3000/cart', {
+    fetch('http://172.20.10.10:3000/cart/order', {
       method: 'POST',
       headers: {
         authorization:
           'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJpYXQiOjE2NjM4NDU3ODF9.2aFMvfGNMWWlBhf0MNQhiUCN5cHp3OceDIvZqf2JylA',
         'Content-Type': 'application/json;charset=utf-8',
       },
-      body: JSON.stringify({ productId: isChecked }),
+      body: JSON.stringify({ productId: checkedArr }),
     })
       .then(response => response.json())
-      .then(json => console.log(json));
+      .then(json => {
+        console.log(json.message);
+        if (json.message === 'orderOK') {
+          navigate('/');
+        }
+      });
   };
 
   const deleteThis = event => {
@@ -110,7 +206,7 @@ function CartFilled(props) {
       .then(response => response.json())
       .then(json => {
         setCartProducts(json.cart);
-        setIsChecked([]);
+        // setIsChecked([]);
       });
   };
 
@@ -124,7 +220,7 @@ function CartFilled(props) {
       }
       string = string.slice(0, -1);
       return string;
-    })(isChecked);
+    })(checkedArr);
 
     fetch(`http://172.20.10.10:3000/cart?${newString}`, {
       method: 'DELETE',
@@ -137,7 +233,7 @@ function CartFilled(props) {
       .then(response => response.json())
       .then(json => {
         setCartProducts(json.cart);
-        setIsChecked([]);
+        // setIsChecked([]);
       });
   };
 
@@ -227,7 +323,8 @@ function CartFilled(props) {
                 <input
                   className="checkThis"
                   type="checkbox"
-                  checked={isChecked.includes(String(products.productId))}
+                  checked={products.checkIn}
+                  // {isChecked.includes(String(products.productId))}
                   onChange={pushChecked}
                   id={products.productId}
                 />
