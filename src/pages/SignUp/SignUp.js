@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { YEAR } from './YEAR';
 import { MONTH } from './MONTH';
 import { DAY } from './DAY';
@@ -7,6 +7,7 @@ import { LIMIT_TIME } from './LIMIT_TIME';
 import './SignUp.scss';
 
 function SignUp() {
+  const navigate = useNavigate();
   const [imageUrl, setImageUrl] = useState(null);
   const [userInput, setUserInput] = useState({
     email: '',
@@ -94,15 +95,6 @@ function SignUp() {
 
   const activeBtn = isAllValid ? 'undefined' : 'disabled';
 
-  console.log('입력값확인', {
-    email: email,
-    password: password,
-    name: name,
-    gender: gender,
-    phone_number: phone_number,
-    birthday: `${year}-${month}-${day}`,
-  });
-
   // 통신
   const checkSignUp = e => {
     e.preventDefault();
@@ -122,7 +114,6 @@ function SignUp() {
       }),
     })
       .then(response => {
-        console.log('리스폰 체크', response);
         if (response.ok === true) {
           return response.json();
         }
@@ -130,10 +121,9 @@ function SignUp() {
       })
       .catch(error => alert(error))
       .then(data => {
-        console.log('데이터확인', data);
         if (data.message === 'Signup Success!') {
           alert('회원가입 성공');
-          <Link to="/login" />;
+          navigate('/login');
         } else {
           alert('회원가입 실패');
         }
