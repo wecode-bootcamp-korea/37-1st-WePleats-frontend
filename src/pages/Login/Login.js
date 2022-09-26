@@ -30,6 +30,7 @@ function Login() {
 
   const isAllValid = isEmailValid && isPwValid;
 
+  // 로그인 통신 성공, wecode@wecode.com / Wecode!1
   const login = e => {
     e.preventDefault();
     fetch('http://192.168.47.96:3000/users/signin', {
