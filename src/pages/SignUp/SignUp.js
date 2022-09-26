@@ -10,18 +10,18 @@ function SignUp() {
   const [imageUrl, setImageUrl] = useState(null);
   const [userInput, setUserInput] = useState({
     email: '',
-    pw: '',
+    password: '',
     pwCheck: '',
     name: '',
     gender: '',
-    phoneNum: '',
+    phone_number: '',
     year: '',
     month: '',
     day: '',
     time: '',
   });
 
-  const { email, pw, pwCheck, name, gender, phoneNum, year, month, day, time } =
+  const { email, password, pwCheck, phone_number, year, month, day, time } =
     userInput;
 
   const handleInput = e => {
@@ -50,22 +50,22 @@ function SignUp() {
   const isEmailValid = isEmail(email);
 
   // 패스워드 유효성 검사
-  const isPw = pw => {
+  const isPw = password => {
     const pwRegex =
       /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
-    return pwRegex.test(pw);
+    return pwRegex.test(password);
   };
-  const isPwValid = isPw(pw);
+  const isPwValid = isPw(password);
 
   // 패스워드 재확인
-  const isPwSame = pw === pwCheck;
+  const isPwSame = password === pwCheck;
 
   // 휴대폰 번호 유효성 검사
   const isPhoneNum = phoneNum => {
     const phoneNumRegex = /01[016789]-[^0][0-9]{2,3}-[0-9]{4,4}/;
     return phoneNumRegex.test(phoneNum);
   };
-  const isPhoneNumValid = isPhoneNum(phoneNum);
+  const isPhoneNumValid = isPhoneNum(phone_number);
 
   // 생년월일 입력여부 확인
   const isBirth = Boolean(year && month && day);
@@ -87,20 +87,24 @@ function SignUp() {
   // 통신
   const checkSignUp = e => {
     e.preventDefault();
+
+    const signUpForm = document.getElementById('signUpBox');
+    const formData = new FormData(signUpForm);
+    formData.append('birthday', `${year}-${month}-${day}`);
+
+    // formData 확인 하려면 아래처럼
+    // for (let key of formData.keys()) {
+    //   console.log(key, ':', formData.get(key));
+    // }
+
     fetch('https://8075-211-106-114-186.jp.ngrok.io/users/signup', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json;charset=utf-8',
+        authorization:
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJpYXQiOjE2NjM4NDU3ODF9.2aFMvfGNMWWlBhf0MNQhiUCN5cHp3OceDIvZqf2JylA',
+        enctype: 'multipart/form-data',
       },
-      body: JSON.stringify({
-        email: email,
-        password: pw,
-        name: name,
-        birthday: `${year}-${month}-${day}`,
-        phone_number: phoneNum,
-        gender: gender,
-        time: time,
-      }),
+      body: formData,
     })
       .then(response => {
         if (response.ok === true) {
@@ -121,7 +125,7 @@ function SignUp() {
 
   return (
     <div className="signUp">
-      <form className="signUpBox">
+      <form id="signUpBox" className="signUpBox">
         <div className="profileBox">
           <label className="imgBoxLabel" htmlFor="profileImg">
             {imageUrl ? (
@@ -152,7 +156,7 @@ function SignUp() {
         <input
           onChange={handleInput}
           className="userInputPw input"
-          name="pw"
+          name="password"
           type="password"
           placeholder="비밀번호"
           autoComplete="current-password"
@@ -176,7 +180,7 @@ function SignUp() {
         {!isPwValid && (
           <p
             className="inputCheck"
-            style={{ display: pw.length > 0 ? 'block' : 'none' }}
+            style={{ display: password.length > 0 ? 'block' : 'none' }}
           >
             * 비밀번호는 대소문자, 숫자, 특수문자 포함 8자리 이상 적어주세요!
           </p>
@@ -226,7 +230,7 @@ function SignUp() {
         <input
           onChange={handleInput}
           className="userInputNumber input"
-          name="phoneNum"
+          name="phone_number"
           type="text"
           placeholder="000-0000-0000 형식으로 입력하세요"
           autoComplete="username"
@@ -234,7 +238,7 @@ function SignUp() {
         {!isPhoneNumValid && (
           <p
             className="inputCheck"
-            style={{ display: phoneNum.length > 0 ? 'block' : 'none' }}
+            style={{ display: phone_number.length > 0 ? 'block' : 'none' }}
           >
             * 숫자 사이에 하이픈(-)을 넣어주세요.
           </p>
