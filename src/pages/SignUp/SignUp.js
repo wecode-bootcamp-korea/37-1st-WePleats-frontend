@@ -21,8 +21,18 @@ function SignUp() {
     time: '',
   });
 
-  const { email, password, pwCheck, phone_number, year, month, day, time } =
-    userInput;
+  const {
+    name,
+    email,
+    gender,
+    password,
+    pwCheck,
+    phone_number,
+    year,
+    month,
+    day,
+    time,
+  } = userInput;
 
   const handleInput = e => {
     const { name, value } = e.target;
@@ -84,29 +94,35 @@ function SignUp() {
 
   const activeBtn = isAllValid ? 'undefined' : 'disabled';
 
+  console.log('입력값확인', {
+    email: email,
+    password: password,
+    name: name,
+    gender: gender,
+    phone_number: phone_number,
+    birthday: `${year}-${month}-${day}`,
+  });
+
   // 통신
   const checkSignUp = e => {
     e.preventDefault();
 
-    const signUpForm = document.getElementById('signUpBox');
-    const formData = new FormData(signUpForm);
-    formData.append('birthday', `${year}-${month}-${day}`);
-
-    // formData 확인 하려면 아래처럼
-    // for (let key of formData.keys()) {
-    //   console.log(key, ':', formData.get(key));
-    // }
-
-    fetch('https://8075-211-106-114-186.jp.ngrok.io/users/signup', {
+    fetch('http://192.168.47.96:3000/users/signup', {
       method: 'POST',
       headers: {
-        authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJpYXQiOjE2NjM4NDU3ODF9.2aFMvfGNMWWlBhf0MNQhiUCN5cHp3OceDIvZqf2JylA',
-        enctype: 'multipart/form-data',
+        'Content-Type': 'application/json;charset=utf-8',
       },
-      body: formData,
+      body: JSON.stringify({
+        email: email,
+        password: password,
+        name: name,
+        gender: gender,
+        phone_number: phone_number,
+        birthday: `${year}-${month}-${day}`,
+      }),
     })
       .then(response => {
+        console.log('리스폰 체크', response);
         if (response.ok === true) {
           return response.json();
         }
@@ -114,7 +130,8 @@ function SignUp() {
       })
       .catch(error => alert(error))
       .then(data => {
-        if (data.ok === '회원가입 성공') {
+        console.log('데이터확인', data);
+        if (data.message === 'Signup Success!') {
           alert('회원가입 성공');
           <Link to="/login" />;
         } else {
@@ -138,7 +155,7 @@ function SignUp() {
               id="profileImg"
               className="profileImgInput"
               type="file"
-              name="imageUrl"
+              name="profile_image"
               ref={imgRef}
               onChange={onChangeImage}
             />
