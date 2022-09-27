@@ -57,37 +57,24 @@ function SignUp() {
     time: time => Boolean(time),
   };
 
-  const validateAll = () => {
-    for (const key in userInput) {
-      const validateFunc = validator[key];
-      const value = userInput[key];
-
-      const isValid = validateFunc(value);
-      if (!isValid) {
-        return false;
-      }
-    }
-    return true;
-  };
+  const validateAll = () =>
+    Object.entries(userInput).every(([key, value]) => {
+      return validator[key](value);
+    });
 
   const isAllValid = validateAll();
-
   const activeBtn = isAllValid ? 'undefined' : 'disabled';
 
-  // 프로필 사진 입력
   const imgRef = useRef();
-
   const onChangeImage = () => {
     const reader = new FileReader();
     const file = imgRef.current.files[0];
-
     reader.readAsDataURL(file);
     reader.onloadend = () => {
       setImageUrl(reader.result);
     };
   };
 
-  // 통신
   const checkSignUp = e => {
     e.preventDefault();
 
@@ -143,7 +130,6 @@ function SignUp() {
             />
           </label>
         </div>
-        {/* 이메일 비밀번호 입력 */}
         <input
           onChange={handleInput}
           className="userInputEmail input"
@@ -192,7 +178,6 @@ function SignUp() {
             * 비밀번호가 일치하지 않습니다.
           </p>
         )}
-        {/* 이름 입력 */}
         <p className="userName title mustInput">이름</p>
         <input
           onChange={handleInput}
@@ -202,7 +187,6 @@ function SignUp() {
           placeholder="이름을(를) 입력하세요"
           autoComplete="username"
         />
-        {/* 성별 입력 */}
         <p className="userGender title mustInput">성별</p>
         <label className="userMale label">
           <input
@@ -224,7 +208,6 @@ function SignUp() {
           />
           <span className="text">여자</span>
         </label>
-        {/* 휴대폰 입력 */}
         <p className="userPhoneNum title mustInput">휴대폰</p>
         <input
           onChange={handleInput}
@@ -242,7 +225,6 @@ function SignUp() {
             * 숫자 사이에 하이픈(-)을 넣어주세요.
           </p>
         )}
-        {/* 생년월일 입력 */}
         <div className="userBirth">
           <p className="title mustInput">생년월일</p>
           <div className="selectBox">
@@ -263,7 +245,6 @@ function SignUp() {
             </select>
           </div>
         </div>
-        {/* 개인정보 유효기간 */}
         <div className="userDataSave">
           <p className="name title">개인정보 유효기간</p>
           {LIMIT_TIME.map(time => {
