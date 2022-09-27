@@ -13,6 +13,7 @@ function Card({ product }) {
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
+          alt="제품이미지"
         />
       </Link>
       <div className="desc">
