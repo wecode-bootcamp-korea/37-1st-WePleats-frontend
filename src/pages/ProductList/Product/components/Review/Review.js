@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import Modal from '../Modal/Modal';
 import EditModal from '../Modal/EditModal/EditModal';
 import './Review.scss';
 
 function Review({ productId }) {
+  const [reviews, setReviews] = useState([]);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const offset = searchParams.get('offset');
   const [isClicked, setIsClicked] = useState(false);
   const [isEdit, setIsEdit] = useState(false);
   const [isFiltered, setIsFiltered] = useState(false);
-  const [reviews, setReviews] = useState([]);
 
-  // http://172.20.10.10:3000/review/1
+  // reviews/offset=${offset}&limit=5
   useEffect(() => {
     fetch('data/reviews.json', {
       headers: {
@@ -22,7 +25,23 @@ function Review({ productId }) {
       .then(data => {
         setReviews(data.review);
       });
-  }, []);
+  }, [offset]);
+
+  const movePage = pageNumber => {
+    searchParams.set('offset', (pageNumber - 1) * 5);
+    setSearchParams(searchParams);
+  };
+
+  const previousPage = e => {
+    searchParams.set('offset', Number(e.target) - 1);
+    setSearchParams(searchParams);
+  };
+
+  const nextPage = e => {
+    searchParams.set('offset', Number(e.target) + 1);
+    setSearchParams(searchParams);
+  };
+
   const clickedModal = () => {
     setIsClicked(current => !current);
   };
@@ -130,16 +149,26 @@ function Review({ productId }) {
       </ul>
       <nav className="page">
         <ul className="pagination">
-          <li className="pageNum">
+          <li className="pageNum" onClick={previousPage}>
             <i className="fa-solid fa-chevron-left" />
           </li>
-          <li className="pageNum">1</li>
-          <li className="pageNum">2</li>
-          <li className="pageNum">3</li>
-          <li className="pageNum">4</li>
-          <li className="pageNum">5</li>
+          <li className="pageNum" onClick={() => movePage(1)}>
+            1
+          </li>
+          <li className="pageNum" onClick={() => movePage(2)}>
+            2
+          </li>
+          <li className="pageNum" onClick={() => movePage(3)}>
+            3
+          </li>
+          <li className="pageNum" onClick={() => movePage(4)}>
+            4
+          </li>
+          <li className="pageNum" onClick={() => movePage(5)}>
+            5
+          </li>
           <li className="pageNum">
-            <i className="fa-solid fa-chevron-right" />
+            <i className="fa-solid fa-chevron-right" onClick={nextPage} />
           </li>
         </ul>
       </nav>

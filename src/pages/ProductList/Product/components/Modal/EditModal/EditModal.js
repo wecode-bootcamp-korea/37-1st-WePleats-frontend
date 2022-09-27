@@ -8,15 +8,15 @@ function EditModal({ editedModal, reviews, productId }) {
 
   useEffect(() => {
     document.body.style = `overflow: hidden`;
-
     return () => (document.body.style = `overflow: auto`);
   }, []);
 
-  const onChangeImage = () => {
+  const onChangeImage = e => {
+    e.preventDefault();
     const reader = new FileReader();
-    const file = imgRef.current.files[0];
 
-    reader.readAsDataURL(file);
+    reader.readAsDataURL(e.target.files[0]);
+
     reader.onloadend = () => {
       setImageUrl(reader.result);
     };
@@ -69,11 +69,12 @@ function EditModal({ editedModal, reviews, productId }) {
           <label className="modalLabel" htmlFor="reviewImg" title="리뷰이미지">
             <img className="img" src={imageUrl} alt="uploadImg" />
             <input
-              id="reviewImg"
               type="file"
-              name="image"
-              ref={imgRef}
+              id="reviewImg"
               onChange={onChangeImage}
+              name="image"
+              accept="image/*"
+              ref={imgRef}
             />
           </label>
           <textarea

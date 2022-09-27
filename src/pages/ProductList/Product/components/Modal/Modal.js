@@ -10,7 +10,8 @@ function Modal({ clickedModal, productId, setReview }) {
     return () => (document.body.style = `overflow: auto`);
   }, []);
 
-  const onChangeImage = () => {
+  const onChangeImage = e => {
+    e.preventDefault();
     const reader = new FileReader();
     const file = imgRef.current.files[0];
 
