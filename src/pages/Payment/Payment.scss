@@ -269,6 +269,10 @@
 
       .payRight {
         flex: 1;
+        margin-bottom: 15px;
+        position: sticky;
+        height: 800px;
+        top: 15px;
 
         .orderSummary {
           position: relative;
