@@ -2,16 +2,13 @@ import React, { useState, useRef, useEffect } from 'react';
 import './EditModal.scss';
 
 function EditModal({ editedModal, reviews, productId }) {
-  const [imageUrl, setImageUrl] = useState([]);
-  const [review, setReview] = useState([]);
+  const [imageUrl, setImageUrl] = useState(reviews.image_url);
+  const [review, setReview] = useState(reviews.comment);
   const imgRef = useRef();
-
-  const filterReview = reviews.filter(review => review.control !== null);
 
   useEffect(() => {
     document.body.style = `overflow: hidden`;
-    setImageUrl(filterReview[0].image_url);
-    setReview(filterReview[0].comment);
+
     return () => (document.body.style = `overflow: auto`);
   }, []);
 
@@ -35,7 +32,7 @@ function EditModal({ editedModal, reviews, productId }) {
     const editModal = document.getElementById('editModal');
     const formData = new FormData(editModal);
     formData.append('productId', productId);
-    formData.append('reviewId', filterReview[0].id);
+    formData.append('reviewId', reviews.id);
 
     fetch('http://172.20.10.10:3000/review', {
       method: 'PATCH',

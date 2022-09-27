@@ -6,6 +6,8 @@
   font-family: $Montserrat, $NotoSans;
 
   .product {
+    @include flexSort(space-between, center);
+
     .img {
       width: 100%;
       min-width: 450px;

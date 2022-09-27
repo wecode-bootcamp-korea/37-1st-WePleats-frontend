@@ -38,7 +38,6 @@ function Modal({ clickedModal, productId, setReview }) {
     })
       .then(response => response.json())
       .then(data => {
-        console.log(data);
         if (data.message === 'Create Review Success') {
           clickedModal();
           setReview(data.review);

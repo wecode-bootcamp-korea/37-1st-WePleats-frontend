@@ -39,6 +39,7 @@
         .text {
           margin: 0;
           padding-left: 10px;
+          cursor: pointer;
         }
       }
     }
@@ -50,7 +51,7 @@
     }
 
     .lists {
-      margin-bottom: 100px;
+      margin-bottom: 30px;
 
       .list {
         @include flexSort(space-between, center);
@@ -122,6 +123,20 @@
           .userId {
             margin-bottom: 5px;
           }
+        }
+      }
+    }
+
+    .page {
+      margin-bottom: 100px;
+      color: $colorGray;
+      cursor: pointer;
+
+      .pagination {
+        @include flexSort(center, center);
+
+        .pageNum {
+          margin: 0 13px;
         }
       }
     }
