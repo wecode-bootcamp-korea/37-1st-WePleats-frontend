@@ -23,11 +23,11 @@ function SignUp() {
   });
 
   const {
-    name,
     email,
-    gender,
     password,
     pwCheck,
+    name,
+    gender,
     phone_number,
     year,
     month,
