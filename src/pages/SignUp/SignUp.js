@@ -40,6 +40,40 @@ function SignUp() {
     setUserInput({ ...userInput, [name]: value });
   };
 
+  const validator = {
+    email: email => /^[a-z0-9_+.-]+@([a-z0-9-]+\.)+[a-z0-9]{2,4}$/.test(email),
+    password: password =>
+      /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/.test(
+        password
+      ),
+    pwCheck: password => password === pwCheck,
+    name: name => Boolean(name),
+    gender: gender => Boolean(gender),
+    phone_number: phone_number =>
+      /01[016789]-[^0][0-9]{2,3}-[0-9]{4,4}/.test(phone_number),
+    year: year => Boolean(year),
+    month: month => Boolean(month),
+    day: day => Boolean(day),
+    time: time => Boolean(time),
+  };
+
+  const validateAll = () => {
+    for (const key in userInput) {
+      const validateFunc = validator[key];
+      const value = userInput[key];
+
+      const isValid = validateFunc(value);
+      if (!isValid) {
+        return false;
+      }
+    }
+    return true;
+  };
+
+  const isAllValid = validateAll();
+
+  const activeBtn = isAllValid ? 'undefined' : 'disabled';
+
   // 프로필 사진 입력
   const imgRef = useRef();
 
@@ -52,48 +86,6 @@ function SignUp() {
       setImageUrl(reader.result);
     };
   };
-
-  // 이메일 유효성 검사
-  const isEmail = email => {
-    const emailRegex = /^[a-z0-9_+.-]+@([a-z0-9-]+\.)+[a-z0-9]{2,4}$/;
-    return emailRegex.test(email);
-  };
-  const isEmailValid = isEmail(email);
-
-  // 패스워드 유효성 검사
-  const isPw = password => {
-    const pwRegex =
-      /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
-    return pwRegex.test(password);
-  };
-  const isPwValid = isPw(password);
-
-  // 패스워드 재확인
-  const isPwSame = password === pwCheck;
-
-  // 휴대폰 번호 유효성 검사
-  const isPhoneNum = phoneNum => {
-    const phoneNumRegex = /01[016789]-[^0][0-9]{2,3}-[0-9]{4,4}/;
-    return phoneNumRegex.test(phoneNum);
-  };
-  const isPhoneNumValid = isPhoneNum(phone_number);
-
-  // 생년월일 입력여부 확인
-  const isBirth = Boolean(year && month && day);
-
-  // 개인정보 유효기간
-  const isTimeValid = Boolean(time);
-
-  // 전체 유효성 검사 후 버튼 활성화
-  const isAllValid =
-    isEmailValid &&
-    isPwValid &&
-    isPwSame &&
-    isPhoneNumValid &&
-    isBirth &&
-    isTimeValid;
-
-  const activeBtn = isAllValid ? 'undefined' : 'disabled';
 
   // 통신
   const checkSignUp = e => {
@@ -176,7 +168,7 @@ function SignUp() {
           placeholder="비밀번호 확인"
           autoComplete="current-password"
         />
-        {!isEmailValid && (
+        {!validator.email(email) && (
           <p
             className="inputCheck"
             style={{ display: email.length > 0 ? 'block' : 'none' }}
@@ -184,7 +176,7 @@ function SignUp() {
             * 이메일 양식을 맞춰주세요!
           </p>
         )}
-        {!isPwValid && (
+        {!validator.password(password) && (
           <p
             className="inputCheck"
             style={{ display: password.length > 0 ? 'block' : 'none' }}
@@ -192,7 +184,7 @@ function SignUp() {
             * 비밀번호는 대소문자, 숫자, 특수문자 포함 8자리 이상 적어주세요!
           </p>
         )}
-        {!isPwSame && (
+        {!validator.pwCheck(password) && (
           <p
             className="inputCheck"
             style={{ display: pwCheck.length > 0 ? 'block' : 'none' }}
@@ -242,7 +234,7 @@ function SignUp() {
           placeholder="000-0000-0000 형식으로 입력하세요"
           autoComplete="username"
         />
-        {!isPhoneNumValid && (
+        {!validator.phone_number(phone_number) && (
           <p
             className="inputCheck"
             style={{ display: phone_number.length > 0 ? 'block' : 'none' }}
