@@ -2,25 +2,34 @@ import React, { useEffect, useState } from 'react';
 import './Main.scss';
 
 function Main() {
-  const [bestItems, setBestItems] = useState([]);
-  const [newItems, setNewItems] = useState([]);
-
-  useEffect(() => {
-    fetch('/data/mainNew.json', {
-      method: 'GET',
-      headers: {
-        authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJpYXQiOjE2NjM4NDU3ODF9.2aFMvfGNMWWlBhf0MNQhiUCN5cHp3OceDIvZqf2JylA',
-        'Content-Type': 'application/json;charset=utf-8',
-      },
-    })
-      .then(response => response.json())
-      .then(json => console.log(json));
-  }, []);
-
   // ** 상단 쿠폰bar 무빙기능 **
   const [vwForCoupon, setVwForCoupon] = useState(0);
   const [animateForCoupon, setAnimateForCoupon] = useState(' animate');
+  const [fadeInFirst, setFadeInFirst] = useState('');
+  const [fadeInSecond, setFadeInSecond] = useState('');
+  const [fadeInThird, setFadeInThird] = useState('');
+  const [fadeInForth, setFadeInForth] = useState('');
+  const [fadeInFifth, setFadeInFifth] = useState('');
+
+  useEffect(() => {
+    setFadeInFirst(' fadeIn');
+    const timeout = setTimeout(() => {
+      setFadeInSecond(' fadeIn');
+    }, 200);
+    window.addEventListener('scroll', thirdPopUp);
+  }, []);
+
+  const thirdPopUp = () => {
+    if (window.scrollY >= 700) {
+      setFadeInThird(' fadeIn');
+    }
+    if (window.scrollY >= 1600) {
+      setFadeInForth(' fadeIn');
+      const timeout = setTimeout(() => {
+        setFadeInFifth(' fadeIn');
+      }, 200);
+    }
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -32,15 +41,17 @@ function Main() {
 
   const couponVwValue = vwForCoupon;
 
-  if (couponVwValue === 100) {
-    setTimeout(() => {
-      setAnimateForCoupon('');
-      setVwForCoupon(0);
-    }, 2000);
-    setTimeout(() => {
-      setAnimateForCoupon(' animate');
-    }, 2100);
-  }
+  useEffect(() => {
+    if (couponVwValue === 100) {
+      setTimeout(() => {
+        setAnimateForCoupon('');
+        setVwForCoupon(0);
+      }, 2000);
+      setTimeout(() => {
+        setAnimateForCoupon(' animate');
+      }, 2100);
+    }
+  }, [couponVwValue]);
 
   //** 상단 슬라이드 이미지 **
   const [indexForUpper, setIndexForUpper] = useState(0);
@@ -63,19 +74,21 @@ function Main() {
     return () => clearInterval(interval);
   }, [indexForUpper]);
 
-  if (
-    indexForUpper === mok_Main_Best.length ||
-    indexForUpper === -mok_Main_Best.length
-  ) {
-    setTimeout(() => {
-      setAnimateForUpper('');
-      setIndexForUpper(0);
-    }, 600);
+  useEffect(() => {
+    if (
+      indexForUpper === mok_Main_Best.length ||
+      indexForUpper === -mok_Main_Best.length
+    ) {
+      setTimeout(() => {
+        setAnimateForUpper('');
+        setIndexForUpper(0);
+      }, 600);
 
-    setTimeout(() => {
-      setAnimateForUpper(' animate');
-    }, 700);
-  }
+      setTimeout(() => {
+        setAnimateForUpper(' animate');
+      }, 700);
+    }
+  }, [indexForUpper]);
 
   //** 아랫쪽 슬라이드 이미지 **
   const [indexForLower, setIndexForLower] = useState(0);
@@ -95,22 +108,23 @@ function Main() {
     const interval = setInterval(() => {
       setIndexForLower(current => current + 1);
     }, 4000);
+
+    if (
+      indexForLower === mok_Main_New.length ||
+      indexForLower === -mok_Main_New.length
+    ) {
+      setTimeout(() => {
+        setAnimateForLower('');
+        setIndexForLower(0);
+      }, 600);
+
+      setTimeout(() => {
+        setAnimateForLower(' animate');
+      }, 700);
+    }
+
     return () => clearInterval(interval);
   }, [indexForLower]);
-
-  if (
-    indexForLower === mok_Main_New.length ||
-    indexForLower === -mok_Main_New.length
-  ) {
-    setTimeout(() => {
-      setAnimateForLower('');
-      setIndexForLower(0);
-    }, 600);
-
-    setTimeout(() => {
-      setAnimateForLower(' animate');
-    }, 700);
-  }
 
   return (
     <div className="outerBox">
@@ -127,7 +141,7 @@ function Main() {
         <div className="upperBox">
           <div className="spaceBox" />
           <div className="mainPicBox">
-            <div className="newestItem">
+            <div className={`newestItem${fadeInFirst}`}>
               <div
                 className={`upperSlideBox${animateForUpper}`}
                 style={{
@@ -173,7 +187,7 @@ function Main() {
                 <span> 2022 FW 1st Drop, "The Daily Traveler"</span>
               </div>
             </div>
-            <div className="bestItem">
+            <div className={`bestItem${fadeInSecond}`}>
               <div className="pictureBox2">
                 <img
                   className="mainPic"
@@ -193,7 +207,7 @@ function Main() {
           </div>
           <div className="spaceBox" />
         </div>
-        <div className="middleUpperBox">
+        <div className={`middleUpperBox${fadeInThird}`}>
           <img
             className="lowerSlideBtnLeft"
             onClick={lowerSlideLeft}
@@ -254,7 +268,7 @@ function Main() {
         <div className="middleBottomBox">
           <div className="spaceBox" />
           <div className="mainPicBox">
-            <div className="newestItem">
+            <div className={`middleBottomFirstBox${fadeInForth}`}>
               <div className="pictureBox1">
                 <img
                   className="mainPic"
@@ -271,7 +285,7 @@ function Main() {
                 <span> 새로운 계절을 기다리는 설렘</span>
               </div>
             </div>
-            <div className="bestItem">
+            <div className={`middleBottomSecondBox${fadeInFifth}`}>
               <div className="pictureBox2">
                 <img
                   className="mainPic"

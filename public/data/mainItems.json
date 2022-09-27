@@ -1,0 +1,122 @@
+{
+  "bestItems": [
+    {
+      "id": 1,
+      "productName": "good",
+      "price": "59,000원",
+      "imgURL": "/images/sample1.jpeg"
+    },
+    {
+      "id": 2,
+      "productName": "good",
+      "price": "59,000원",
+      "imgURL": "https://velog.velcdn.com/images/rayong/post/a04a2a62-2352-4827-8190-eaa84dcbec7f/image.jpg"
+    },
+    {
+      "id": 3,
+      "productName": "good",
+      "price": "59,000원",
+      "imgURL": "https://velog.velcdn.com/images/rayong/post/a04a2a62-2352-4827-8190-eaa84dcbec7f/image.jpg"
+    },
+    {
+      "id": 4,
+      "productName": "good",
+      "price": "59,000원",
+      "imgURL": "https://velog.velcdn.com/images/rayong/post/a04a2a62-2352-4827-8190-eaa84dcbec7f/image.jpg"
+    },
+    {
+      "id": 5,
+      "productName": "good",
+      "price": "59,000원",
+      "imgURL": "https://velog.velcdn.com/images/rayong/post/a04a2a62-2352-4827-8190-eaa84dcbec7f/image.jpg"
+    },
+    {
+      "id": 6,
+      "productName": "good",
+      "price": "59,000원",
+      "imgURL": "https://velog.velcdn.com/images/rayong/post/a04a2a62-2352-4827-8190-eaa84dcbec7f/image.jpg"
+    },
+    {
+      "id": 7,
+      "productName": "good",
+      "price": "59,000원",
+      "imgURL1": "https://velog.velcdn.com/images/rayong/post/a04a2a62-2352-4827-8190-eaa84dcbec7f/image.jpg",
+      "imgURL2": ""
+    },
+    {
+      "id": 8,
+      "productName": "good",
+      "price": "59,000원",
+      "imgURL": "https://velog.velcdn.com/images/rayong/post/a04a2a62-2352-4827-8190-eaa84dcbec7f/image.jpg"
+    },
+    {
+      "id": 9,
+      "productName": "good",
+      "price": "59,000원",
+      "imgURL": "https://velog.velcdn.com/images/rayong/post/a04a2a62-2352-4827-8190-eaa84dcbec7f/image.jpg"
+    },
+    {
+      "id": 10,
+      "productName": "good",
+      "price": "59,000원",
+      "imgURL": "https://velog.velcdn.com/images/rayong/post/a04a2a62-2352-4827-8190-eaa84dcbec7f/image.jpg"
+    },
+    {
+      "id": 11,
+      "productName": "good",
+      "price": "59,000원",
+      "imgURL": "https://velog.velcdn.com/images/rayong/post/a04a2a62-2352-4827-8190-eaa84dcbec7f/image.jpg"
+    },
+    {
+      "id": 12,
+      "productName": "good",
+      "price": "59,000원",
+      "imgURL": "https://velog.velcdn.com/images/rayong/post/a04a2a62-2352-4827-8190-eaa84dcbec7f/image.jpg"
+    }
+  ],
+
+  "newItems": [
+    {
+      "id": 1,
+      "productName": "bad",
+      "imgURL": "/images/sample1.jpeg",
+      "price": "59,000원"
+    },
+    {
+      "id": 2,
+      "productName": "bad",
+      "imgURL": "/images/sample2.jpeg",
+      "price": "59,000원"
+    },
+    {
+      "id": 3,
+      "productName": "bad",
+      "imgURL": "/images/sample12.jpeg",
+      "price": "59,000원"
+    },
+    {
+      "id": 4,
+      "productName": "bad",
+      "imgURL": "/images/sample4.jpeg",
+      "price": "59,000원"
+    },
+    {
+      "id": 5,
+      "productName": "bad",
+      "imgURL": "/images/sample5.jpeg",
+      "price": "59,000원"
+    },
+    {
+      "id": 6,
+      "productName": "bad",
+      "imgURL": "/images/sample6.jpeg",
+      "price": "59,000원"
+    },
+    {
+      "id": 7,
+      "productName": "bad",
+      "imgURL": "/images/sample7.jpeg",
+      "price": "59,000원"
+    }
+  ]
+}
