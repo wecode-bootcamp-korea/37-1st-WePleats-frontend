@@ -35,7 +35,7 @@
       }
 
       .inputCheck {
-        padding: 1px 0 0 5px;
+        padding: 10px 0 0 5px;
         color: $colorRed;
         font-size: $fontMicro;
       }
@@ -64,7 +64,7 @@
 
     .linkBox {
       @include flexSort(space-between, center);
-      margin-top: 10px;
+      margin-top: 20px;
       color: $colorDarkGray;
       font-size: $fontSmall;
 

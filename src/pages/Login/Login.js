@@ -15,20 +15,14 @@ function Login() {
     setUserInput({ ...userInput, [name]: value });
   };
 
-  const isEmail = email => {
-    const emailRegex = /^[a-z0-9_+.-]+@([a-z0-9-]+\.)+[a-z0-9]{2,4}$/;
-    return emailRegex.test(email);
+  const isValid = {
+    email: /^[a-z0-9_+.-]+@([a-z0-9-]+\.)+[a-z0-9]{2,4}$/.test(email),
+    pw: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/.test(
+      pw
+    ),
   };
-  const isEmailValid = isEmail(email);
 
-  const isPw = pw => {
-    const pwRegex =
-      /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
-    return pwRegex.test(pw);
-  };
-  const isPwValid = isPw(pw);
-
-  const isAllValid = isEmailValid && isPwValid;
+  const isAllValid = isValid.email && isValid.pw;
 
   // 로그인 통신 성공, wecode@wecode.com / Wecode!1
   const login = e => {
@@ -81,7 +75,7 @@ function Login() {
             placeholder="비밀번호"
             autoComplete="current-password"
           />
-          {!isEmailValid && (
+          {!isValid.email && (
             <p
               className="inputCheck"
               style={{ display: email.length > 0 ? 'block' : 'none' }}
@@ -89,7 +83,7 @@ function Login() {
               * 이메일 양식을 맞춰주세요!
             </p>
           )}
-          {!isPwValid && (
+          {!isValid.pw && (
             <p
               className="inputCheck"
               style={{ display: pw.length > 0 ? 'block' : 'none' }}
