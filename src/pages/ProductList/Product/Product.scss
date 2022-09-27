@@ -5,25 +5,6 @@
   margin: 0 auto;
   font-family: $Montserrat, $NotoSans;
 
-  .nav {
-    width: 100%;
-    margin: 70px 0 20px 0;
-    color: $colorGray;
-    font-size: $fontSmall;
-
-    .subMenu {
-      display: flex;
-
-      .li {
-        margin: 0 5px;
-      }
-
-      .product {
-        color: $colorBlack;
-      }
-    }
-  }
-
   .product {
     .img {
       width: 100%;

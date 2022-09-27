@@ -14,17 +14,20 @@
         margin: 10px 0 30px;
       }
 
-      .button {
-        width: 150px;
-        height: 50px;
+      .reviewBtn {
         font-size: $fontRegular;
         color: $colorDarkGray;
-        background-color: transparent;
-        border: 1px solid $colorGray;
 
-        &:hover {
-          color: $colorBlack;
-          border: 1px solid $colorBlack;
+        .addBtn {
+          width: 150px;
+          height: 50px;
+          border: 1px solid $colorGray;
+          background-color: transparent;
+
+          &:hover {
+            color: $colorBlack;
+            border: 1px solid $colorBlack;
+          }
         }
       }
 
@@ -85,6 +88,36 @@
           width: 30%;
           color: $colorGray;
           font-size: $fontMicro;
+
+          .editReviewBtn {
+            text-align: right;
+
+            .editBtn {
+              margin-right: 3px;
+              font-size: $fontRegular;
+              color: $colorGray;
+              background-color: transparent;
+              transition: all 500ms ease;
+
+              &:hover {
+                color: $colorBlack;
+              }
+            }
+
+            .deleteBtn {
+              width: 20px;
+              height: 20px;
+              background-color: rebeccapurple;
+              font-size: $fontRegular;
+              color: $colorGray;
+              background-color: transparent;
+              transition: all 500ms ease;
+
+              &:hover {
+                color: #ff6363;
+              }
+            }
+          }
 
           .userId {
             margin-bottom: 5px;

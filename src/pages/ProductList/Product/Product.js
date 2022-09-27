@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Navigate from './components/Navigate/Navigate';
 import Form from './components/Form/Form';
 import Accordion from './components/Accordion/Accordion';
 import Review from './components/Review/Review';
@@ -7,7 +8,6 @@ import './Product.scss';
 function Product() {
   const [product, setProduct] = useState({});
   const [currentUrl, setCurrentUrl] = useState('');
-  const [reviews, setReviews] = useState([]);
 
   const getUrl = e => {
     setCurrentUrl(e.target.src);
@@ -23,8 +23,7 @@ function Product() {
       .then(res => res.json())
       .then(data => {
         setProduct(data.product);
-        setCurrentUrl(data.product.image[0].image);
-        setReviews(data.review);
+        setCurrentUrl(data.product.image_url[0].image);
       });
   }, []);
 
@@ -53,19 +52,7 @@ function Product() {
 
   return (
     <div className="productBox">
-      <nav className="nav">
-        <ul className="subMenu">
-          <li className="li home">Home</li>
-          <li className="li">
-            <i className="fa-thin fa-greater-than" />
-          </li>
-          <li className="li productLists">{product.main_category}</li>
-          <li className="li">
-            <i className="fa-thin fa-greater-than" />
-          </li>
-          <li className="li product">{product.sub_category}</li>
-        </ul>
-      </nav>
+      <Navigate product={product} />
       <main className="product">
         <section className="img">
           <div className="main">
@@ -73,8 +60,8 @@ function Product() {
           </div>
           <div className="sub">
             <ul className="subImgs">
-              {product.image &&
-                product.image.map((item, index) => {
+              {product.image_url &&
+                product.image_url.map((item, index) => {
                   return (
                     <li onMouseOver={getUrl} key={index} className="subImg">
                       <img
@@ -110,8 +97,8 @@ function Product() {
             <h6 className="text">{product.description}</h6>
             <h6 className="color">color : {product.color}</h6>
             <ul className="detailImgs">
-              {product.image &&
-                product.image.map((item, index) => {
+              {product.image_url &&
+                product.image_url.map((item, index) => {
                   return (
                     <li onMouseOver={getUrl} key={index} className="subImg">
                       <img className="img" src={item.image} alt="상세 이미지" />
@@ -137,7 +124,7 @@ function Product() {
           </ul>
         </div>
       </section>
-      <Review reviews={reviews} productId={product.id} />
+      <Review productId={product.id} />
     </div>
   );
 }
