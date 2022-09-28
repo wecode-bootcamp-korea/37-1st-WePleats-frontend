@@ -12,17 +12,17 @@ function ProductList() {
   const id = searchParams.get('id');
   const color = searchParams.get('color');
 
-  // useEffect(() => {
-  //   fetch('/data/productInfo.json')
-  //     .then(res => res.json())
-  //     .then(res => setProducts(res));
-  // }, []);
-
   useEffect(() => {
-    fetch(`http://192.168.47.96:3000/category/?category=main&id=2`)
+    fetch('/data/productInfo.json')
       .then(res => res.json())
-      .then(res => setProducts(res.getProducts));
-  }, [category, id]);
+      .then(res => setProducts(res));
+  }, []);
+
+  // useEffect(() => {
+  //   fetch(`http://192.168.47.96:3000/category/?category={category}&id={id}`)
+  //     .then(res => res.json())
+  //     .then(res => setProducts(res.getProducts));
+  // }, [category, id]);
 
   const sortColor = colorNum => {
     searchParams.set('color', colorNum);
@@ -31,7 +31,7 @@ function ProductList() {
       `http://192.168.47.96:3000/category?category=${category}&id=${id}&color=${color}`
     )
       .then(res => res.json())
-      .then(res => setProducts(res));
+      .then(res => setProducts(res.getProducts));
   };
 
   return (
