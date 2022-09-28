@@ -4,7 +4,6 @@
 @import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css';
 
 // @Mixin //
-
 @mixin flexCenter {
   display: flex;
   justify-content: center;
@@ -29,7 +28,6 @@ $colorDarkGray: #363636;
 $colorBlack: #212121;
 
 // FontSize
-
 $fontMicro: 12px;
 $fontXSmall: 13px;
 $fontSmall: 14px;
@@ -40,13 +38,11 @@ $fontLarge: 20px;
 $fontXLarge: 24px;
 
 // FontFamily
-
 $NotoSans: 'Noto Sans KR', sans-serif;
 $Josefin: 'Josefin Sans', sans-serif;
 $Montserrat: 'Montserrat', sans-serif;
 
 // FontWeight
-
 $weightBold: 700;
 $weightSemiBold: 500;
 $weightRegular: 400;
