@@ -280,10 +280,6 @@
             .boxFlex {
               @include flexSort(space-between, center);
               padding: 3px 0;
-
-              &:nth-child(2) {
-                margin-bottom: 10px;
-              }
             }
 
             .orderProductPrice {
@@ -296,6 +292,7 @@
 
             .orderShipPrice {
               font-size: $fontMicro;
+              padding-bottom: 10px;
 
               .name {
                 color: $colorGray;

@@ -1,7 +1,23 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import OrderedItem from './OrderedItem';
 import './Payment.scss';
 
 function Payment() {
+  const [orderedItem, setOrderedItem] = useState({});
+  useEffect(() => {
+    fetch('/data/orderList.json')
+      .then(res => res.json())
+      .then(res => setOrderedItem(res.order));
+  }, []);
+
+  let totalPrice = 0;
+  orderedItem.product !== undefined &&
+    orderedItem.product.forEach(item => {
+      totalPrice += item.price;
+    });
+
+  // console.log(totalPrice);
+
   return (
     <div className="payment">
       <div className="paymentBox">
@@ -11,38 +27,11 @@ function Payment() {
             <div className="orderedItem box">
               <p className="title">주문 상품 정보</p>
               <ul className="itemListBox">
-                <li className="item">
-                  <div
-                    className="img"
-                    style={{
-                      background:
-                        'url(https://velog.velcdn.com/images/rayong/post/30a5de22-fd54-46bc-b540-e906c2c4bf48/image.jpg)',
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'center',
-                    }}
-                  />
-                  <div className="desc">
-                    <p className="name">애플 모니터</p>
-                    <p className="count">1개</p>
-                    <p className="price">59,000원</p>
-                  </div>
-                </li>
-                <li className="item">
-                  <div
-                    className="img"
-                    style={{
-                      background:
-                        'url(https://velog.velcdn.com/images/rayong/post/e317c749-d647-4ec0-bf05-53e70a02432f/image.jpg)',
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'center',
-                    }}
-                  />
-                  <div className="desc">
-                    <p className="name">울트라소닉 모니터</p>
-                    <p className="count">1개</p>
-                    <p className="price">39,000원</p>
-                  </div>
-                </li>
+                {/* <OrderedItem item={orderedItem.product} /> */}
+                {orderedItem.product !== undefined &&
+                  orderedItem.product.map(item => {
+                    return <OrderedItem key={item.id} item={item} />;
+                  })}
               </ul>
               <div className="shipFee">
                 배송비 <strong>무료</strong>
@@ -188,10 +177,15 @@ function Payment() {
             <div className="orderSummary box">
               <p className="title">주문 요약</p>
               <div className="outerBox">
-                <div className="orderProductPrice boxFlex">
-                  <p className="name">상품가격</p>
-                  <p className="price">59,000</p>
-                </div>
+                {orderedItem.product !== undefined &&
+                  orderedItem.product.map(item => {
+                    return (
+                      <div key={item.id} className="orderProductPrice boxFlex">
+                        <p className="name">상품가격</p>
+                        <p className="price">{item.price}</p>
+                      </div>
+                    );
+                  })}
                 <div className="orderShipPrice boxFlex">
                   <p className="name">배송비</p>
                   <p className="price">무료</p>
@@ -200,7 +194,7 @@ function Payment() {
               <div className="outerBox">
                 <div className="orderTotalPrice boxFlex">
                   <p className="name">총 주문금액</p>
-                  <p className="price">59,000원</p>
+                  <p className="price">{totalPrice}원</p>
                 </div>
               </div>
               <p className="savePoint">1,770 포인트 적립 예정</p>
