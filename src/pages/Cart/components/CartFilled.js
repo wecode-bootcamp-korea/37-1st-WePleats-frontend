@@ -173,22 +173,11 @@ function CartFilled(props) {
   }, [checkedArr]);
 
   const orderInCart = () => {
-    fetch('http://172.20.10.10:3000/cart/order', {
-      method: 'POST',
-      headers: {
-        authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJpYXQiOjE2NjM4NDU3ODF9.2aFMvfGNMWWlBhf0MNQhiUCN5cHp3OceDIvZqf2JylA',
-        'Content-Type': 'application/json;charset=utf-8',
-      },
-      body: JSON.stringify({ productId: checkedArr }),
-    })
-      .then(response => response.json())
-      .then(json => {
-        console.log(json.message);
-        if (json.message === 'orderOK') {
-          navigate('/');
-        }
-      });
+    if (checkedArr.length === 0) {
+      alert('주문할 상품이 없습니다.');
+    } else {
+      navigate('/payment');
+    }
   };
 
   const deleteThis = event => {
