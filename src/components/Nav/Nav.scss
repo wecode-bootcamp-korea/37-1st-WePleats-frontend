@@ -1,5 +1,10 @@
 @import '../../styles/variables.scss';
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .navBox {
   position: fixed;
   width: 100%;
@@ -131,6 +136,18 @@
 
       .best {
         margin-left: 164px;
+
+        &:hover {
+          color: $colorGray;
+          cursor: pointer;
+        }
+      }
+
+      .new {
+        &:hover {
+          color: $colorGray;
+          cursor: pointer;
+        }
       }
 
       .Mouse {
@@ -143,6 +160,11 @@
 
       .sub {
         margin-bottom: 10px;
+
+        &:hover {
+          color: $colorGray;
+          cursor: pointer;
+        }
       }
     }
   }
