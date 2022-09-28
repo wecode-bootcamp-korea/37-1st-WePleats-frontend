@@ -32,7 +32,6 @@ function SignUp() {
     year,
     month,
     day,
-    time,
   } = userInput;
 
   const handleInput = e => {
