@@ -3,8 +3,6 @@ import './Main.scss';
 
 function Main() {
   // ** 상단 쿠폰bar 무빙기능 **
-  const [vwForCoupon, setVwForCoupon] = useState(0);
-  const [animateForCoupon, setAnimateForCoupon] = useState(' animate');
   const [fadeInFirst, setFadeInFirst] = useState('');
   const [fadeInSecond, setFadeInSecond] = useState('');
   const [fadeInThird, setFadeInThird] = useState('');
@@ -14,11 +12,10 @@ function Main() {
 
   useEffect(() => {
     setFadeInFirst(' fadeIn');
-    const timeout = setTimeout(() => {
+    setTimeout(() => {
       setFadeInSecond(' fadeIn');
     }, 200);
     window.addEventListener('scroll', thirdPopUp);
-    // window.addEventListener('resize', changeSlide);
   }, []);
 
   const thirdPopUp = () => {
@@ -27,18 +24,11 @@ function Main() {
     }
     if (window.scrollY >= 1600) {
       setFadeInForth(' fadeIn');
-      const timeout = setTimeout(() => {
+      setTimeout(() => {
         setFadeInFifth(' fadeIn');
       }, 200);
     }
   };
-
-  // const changeSlide = () => {
-  //   const size = window.innerWidth;
-  //   if (size >= 990 && size <= 1541) {
-  //     console.log('this is over 990 lower 1541');
-  //   }
-  // };
 
   const size = window.innerWidth;
 
@@ -51,28 +41,6 @@ function Main() {
       setVwForSlide(20);
     }
   }, [size]);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setVwForCoupon(current => current + 100);
-    }, 2100);
-
-    return () => clearInterval(interval);
-  }, [vwForCoupon]);
-
-  const couponVwValue = vwForCoupon;
-
-  useEffect(() => {
-    if (couponVwValue === 100) {
-      setTimeout(() => {
-        setAnimateForCoupon('');
-        setVwForCoupon(0);
-      }, 2000);
-      setTimeout(() => {
-        setAnimateForCoupon(' animate');
-      }, 2100);
-    }
-  }, [couponVwValue]);
 
   //** 상단 슬라이드 이미지 **
   const [indexForUpper, setIndexForUpper] = useState(0);
@@ -91,7 +59,7 @@ function Main() {
   useEffect(() => {
     const interval = setInterval(() => {
       setIndexForUpper(current => current + 1);
-    }, 6000);
+    }, 4000);
     return () => clearInterval(interval);
   }, [indexForUpper]);
 
@@ -147,13 +115,14 @@ function Main() {
     return () => clearInterval(interval);
   }, [indexForLower]);
 
+  const test = () => {
+    alert('구라야^^');
+  };
+
   return (
     <div className="outerBox">
       <div className="couponBox">
-        <div
-          className={`movingTextBox${animateForCoupon}`}
-          style={{ transform: `translate(${vwForCoupon}vw)` }}
-        >
+        <div className="movingTextBox" onClick={test}>
           <div className="movingText1">누르면 쿠폰지급^^</div>
           <div className="movingText2">누르면 쿠폰지급^^</div>
         </div>
@@ -342,15 +311,21 @@ function Main() {
           <div className="eventContentsBox">
             <div className="eventInsideBox">
               <div className="innerContentsBox">
-                <img src="/images/sample1.jpeg" alt="sample" />
+                <div className="eventImgBox">
+                  <img src="/images/sample1.jpeg" alt="sample" />
+                </div>
                 <div>OCEAN EDITION</div>
               </div>
               <div className="innerContentsBox">
-                <img src="/images/sample1.jpeg" alt="sample" />
+                <div className="eventImgBox">
+                  <img src="/images/sample1.jpeg" alt="sample" />
+                </div>
                 <div>PROCESS OF PLASTIC TURNING INTO PLEATSMAMA</div>
               </div>
               <div className="innerContentsBox">
-                <img src="/images/sample1.jpeg" alt="sample" />
+                <div className="eventImgBox">
+                  <img src="/images/sample1.jpeg" alt="sample" />
+                </div>
                 <div>PLMA_LAb edition</div>
               </div>
             </div>
