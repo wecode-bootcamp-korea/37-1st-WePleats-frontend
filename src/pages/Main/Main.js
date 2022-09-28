@@ -10,6 +10,7 @@ function Main() {
   const [fadeInThird, setFadeInThird] = useState('');
   const [fadeInForth, setFadeInForth] = useState('');
   const [fadeInFifth, setFadeInFifth] = useState('');
+  const [vwForSlide, setVwForSlide] = useState(25);
 
   useEffect(() => {
     setFadeInFirst(' fadeIn');
@@ -17,6 +18,7 @@ function Main() {
       setFadeInSecond(' fadeIn');
     }, 200);
     window.addEventListener('scroll', thirdPopUp);
+    // window.addEventListener('resize', changeSlide);
   }, []);
 
   const thirdPopUp = () => {
@@ -30,6 +32,25 @@ function Main() {
       }, 200);
     }
   };
+
+  // const changeSlide = () => {
+  //   const size = window.innerWidth;
+  //   if (size >= 990 && size <= 1541) {
+  //     console.log('this is over 990 lower 1541');
+  //   }
+  // };
+
+  const size = window.innerWidth;
+
+  useEffect(() => {
+    if (size <= 990) {
+      setVwForSlide(33.3);
+    } else if (size > 990 && size <= 1541) {
+      setVwForSlide(25);
+    } else if (size > 1541) {
+      setVwForSlide(20);
+    }
+  }, [size]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -102,7 +123,7 @@ function Main() {
     setIndexForLower(current => current + 1);
   };
 
-  const moveLowerSlide = indexForLower * 25;
+  const moveLowerSlide = indexForLower * vwForSlide;
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -225,14 +246,18 @@ function Main() {
             className={`productSlideBox${animateForLower}`}
             style={{
               transform: `translate(${
-                -mok_Main_New.length * 25 - moveLowerSlide
+                -mok_Main_New.length * vwForSlide - moveLowerSlide
               }vw)`,
             }}
           >
             {mok_Main_New.map(el => (
               <div className="slideContents copied" key={el.id}>
                 <div className="slideImageBox">
-                  <img src={el.imgURL1} alt="sample" />
+                  <img
+                    src={el.imgURL1}
+                    alt="sample"
+                    style={{ width: `${vwForSlide}vw` }}
+                  />
                 </div>
                 <div className="slideTextBox">
                   <div className="slideProductName">{el.productName}</div>
@@ -243,7 +268,11 @@ function Main() {
             {mok_Main_New.map(el => (
               <div className="slideContents" key={el.id}>
                 <div className="slideImageBox">
-                  <img src={el.imgURL1} alt="sample" />
+                  <img
+                    src={el.imgURL1}
+                    alt="sample"
+                    style={{ width: `${vwForSlide}vw` }}
+                  />
                 </div>
                 <div className="slideTextBox">
                   <div className="slideProductName">{el.productName}</div>
@@ -254,7 +283,11 @@ function Main() {
             {mok_Main_New.map(el => (
               <div className="slideContents copied" key={el.id}>
                 <div className="slideImageBox">
-                  <img src={el.imgURL1} alt="sample" />
+                  <img
+                    src={el.imgURL1}
+                    alt="sample"
+                    style={{ width: `${vwForSlide}vw` }}
+                  />
                 </div>
                 <div className="slideTextBox">
                   <div className="slideProductName">{el.productName}</div>
