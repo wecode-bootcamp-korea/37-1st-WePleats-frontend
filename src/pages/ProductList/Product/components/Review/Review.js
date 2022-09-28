@@ -33,12 +33,12 @@ function Review({ productId }) {
   };
 
   const previousPage = e => {
-    searchParams.set('offset', Number(e.target) - 1);
+    searchParams.set('offset', Number(offset) - 1);
     setSearchParams(searchParams);
   };
 
   const nextPage = e => {
-    searchParams.set('offset', Number(e.target) + 1);
+    searchParams.set('offset', Number(offset) + 1);
     setSearchParams(searchParams);
   };
 

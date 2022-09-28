@@ -1,10 +1,9 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './EditModal.scss';
 
 function EditModal({ editedModal, reviews, productId }) {
   const [imageUrl, setImageUrl] = useState(reviews.image_url);
   const [review, setReview] = useState(reviews.comment);
-  const imgRef = useRef();
 
   useEffect(() => {
     document.body.style = `overflow: hidden`;
@@ -16,7 +15,6 @@ function EditModal({ editedModal, reviews, productId }) {
     const reader = new FileReader();
 
     reader.readAsDataURL(e.target.files[0]);
-
     reader.onloadend = () => {
       setImageUrl(reader.result);
     };
@@ -73,8 +71,6 @@ function EditModal({ editedModal, reviews, productId }) {
               id="reviewImg"
               onChange={onChangeImage}
               name="image"
-              accept="image/*"
-              ref={imgRef}
             />
           </label>
           <textarea
