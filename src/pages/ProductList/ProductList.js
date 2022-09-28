@@ -13,16 +13,10 @@ function ProductList() {
   const color = searchParams.get('color');
 
   useEffect(() => {
-    fetch('/data/productItemInfo.json')
+    fetch(`http://192.168.47.96:3000/category/?category=${category}&id=${id}`)
       .then(res => res.json())
       .then(res => setProducts(res.getProducts));
-  }, []);
-
-  // useEffect(() => {
-  //   fetch(`http://192.168.47.96:3000/category/?category=${category}&id=${id}`)
-  //     .then(res => res.json())
-  //     .then(res => setProducts(res.getProducts));
-  // }, [category, id]);
+  }, [category, id]);
 
   const sortColor = colorNum => {
     searchParams.set('color', colorNum);
