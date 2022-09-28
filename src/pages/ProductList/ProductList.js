@@ -4,7 +4,6 @@ import Card from './Card/Card';
 import Filter from './Filter/Filter';
 import { COLOR_CATE } from './COLOR_CATE';
 import './ProductList.scss';
-import { clearConfigCache } from 'prettier';
 
 function ProductList() {
   const [products, setProducts] = useState([]);
