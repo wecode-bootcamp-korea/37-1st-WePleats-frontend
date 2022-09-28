@@ -195,7 +195,6 @@ function CartFilled(props) {
       .then(response => response.json())
       .then(json => {
         setCartProducts(json.cart);
-        // setIsChecked([]);
       });
   };
 
