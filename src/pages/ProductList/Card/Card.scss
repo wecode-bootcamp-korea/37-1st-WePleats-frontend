@@ -6,9 +6,25 @@
   font-size: $fontSmall;
   font-family: $NotoSans;
 
-  .img {
-    padding-bottom: 100%;
-    cursor: pointer;
+  .imgBoxWrap {
+    width: 100%;
+
+    .imgBox {
+      position: relative;
+      padding-top: 100%;
+      overflow: hidden;
+
+      .img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+      }
+    }
   }
 
   .desc {

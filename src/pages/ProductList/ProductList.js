@@ -4,6 +4,7 @@ import Card from './Card/Card';
 import Filter from './Filter/Filter';
 import { COLOR_CATE } from './COLOR_CATE';
 import './ProductList.scss';
+import { clearConfigCache } from 'prettier';
 
 function ProductList() {
   const [products, setProducts] = useState([]);
@@ -18,10 +19,8 @@ function ProductList() {
       .then(res => setProducts(res.getProducts));
   }, []);
 
-  console.log(products);
-
   // useEffect(() => {
-  //   fetch(`http://192.168.47.96:3000/category/?category={category}&id={id}`)
+  //   fetch(`http://192.168.47.96:3000/category/?category=${category}&id=${id}`)
   //     .then(res => res.json())
   //     .then(res => setProducts(res.getProducts));
   // }, [category, id]);

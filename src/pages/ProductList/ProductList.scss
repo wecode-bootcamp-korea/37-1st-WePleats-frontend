@@ -22,7 +22,7 @@
 
     .colorBox {
       @include flexSort(center, '');
-      width: 60vw;
+      max-width: 600px;
       margin: 40px auto 30px;
     }
 
