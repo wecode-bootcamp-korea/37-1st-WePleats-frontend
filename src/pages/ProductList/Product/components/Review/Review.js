@@ -6,15 +6,15 @@ import './Review.scss';
 function Review({ productId }) {
   const [reviews, setReviews] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
-  const offset = searchParams.get('offset');
   const [isClicked, setIsClicked] = useState(false);
   const [isEdit, setIsEdit] = useState(false);
   const [isFiltered, setIsFiltered] = useState(false);
   const [selectModal, setSelectModal] = useState(true);
-
-  // reviews/offset=${getOffset}&limit=5
+  const offset = searchParams.get('offset');
+  const limit = searchParams.get('limit');
+  // reviews/offset=${offset}&limit={limit}
   useEffect(() => {
-    fetch('data/reviews.json', {
+    fetch(`http://172.20.10.10:3000/review/offset=${offset}&limit=${limit}`, {
       headers: {
         authorization:
           'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJpYXQiOjE2NjM4NDU3ODF9.2aFMvfGNMWWlBhf0MNQhiUCN5cHp3OceDIvZqf2JylA',
@@ -25,10 +25,35 @@ function Review({ productId }) {
       .then(data => {
         setReviews(data.review);
       });
-  }, [offset]);
+  }, []);
+
+  const pageCountArr = (reviews => {
+    let result = [];
+
+    const maxNumber = Math.ceil(reviews.length / 5);
+
+    for (let i = 1; i <= maxNumber; i++) {
+      result.push(i);
+    }
+
+    return result;
+  })(reviews);
 
   const movePage = pageNumber => {
     searchParams.set('offset', (pageNumber - 1) * 5);
+    setSearchParams(searchParams);
+  };
+
+  const pageNumberNow = offset / 5 + 1;
+  console.log(pageNumberNow);
+
+  const movePrevious = () => {
+    searchParams.set('offset', (pageNumberNow - 2) * 5);
+    setSearchParams(searchParams);
+  };
+
+  const moveNext = () => {
+    searchParams.set('offset', pageNumberNow * 5);
     setSearchParams(searchParams);
   };
 
@@ -143,19 +168,20 @@ function Review({ productId }) {
       <nav className="page">
         <ul className="pagination">
           <li className="pageNum">
-            <i className="fa-solid fa-chevron-left" />
+            <i className="fa-solid fa-chevron-left" onClick={movePrevious} />
           </li>
-          <li className="pageNum" onClick={() => movePage(1)}>
-            1
-          </li>
-          <li className="pageNum" onClick={() => movePage(2)}>
-            2
-          </li>
-          <li className="pageNum" onClick={() => movePage(3)}>
-            3
-          </li>
+          {pageCountArr.map(number => (
+            <li
+              key={number}
+              className="pageNum"
+              onClick={() => movePage(number)}
+            >
+              {number}
+            </li>
+          ))}
+
           <li className="pageNum">
-            <i className="fa-solid fa-chevron-right" />
+            <i className="fa-solid fa-chevron-right" onClick={moveNext} />
           </li>
         </ul>
       </nav>
