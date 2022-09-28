@@ -26,29 +26,6 @@ function Product() {
       });
   }, []);
 
-  // useEffect(() => {
-  //   fetch('https://b003-211-106-114-186.jp.ngrok.io/product/1', {
-  //     method: 'GET',
-  //     headers: {
-  //       'Content-Type': 'application/json;charset=utf-8',
-  //       ' Access-Control-Allow-Origin':
-  //         'https://b003-211-106-114-186.jp.ngrok.io/product/1',
-  //     },
-  //   })
-  //     .then(response => {
-  //       if (response.ok === true) {
-  //         return response.json();
-  //       }
-  //     })
-  //     .then(data => {
-  //       if (data.message === 'INVALID_PRODUCT') {
-  //         alert('실패');
-  //       } else {
-  //         alert('성공');
-  //       }
-  //     });
-  // }, []);
-
   return (
     <div className="productBox">
       <Navigate product={product} />

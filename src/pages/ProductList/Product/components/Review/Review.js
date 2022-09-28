@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import Modal from '../Modal/Modal';
-import EditModal from '../Modal/EditModal/EditModal';
 import './Review.scss';
 
 function Review({ productId }) {
@@ -11,8 +10,9 @@ function Review({ productId }) {
   const [isClicked, setIsClicked] = useState(false);
   const [isEdit, setIsEdit] = useState(false);
   const [isFiltered, setIsFiltered] = useState(false);
+  const [selectModal, setSelectModal] = useState(true);
 
-  // reviews/offset=${offset}&limit=5
+  // reviews/offset=${getOffset}&limit=5
   useEffect(() => {
     fetch('data/reviews.json', {
       headers: {
@@ -32,22 +32,13 @@ function Review({ productId }) {
     setSearchParams(searchParams);
   };
 
-  const previousPage = e => {
-    searchParams.set('offset', Number(offset) - 1);
-    setSearchParams(searchParams);
-  };
-
-  const nextPage = e => {
-    searchParams.set('offset', Number(offset) + 1);
-    setSearchParams(searchParams);
-  };
-
   const clickedModal = () => {
     setIsClicked(current => !current);
   };
 
   const editedModal = () => {
     setIsEdit(current => !current);
+    setSelectModal(current => !current);
   };
 
   const deleteThis = e => {
@@ -86,7 +77,8 @@ function Review({ productId }) {
             <Modal
               clickedModal={clickedModal}
               productId={productId}
-              setReview={setReviews}
+              reviewInfo={setReviews}
+              selectModal={selectModal}
             />
           )}
         </div>
@@ -132,10 +124,11 @@ function Review({ productId }) {
                   </div>
                 )}
                 {isEdit && (
-                  <EditModal
-                    reviews={reviews.find(({ control }) => control)}
-                    editedModal={editedModal}
+                  <Modal
+                    clickedModal={editedModal}
                     productId={productId}
+                    reviewInfo={reviews.find(({ control }) => control)}
+                    selectModal={selectModal}
                   />
                 )}
                 <p className="userId">{item.name}</p>
@@ -149,7 +142,7 @@ function Review({ productId }) {
       </ul>
       <nav className="page">
         <ul className="pagination">
-          <li className="pageNum" onClick={previousPage}>
+          <li className="pageNum">
             <i className="fa-solid fa-chevron-left" />
           </li>
           <li className="pageNum" onClick={() => movePage(1)}>
@@ -161,14 +154,8 @@ function Review({ productId }) {
           <li className="pageNum" onClick={() => movePage(3)}>
             3
           </li>
-          <li className="pageNum" onClick={() => movePage(4)}>
-            4
-          </li>
-          <li className="pageNum" onClick={() => movePage(5)}>
-            5
-          </li>
           <li className="pageNum">
-            <i className="fa-solid fa-chevron-right" onClick={nextPage} />
+            <i className="fa-solid fa-chevron-right" />
           </li>
         </ul>
       </nav>

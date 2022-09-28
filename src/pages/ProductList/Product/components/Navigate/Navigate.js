@@ -12,13 +12,13 @@ function Navigate({ product }) {
         <li className="li">
           <i className="fa-thin fa-greater-than" />
         </li>
-        <Link to={`/category?main=${product.main_category_num}`}>
+        <Link to={`/category?category=main&id=${product.main_category_num}`}>
           <li className="li productLists">{product.main_category}</li>
         </Link>
         <li className="li">
           <i className="fa-thin fa-greater-than" />
         </li>
-        <Link to={`/category?sub=${product.sub_category_num}`}>
+        <Link to={`/category?category=sub&id=${product.sub_category_num}`}>
           <li className="li product">{product.sub_category}</li>
         </Link>
       </ul>

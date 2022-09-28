@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './Modal.scss';
 
-function Modal({ clickedModal, productId, reviewInfo, selectModal }) {
-  const [imageUrl, setImageUrl] = useState(reviewInfo.image_url);
-  const [editComment, setEditComment] = useState(reviewInfo.comment);
+function Modal({ clickedModal, productId, setReview }) {
+  const [imageUrl, setImageUrl] = useState(null);
+  const imgRef = useRef();
 
   useEffect(() => {
     document.body.style = `overflow: hidden`;
@@ -12,17 +12,13 @@ function Modal({ clickedModal, productId, reviewInfo, selectModal }) {
 
   const onChangeImage = e => {
     e.preventDefault();
-
     const reader = new FileReader();
-    reader.readAsDataURL(e.target.files[0]);
+    const file = imgRef.current.files[0];
 
+    reader.readAsDataURL(file);
     reader.onloadend = () => {
       setImageUrl(reader.result);
     };
-  };
-
-  const changeValue = e => {
-    setEditComment(e.target.value);
   };
 
   const onSubmit = e => {
@@ -45,49 +41,18 @@ function Modal({ clickedModal, productId, reviewInfo, selectModal }) {
       .then(data => {
         if (data.message === 'Create Review Success') {
           clickedModal();
-          reviewInfo(data.review);
+          setReview(data.review);
         } else {
           alert('리뷰 등록 실패');
         }
       });
   };
-
-  const onEdit = e => {
-    e.preventDefault();
-
-    const modal = document.getElementById('modal');
-    const formData = new FormData(modal);
-    formData.append('productId', productId);
-    formData.append('reviewId', reviewInfo.id);
-
-    fetch('http://172.20.10.10:3000/review', {
-      method: 'PATCH',
-      headers: {
-        authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJpYXQiOjE2NjM4NDU3ODF9.2aFMvfGNMWWlBhf0MNQhiUCN5cHp3OceDIvZqf2JylA',
-        enctype: 'multipart/form-data',
-      },
-      body: formData,
-    })
-      .then(response => response.json())
-      .then(data => {
-        if (data.message === 'Update Review Sucess') {
-          alert('수정 완료');
-          clickedModal();
-        } else {
-          alert('수정 실패');
-        }
-      });
-  };
-
   return (
     <>
       <div className="overlay" onClick={clickedModal} />
-      <form id="modal" onSubmit={selectModal ? onSubmit : onEdit}>
+      <form id="modal" onSubmit={onSubmit}>
         <div className="modalHeader">
-          <h1 className="modalTitle">
-            {selectModal ? '구매평 작성' : '구매평 수정'}
-          </h1>
+          <h1 className="modalTitle">구매평 작성</h1>
           <button className="btn" onClick={clickedModal}>
             <i className="fa-solid fa-xmark" />
           </button>
@@ -110,23 +75,15 @@ function Modal({ clickedModal, productId, reviewInfo, selectModal }) {
               id="reviewImg"
               type="file"
               name="image"
+              ref={imgRef}
               onChange={onChangeImage}
             />
           </label>
-          {selectModal ? (
-            <textarea
-              name="comment"
-              id="writeReviews"
-              placeholder="소중한 후기를 남겨주세요"
-            />
-          ) : (
-            <textarea
-              name="comment"
-              id="writeReviews"
-              value={editComment}
-              onChange={changeValue}
-            />
-          )}
+          <textarea
+            name="comment"
+            id="writeReviews"
+            placeholder="소중한 후기를 남겨주세요"
+          />
         </div>
         <div className="modalbtns">
           <button className="modalbtn cancel" onClick={clickedModal}>

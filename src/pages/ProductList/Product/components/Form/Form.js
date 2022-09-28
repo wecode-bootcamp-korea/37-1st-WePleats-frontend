@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Form.scss';
 
 function Form({ product }) {
   const [total, setTotal] = useState(1);
   const [isHeart, setIsHeart] = useState(false);
+  const navigate = useNavigate();
 
   const getTotal = e => {
     const inputValue = Number(e.target.value);
@@ -23,26 +25,50 @@ function Form({ product }) {
     setIsHeart(current => !current);
   };
 
-  // const buyProduct = e => {
-  //   e.preventDefault();
+  const payData = {
+    productId: product.id,
+    quantity: total,
+  };
 
-  //   fetch('http://172.20.10.10:3000/review', {
-  //     method: 'POST',
-  //     headers: {
-  //       authorization:
-  //         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJpYXQiOjE2NjM4NDU3ODF9.2aFMvfGNMWWlBhf0MNQhiUCN5cHp3OceDIvZqf2JylA',
-  //       'Content-Type': 'application/json;charset=utf-8',
-  //     },
-  //     body: formData,
-  //   })
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       if (data.message === 'Create Review Success') {
-  //       } else {
-  //         alert('리뷰 등록 실패');
-  //       }
-  //     });
-  // };
+  const buyProduct = e => {
+    e.preventDefault();
+
+    fetch('http://172.20.10.10:3000/review', {
+      method: 'POST',
+      headers: {
+        authorization:
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJpYXQiOjE2NjM4NDU3ODF9.2aFMvfGNMWWlBhf0MNQhiUCN5cHp3OceDIvZqf2JylA',
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      body: JSON.stringify(payData),
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data.message === 'Success') {
+          navigate('/payment');
+        }
+      });
+  };
+
+  const goToCart = e => {
+    e.preventDefault();
+
+    fetch('http://172.20.10.10:3000/review', {
+      method: 'POST',
+      headers: {
+        authorization:
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJpYXQiOjE2NjM4NDU3ODF9.2aFMvfGNMWWlBhf0MNQhiUCN5cHp3OceDIvZqf2JylA',
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      body: JSON.stringify(payData),
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data.message === 'Success') {
+          navigate('/cart');
+        }
+      });
+  };
 
   return (
     <section className="form">
@@ -107,8 +133,12 @@ function Form({ product }) {
         </div>
       </div>
       <div className="buttons">
-        <button className="button color">구매하기</button>
-        <button className="button border cart">장바구니</button>
+        <button className="button color" onClick={buyProduct}>
+          구매하기
+        </button>
+        <button className="button border cart" onClick={goToCart}>
+          장바구니
+        </button>
         <button className="button border" onClick={changeHeart}>
           <i
             className={isHeart ? 'fa-solid fa-heart' : 'fa-regular fa-heart'}
