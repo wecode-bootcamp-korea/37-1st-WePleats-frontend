@@ -292,7 +292,9 @@
 
             .orderShipPrice {
               font-size: $fontMicro;
-              padding-bottom: 10px;
+              padding: 8px 0 10px;
+              border-top: 0.5px solid $colorLightGray;
+              margin-top: 5px;
 
               .name {
                 color: $colorGray;

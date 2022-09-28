@@ -10,13 +10,13 @@ function Payment() {
       .then(res => setOrderedItem(res.order));
   }, []);
 
+  const couponMoney = orderedItem.coupon && orderedItem.coupon[0].coupon_money;
+
   let totalPrice = 0;
   orderedItem.product !== undefined &&
     orderedItem.product.forEach(item => {
       totalPrice += item.price;
     });
-
-  // console.log(totalPrice);
 
   return (
     <div className="payment">
@@ -57,7 +57,14 @@ function Payment() {
                   <p className="phoneNum">010-8411-7442</p>
                   <p className="email">skdyds@naver.com</p>
                 </div>
-                <div className="modifyBtn">수정</div>
+                <div
+                  className="modifyBtn"
+                  onClick={() => {
+                    alert('수정하지 마세요');
+                  }}
+                >
+                  수정
+                </div>
               </div>
             </div>
             <div className="shippingInfo box">
@@ -161,13 +168,13 @@ function Payment() {
               <div className="couponBox">
                 <input
                   className="input"
-                  placeholder="0"
+                  placeholder={couponMoney}
                   name="couponPoint"
                   type="text"
                 />
                 <div className="button">전액사용</div>
               </div>
-              <p className="userPoint subText">보유 포인트 5,000</p>
+              <p className="userPoint subText">보유 포인트 {couponMoney}</p>
               <p className="pointUseInfo subText">
                 10,000원 이상 구매시 사용 가능
               </p>
@@ -178,10 +185,10 @@ function Payment() {
               <p className="title">주문 요약</p>
               <div className="outerBox">
                 {orderedItem.product !== undefined &&
-                  orderedItem.product.map(item => {
+                  orderedItem.product.map((item, index) => {
                     return (
                       <div key={item.id} className="orderProductPrice boxFlex">
-                        <p className="name">상품가격</p>
+                        <p className="name">{index === 0 && '상품 가격'}</p>
                         <p className="price">{item.price}</p>
                       </div>
                     );

@@ -33,7 +33,7 @@
     "coupon": [
       {
         "id": 1,
-        "coupon_money": 1000,
+        "coupon_money": 5000,
         "quantity": 0
       }
     ]
