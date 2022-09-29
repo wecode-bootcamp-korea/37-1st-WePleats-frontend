@@ -45,7 +45,7 @@ function Form({ product }) {
       .then(response => response.json())
       .then(data => {
         if (data.message === 'orderOK') {
-          navigate('/payment');
+          navigate('/order');
         }
       });
   };

@@ -9,7 +9,7 @@ function BestNew() {
   const menuName = params.id;
 
   useEffect(() => {
-    fetch(`http://172.17.152.42:3000/category/${menuName}`)
+    fetch(`http://172.20.10.10:3000/category/${menuName}`)
       .then(res => res.json())
       .then(res => setProducts(res.getProducts));
   }, [menuName]);

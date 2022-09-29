@@ -9,7 +9,7 @@ function Payment() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('/data/orderList.json')
+    fetch('http://172.20.10.10:3000/order')
       .then(res => res.json())
       .then(res => setOrderedItem(res.order));
   }, []);

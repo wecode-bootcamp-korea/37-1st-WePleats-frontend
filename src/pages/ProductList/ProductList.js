@@ -12,7 +12,7 @@ function ProductList() {
   const id = searchParams.get('id');
 
   useEffect(() => {
-    fetch(`http://172.17.152.42:3000/category?category=${category}&id=${id}`)
+    fetch(`http://172.20.10.10:3000/category?category=${category}&id=${id}`)
       .then(res => res.json())
       .then(res => setProducts(res.getProducts));
   }, [category, id]);
@@ -22,7 +22,7 @@ function ProductList() {
     setSearchParams(searchParams);
     const color = searchParams.get('color');
     fetch(
-      `http://172.17.152.42:3000/category?category=${category}&id=${id}&color=${color}`
+      `http://172.20.10.10:3000/category?category=${category}&id=${id}&color=${color}`
     )
       .then(res => res.json())
       .then(res => setProducts(res.getProducts));
