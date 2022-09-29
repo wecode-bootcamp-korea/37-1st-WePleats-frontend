@@ -9,14 +9,27 @@ function Main() {
   const [fadeInForth, setFadeInForth] = useState('');
   const [fadeInFifth, setFadeInFifth] = useState('');
   const [vwForSlide, setVwForSlide] = useState(25);
+  const [bestItems, setBestItems] = useState([]);
 
   useEffect(() => {
+    fetch('/data/bestItems.json', {
+      headers: {
+        authorization:
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJpYXQiOjE2NjM4NDU3ODF9.2aFMvfGNMWWlBhf0MNQhiUCN5cHp3OceDIvZqf2JylA',
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+    })
+      .then(res => res.json())
+      .then(json => setBestItems(json.category));
+
     setFadeInFirst(' fadeIn');
     setTimeout(() => {
       setFadeInSecond(' fadeIn');
     }, 200);
     window.addEventListener('scroll', thirdPopUp);
   }, []);
+
+  console.log(bestItems);
 
   const thirdPopUp = () => {
     if (window.scrollY >= 700) {
@@ -99,8 +112,8 @@ function Main() {
     }, 4000);
 
     if (
-      indexForLower === mok_Main_New.length ||
-      indexForLower === -mok_Main_New.length
+      indexForLower === bestItems.length ||
+      indexForLower === -bestItems.length
     ) {
       setTimeout(() => {
         setAnimateForLower('');
@@ -122,7 +135,7 @@ function Main() {
   return (
     <div className="outerBox">
       <div className="couponBox">
-        <div className="movingTextBox" onClick={test}>
+        <div className="movingTextBox" onDragLeave={test}>
           <div className="movingText1">누르면 쿠폰지급^^</div>
           <div className="movingText2">누르면 쿠폰지급^^</div>
         </div>
@@ -215,51 +228,51 @@ function Main() {
             className={`productSlideBox${animateForLower}`}
             style={{
               transform: `translate(${
-                -mok_Main_New.length * vwForSlide - moveLowerSlide
+                -bestItems.length * vwForSlide - moveLowerSlide
               }vw)`,
             }}
           >
-            {mok_Main_New.map(el => (
+            {bestItems.map(el => (
               <div className="slideContents copied" key={el.id}>
                 <div className="slideImageBox">
                   <img
-                    src={el.imgURL1}
+                    src={el.thumbnail_url[1]}
                     alt="sample"
                     style={{ width: `${vwForSlide}vw` }}
                   />
                 </div>
                 <div className="slideTextBox">
-                  <div className="slideProductName">{el.productName}</div>
+                  <div className="slideProductName">{el.name}</div>
                   <div className="slideProductPrice">{el.price}</div>
                 </div>
               </div>
             ))}
-            {mok_Main_New.map(el => (
+            {bestItems.map(el => (
               <div className="slideContents" key={el.id}>
                 <div className="slideImageBox">
                   <img
-                    src={el.imgURL1}
+                    src={el.thumbnail_url[1]}
                     alt="sample"
                     style={{ width: `${vwForSlide}vw` }}
                   />
                 </div>
                 <div className="slideTextBox">
-                  <div className="slideProductName">{el.productName}</div>
+                  <div className="slideProductName">{el.name}</div>
                   <div className="slideProductPrice">{el.price}</div>
                 </div>
               </div>
             ))}
-            {mok_Main_New.map(el => (
+            {bestItems.map(el => (
               <div className="slideContents copied" key={el.id}>
                 <div className="slideImageBox">
                   <img
-                    src={el.imgURL1}
+                    src={el.thumbnail_url[1]}
                     alt="sample"
                     style={{ width: `${vwForSlide}vw` }}
                   />
                 </div>
                 <div className="slideTextBox">
-                  <div className="slideProductName">{el.productName}</div>
+                  <div className="slideProductName">{el.name}</div>
                   <div className="slideProductPrice">{el.price}</div>
                 </div>
               </div>
