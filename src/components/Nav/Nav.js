@@ -41,7 +41,9 @@ function Nav() {
           </li>
           <li className="li line" />
           <li className="li myPage">
-            <i className="fa-solid fa-user" />
+            <Link to="/login">
+              <i className="fa-solid fa-user" />
+            </Link>
           </li>
           <li className="li line" />
           <li className="li cart">
