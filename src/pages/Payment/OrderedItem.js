@@ -1,9 +1,10 @@
 import React from 'react';
 
-function OrderedItem(props) {
-  const { name, price, quantity, thumbnail_url } = props.item;
+function OrderedItem({ item }) {
+  const { id, name, price, quantity, thumbnail_url } = item;
+
   return (
-    <li className="item">
+    <li className="item" key={id}>
       <div
         className="img"
         style={{
