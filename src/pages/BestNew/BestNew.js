@@ -9,7 +9,7 @@ function BestNew() {
   const menuName = params.id;
 
   useEffect(() => {
-    fetch(`http://192.168.47.96:3000/category/${menuName}`)
+    fetch(`http://172.17.152.42:3000/category/${menuName}`)
       .then(res => res.json())
       .then(res => setProducts(res.getProducts));
   }, [menuName]);
@@ -18,9 +18,10 @@ function BestNew() {
     <div className="bestnew">
       <div className="outerBox">
         <ul className="listBox">
-          {products.map(product => {
-            return <Card product={product} key={product.id} />;
-          })}
+          {products &&
+            products.map(product => {
+              return <Card product={product} key={product.id} />;
+            })}
         </ul>
       </div>
     </div>
