@@ -95,6 +95,14 @@
       "image_url": null,
       "create_at": "2022-09-25T01:36:49.000Z",
       "control": null
+    },
+    {
+      "id": 24,
+      "name": "테스트",
+      "comment": "정말 조아",
+      "image_url": null,
+      "create_at": "2022-09-25T01:36:49.000Z",
+      "control": null
     }
   ]
 }

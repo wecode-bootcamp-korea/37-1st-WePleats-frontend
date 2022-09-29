@@ -3,6 +3,7 @@ import './Modal.scss';
 
 function Modal({ clickedModal, productId, reviewInfo, selectModal }) {
   const [imageUrl, setImageUrl] = useState(reviewInfo.image_url);
+  const [registComment, setRegistComment] = useState('');
   const [editComment, setEditComment] = useState(reviewInfo.comment);
 
   useEffect(() => {
@@ -25,12 +26,17 @@ function Modal({ clickedModal, productId, reviewInfo, selectModal }) {
     setEditComment(e.target.value);
   };
 
+  const registValue = e => {
+    setRegistComment(e.target.value);
+  };
+
   const onSubmit = e => {
     e.preventDefault();
 
-    const modal = document.getElementById('modal');
-    const formData = new FormData(modal);
+    const formData = new FormData();
     formData.append('productId', productId);
+    formData.append('image', imageUrl);
+    formData.append('comment', registComment);
 
     fetch('http://172.20.10.10:3000/review', {
       method: 'POST',
@@ -55,10 +61,11 @@ function Modal({ clickedModal, productId, reviewInfo, selectModal }) {
   const onEdit = e => {
     e.preventDefault();
 
-    const modal = document.getElementById('modal');
-    const formData = new FormData(modal);
+    const formData = new FormData();
     formData.append('productId', productId);
     formData.append('reviewId', reviewInfo.id);
+    formData.append('image', imageUrl);
+    formData.append('comment', editComment);
 
     fetch('http://172.20.10.10:3000/review', {
       method: 'PATCH',
@@ -118,6 +125,8 @@ function Modal({ clickedModal, productId, reviewInfo, selectModal }) {
               name="comment"
               id="writeReviews"
               placeholder="소중한 후기를 남겨주세요"
+              value={registComment}
+              onChange={registValue}
             />
           ) : (
             <textarea

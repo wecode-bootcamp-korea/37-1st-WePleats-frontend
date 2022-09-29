@@ -9,6 +9,8 @@ function Nav() {
   useEffect(() => {
     fetch('data/nav.json', {
       headers: {
+        authorization:
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJpYXQiOjE2NjM4NDU3ODF9.2aFMvfGNMWWlBhf0MNQhiUCN5cHp3OceDIvZqf2JylA',
         'Content-Type': 'application/json;charset=utf-8',
       },
     })

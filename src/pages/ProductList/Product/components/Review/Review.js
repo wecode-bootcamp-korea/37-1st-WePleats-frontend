@@ -144,14 +144,6 @@ function Review({ productId }) {
                     </button>
                   </div>
                 )}
-                {isEdit && (
-                  <Modal
-                    clickedModal={editedModal}
-                    productId={productId}
-                    reviewInfo={reviews.find(({ control }) => control)}
-                    selectModal={selectModal}
-                  />
-                )}
                 <p className="userId">{item.name}</p>
                 <p className="postTime">
                   {item.create_at.slice(0, 10)} {item.create_at.slice(11, 16)}
@@ -160,6 +152,14 @@ function Review({ productId }) {
             </li>
           );
         })}
+        {isEdit && (
+          <Modal
+            clickedModal={editedModal}
+            productId={productId}
+            reviewInfo={reviews.find(({ control }) => control)}
+            selectModal={selectModal}
+          />
+        )}
       </ul>
       <nav className="page">
         <ul className="pagination">
@@ -175,7 +175,6 @@ function Review({ productId }) {
               {number}
             </li>
           ))}
-
           <li className="pageNum">
             <i className="fa-solid fa-chevron-right" onClick={moveNext} />
           </li>
