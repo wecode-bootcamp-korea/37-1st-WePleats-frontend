@@ -9,8 +9,7 @@ function Review({ product }) {
   const [isFiltered, setIsFiltered] = useState(false);
   const [selectModal, setSelectModal] = useState(true);
   const [offset, setOffset] = useState(0);
-  console.log(product.id);
-  // `http://172.20.10.10:3000/review/${productId}?offset=${offset}&limit=5`
+
   useEffect(() => {
     fetch(
       `http://172.20.10.10:3000/review/${product.id}?offset=${offset}&limit=5`,
