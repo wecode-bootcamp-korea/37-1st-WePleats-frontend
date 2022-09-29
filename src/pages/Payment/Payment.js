@@ -39,7 +39,7 @@ function Payment() {
 
   const orderBtn = () => {
     alert('결제 완료되었습니다.');
-    navigate('/main');
+    navigate('/');
   };
 
   return (
