@@ -151,7 +151,7 @@ function Main() {
   };
 
   const goSticker = () => {
-    navigate('/category?category=sub&id=12');
+    navigate('/category?category=sub&id=13');
   };
 
   const goProduct = event => {
