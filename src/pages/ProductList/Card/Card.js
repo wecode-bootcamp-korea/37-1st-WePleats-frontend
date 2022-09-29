@@ -13,7 +13,9 @@ function Card({ product }) {
         <div className="imgBoxWrap">
           <div className="imgBox">
             <img
-              onMouseOver={() => setIsHover(true)}
+              onMouseOver={e => {
+                setIsHover(true);
+              }}
               onMouseLeave={() => setIsHover(false)}
               className="img"
               src={imgUrl}
