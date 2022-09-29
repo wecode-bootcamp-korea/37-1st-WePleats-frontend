@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import OrderedItem from './OrderedItem';
 import './Payment.scss';
 
 function Payment() {
   const [orderedItem, setOrderedItem] = useState({});
+  const [isCoupon, setIsCoupon] = useState(false);
+  const navigate = useNavigate();
+
   useEffect(() => {
     fetch('/data/orderList.json')
       .then(res => res.json())
@@ -17,6 +21,17 @@ function Payment() {
     orderedItem.product.forEach(item => {
       totalPrice += item.price;
     });
+
+  let savePoint = totalPrice * 0.5;
+
+  const useCoupon = () => {
+    setIsCoupon(!isCoupon);
+  };
+
+  const orderBtn = () => {
+    alert('결제 완료되었습니다.');
+    navigate('/main');
+  };
 
   return (
     <div className="payment">
@@ -39,7 +54,7 @@ function Payment() {
             </div>
             <div className="orderInfo box">
               <p className="title">주문자 정보</p>
-              <p className="text">
+              <div className="text">
                 <p className="before">
                   ! 주문하기 전 : 마이페이지 내 다운로드 가능한 쿠폰이
                   있는지확인해 주세요
@@ -50,11 +65,11 @@ function Payment() {
                   남겨주시면 감사하겠습니다. 또한, 주문 후 72시간내로 입금이
                   되지 않으면, 자동 주문 취소 됩니다.
                 </p>
-              </p>
+              </div>
               <div className="userInfoBox">
                 <div className="userInfo">
-                  <p className="name">라용</p>
-                  <p className="phoneNum">010-8411-7442</p>
+                  <p className="name">{orderedItem.name}</p>
+                  <p className="phoneNum">{orderedItem.phone_number}</p>
                   <p className="email">skdyds@naver.com</p>
                 </div>
                 <div
@@ -101,7 +116,14 @@ function Payment() {
                     placeholder="우편번호"
                     autoComplete="username"
                   />
-                  <div className="findAddressBtn">주소 찾기</div>
+                  <div
+                    className="findAddressBtn"
+                    onClick={() => {
+                      alert('주소 찾지 마세요.');
+                    }}
+                  >
+                    주소 찾기
+                  </div>
                   <input
                     className="address input"
                     name="address"
@@ -152,7 +174,14 @@ function Payment() {
                   name="couponCount"
                   type="text"
                 />
-                <div className="button">쿠폰적용</div>
+                <div
+                  className="button"
+                  onClick={() => {
+                    alert('쿠폰은 다음 기회에 쓰세요.');
+                  }}
+                >
+                  쿠폰적용
+                </div>
               </div>
               <p className="name">쿠폰번호</p>
               <div className="couponBox">
@@ -162,19 +191,30 @@ function Payment() {
                   name="couponNum"
                   type="text"
                 />
-                <div className="button">코드확인</div>
+                <div
+                  className="button"
+                  onClick={() => {
+                    alert('당신의 쿠폰 번호는 궁금하지 않습니다.');
+                  }}
+                >
+                  코드확인
+                </div>
               </div>
               <p className="name">포인트</p>
               <div className="couponBox">
                 <input
                   className="input"
-                  placeholder={couponMoney}
+                  placeholder={!isCoupon ? couponMoney : 0}
                   name="couponPoint"
                   type="text"
                 />
-                <div className="button">전액사용</div>
+                <div className="button" onClick={useCoupon}>
+                  전액사용
+                </div>
               </div>
-              <p className="userPoint subText">보유 포인트 {couponMoney}</p>
+              <p className="userPoint subText">
+                보유 포인트 {!isCoupon ? couponMoney : 0}
+              </p>
               <p className="pointUseInfo subText">
                 10,000원 이상 구매시 사용 가능
               </p>
@@ -189,10 +229,16 @@ function Payment() {
                     return (
                       <div key={item.id} className="orderProductPrice boxFlex">
                         <p className="name">{index === 0 && '상품 가격'}</p>
-                        <p className="price">{item.price}</p>
+                        <p className="price">{item.price.toLocaleString()}</p>
                       </div>
                     );
                   })}
+                {isCoupon && (
+                  <div className="orderPointPrice boxFlex">
+                    <p className="name">포인트</p>
+                    <p className="price">- {couponMoney}</p>
+                  </div>
+                )}
                 <div className="orderShipPrice boxFlex">
                   <p className="name">배송비</p>
                   <p className="price">무료</p>
@@ -201,10 +247,18 @@ function Payment() {
               <div className="outerBox">
                 <div className="orderTotalPrice boxFlex">
                   <p className="name">총 주문금액</p>
-                  <p className="price">{totalPrice}원</p>
+                  <p className="price">
+                    {!isCoupon
+                      ? totalPrice.toLocaleString()
+                      : (totalPrice - couponMoney).toLocaleString()}
+                    원
+                  </p>
                 </div>
               </div>
-              <p className="savePoint">1,770 포인트 적립 예정</p>
+              <p className="savePoint">
+                <span className="string">{savePoint.toLocaleString()}</span>{' '}
+                포인트 적립 예정
+              </p>
             </div>
             <div className="paymentMethod box">
               <p className="title">결제 수단</p>
@@ -272,7 +326,9 @@ function Payment() {
                   <span className="text">구매조건 확인 및 결제진행에 동의</span>
                 </label>
               </div>
-              <div className="payBtn">결제하기</div>
+              <div className="payBtn" onClick={orderBtn}>
+                결제하기
+              </div>
             </div>
           </div>
         </div>

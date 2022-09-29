@@ -1,17 +1,13 @@
 @import '../../styles/variables.scss';
 
-// body {
-//   background: #efefef;
-// }
-
 .payment {
-  height: 2000px;
+  height: 1900px;
   font-family: $NotoSans;
   background: #efefef;
 
   .paymentBox {
     width: 750px;
-    padding-top: 50px;
+    padding-top: 30px;
     margin: 0 auto 100px;
 
     .header {
@@ -271,7 +267,8 @@
         flex: 1;
         margin-bottom: 15px;
         position: sticky;
-        height: 800px;
+        height: 570px;
+        // height: 537px;
         top: 15px;
 
         .orderSummary {
@@ -290,9 +287,10 @@
               }
             }
 
-            .orderShipPrice {
+            .orderShipPrice,
+            .orderPointPrice {
               font-size: $fontMicro;
-              padding: 8px 0 10px;
+              padding: 5px 0 5px;
               border-top: 0.5px solid $colorLightGray;
               margin-top: 5px;
 
@@ -318,6 +316,10 @@
             font-size: $fontMicro;
             color: $colorDarkGray;
             background: $colorLightGray;
+
+            .string {
+              font-weight: bold;
+            }
           }
         }
 
@@ -367,6 +369,7 @@
             font-size: $fontSmall;
             color: white;
             background: $colorDarkGray;
+            cursor: pointer;
           }
         }
       }
