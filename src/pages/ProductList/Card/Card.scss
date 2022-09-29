@@ -1,0 +1,39 @@
+@import '../../../styles/variables.scss';
+
+.card {
+  width: 25%;
+  padding: 0 1px;
+  font-size: $fontSmall;
+  font-family: $NotoSans;
+
+  .imgBoxWrap {
+    width: 100%;
+
+    .imgBox {
+      position: relative;
+      padding-top: 100%;
+      overflow: hidden;
+
+      .img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .desc {
+    padding: 20px 0 50px;
+    color: $colorDarkGray;
+
+    .name {
+      margin-bottom: 5px;
+      font-weight: $weightBold;
+    }
+  }
+}
