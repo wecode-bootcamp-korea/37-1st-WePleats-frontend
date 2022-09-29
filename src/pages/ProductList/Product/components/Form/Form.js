@@ -33,7 +33,7 @@ function Form({ product }) {
   const buyProduct = e => {
     e.preventDefault();
 
-    fetch('http://172.20.10.10:3000/review', {
+    fetch('http://172.20.10.10:3000/order/product', {
       method: 'POST',
       headers: {
         authorization:
@@ -44,7 +44,7 @@ function Form({ product }) {
     })
       .then(response => response.json())
       .then(data => {
-        if (data.message === 'Success') {
+        if (data.message === 'orderOK') {
           navigate('/payment');
         }
       });
@@ -53,7 +53,7 @@ function Form({ product }) {
   const goToCart = e => {
     e.preventDefault();
 
-    fetch('http://172.20.10.10:3000/review', {
+    fetch('http://172.20.10.10:3000/cart', {
       method: 'POST',
       headers: {
         authorization:
@@ -64,7 +64,7 @@ function Form({ product }) {
     })
       .then(response => response.json())
       .then(data => {
-        if (data.message === 'Success') {
+        if (data.message === 'Add cart to product Success') {
           navigate('/cart');
         }
       });

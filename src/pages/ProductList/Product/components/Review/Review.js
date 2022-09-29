@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Modal from '../Modal/Modal';
 import './Review.scss';
 
-function Review({ productId }) {
+function Review({ product }) {
   const [reviews, setReviews] = useState([]);
   const [isClicked, setIsClicked] = useState(false);
   const [isEdit, setIsEdit] = useState(false);
@@ -10,22 +10,24 @@ function Review({ productId }) {
   const [selectModal, setSelectModal] = useState(true);
   const [offset, setOffset] = useState(0);
 
-  // `http://172.20.10.10:3000/review/offset=${offset}&limit=5`
   useEffect(() => {
-    fetch('/data/reviews.json', {
-      headers: {
-        authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJpYXQiOjE2NjM4NDU3ODF9.2aFMvfGNMWWlBhf0MNQhiUCN5cHp3OceDIvZqf2JylA',
-        'Content-Type': 'application/json;charset=utf-8',
-      },
-    })
+    fetch(
+      `http://172.20.10.10:3000/review/${product.id}?offset=${offset}&limit=5`,
+      {
+        headers: {
+          authorization:
+            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJpYXQiOjE2NjM4NDU3ODF9.2aFMvfGNMWWlBhf0MNQhiUCN5cHp3OceDIvZqf2JylA',
+          'Content-Type': 'application/json;charset=utf-8',
+        },
+      }
+    )
       .then(res => res.json())
       .then(data => {
         setReviews(data.review);
       });
   }, [offset]);
 
-  const maxNumber = Math.ceil(reviews.length / 5);
+  const maxNumber = Math.ceil(product.reviewCount / 5);
   const pageCountArr = (reviews => {
     let result = [];
 
@@ -64,9 +66,9 @@ function Review({ productId }) {
 
   const deleteThis = e => {
     fetch(
-      `http://172.20.10.10:3000/review?reviewId=${Number(
-        e.target.id
-      )}&productId=${productId}`,
+      `http://172.20.10.10:3000/review/?productId=${
+        product.id
+      }&reviewId=${Number(e.target.id)}`,
       {
         method: 'DELETE',
         headers: {
@@ -88,7 +90,7 @@ function Review({ productId }) {
   return (
     <section className="review">
       <div className="header">
-        <h1 className="title">구매평({reviews && reviews.length})</h1>
+        <h1 className="title">구매평({product.reviewCount})</h1>
         <div className="text">상품을 구매하신 분들이 작성한 리뷰입니다.</div>
         <div className="reviewBtn">
           <button className="addBtn" onClick={clickedModal}>
@@ -97,7 +99,7 @@ function Review({ productId }) {
           {isClicked && (
             <Modal
               clickedModal={clickedModal}
-              productId={productId}
+              productId={product.id}
               reviewInfo={setReviews}
               selectModal={selectModal}
             />
@@ -155,7 +157,7 @@ function Review({ productId }) {
         {isEdit && (
           <Modal
             clickedModal={editedModal}
-            productId={productId}
+            productId={product.id}
             reviewInfo={reviews.find(({ control }) => control)}
             selectModal={selectModal}
           />
