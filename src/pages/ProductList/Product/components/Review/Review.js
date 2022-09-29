@@ -11,10 +11,9 @@ function Review({ productId }) {
   const [isFiltered, setIsFiltered] = useState(false);
   const [selectModal, setSelectModal] = useState(true);
   const offset = searchParams.get('offset');
-  const limit = searchParams.get('limit');
-  // reviews/offset=${offset}&limit={limit}
+
   useEffect(() => {
-    fetch(`http://172.20.10.10:3000/review/offset=${offset}&limit=${limit}`, {
+    fetch('data/reviews.json', {
       headers: {
         authorization:
           'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJpYXQiOjE2NjM4NDU3ODF9.2aFMvfGNMWWlBhf0MNQhiUCN5cHp3OceDIvZqf2JylA',
@@ -25,7 +24,7 @@ function Review({ productId }) {
       .then(data => {
         setReviews(data.review);
       });
-  }, []);
+  }, [offset]);
 
   const pageCountArr = (reviews => {
     let result = [];
@@ -45,7 +44,6 @@ function Review({ productId }) {
   };
 
   const pageNumberNow = offset / 5 + 1;
-  console.log(pageNumberNow);
 
   const movePrevious = () => {
     searchParams.set('offset', (pageNumberNow - 2) * 5);

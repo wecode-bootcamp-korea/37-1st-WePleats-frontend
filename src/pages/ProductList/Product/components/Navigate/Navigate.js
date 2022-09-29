@@ -6,9 +6,9 @@ function Navigate({ product }) {
   return (
     <nav className="nav">
       <ul className="subMenu">
-        <Link to="/">
-          <li className="li home">Home</li>
-        </Link>
+        <li className="li home">
+          <Link to="/">Home</Link>
+        </li>
         <li className="li">
           <i className="fa-thin fa-greater-than" />
         </li>
