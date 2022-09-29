@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Main.scss';
 
 function Main() {
@@ -10,9 +11,11 @@ function Main() {
   const [fadeInFifth, setFadeInFifth] = useState('');
   const [vwForSlide, setVwForSlide] = useState(25);
   const [bestItems, setBestItems] = useState([]);
-
+  const [isMouseOver, setMouseOver] = useState(0);
+  const [newItems, setNewItems] = useState([]);
+  const navigate = useNavigate();
   useEffect(() => {
-    fetch('/data/bestItems.json', {
+    fetch('http://172.17.152.42:3000/category/best', {
       headers: {
         authorization:
           'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJpYXQiOjE2NjM4NDU3ODF9.2aFMvfGNMWWlBhf0MNQhiUCN5cHp3OceDIvZqf2JylA',
@@ -20,7 +23,11 @@ function Main() {
       },
     })
       .then(res => res.json())
-      .then(json => setBestItems(json.category));
+      .then(json => setBestItems(json.getProducts));
+
+    fetch('/data/newItems.json')
+      .then(res => res.json())
+      .then(json => setNewItems(json.category));
 
     setFadeInFirst(' fadeIn');
     setTimeout(() => {
@@ -29,13 +36,11 @@ function Main() {
     window.addEventListener('scroll', thirdPopUp);
   }, []);
 
-  console.log(bestItems);
-
   const thirdPopUp = () => {
-    if (window.scrollY >= 700) {
+    if (window.scrollY >= 600) {
       setFadeInThird(' fadeIn');
     }
-    if (window.scrollY >= 1600) {
+    if (window.scrollY >= 1300) {
       setFadeInForth(' fadeIn');
       setTimeout(() => {
         setFadeInFifth(' fadeIn');
@@ -54,8 +59,7 @@ function Main() {
       setVwForSlide(20);
     }
   }, [size]);
-
-  //** 상단 슬라이드 이미지 **
+  //** 상단 슬라이드 **
   const [indexForUpper, setIndexForUpper] = useState(0);
   const [animateForUpper, setAnimateForUpper] = useState(' animate');
 
@@ -78,8 +82,8 @@ function Main() {
 
   useEffect(() => {
     if (
-      indexForUpper === mok_Main_Best.length ||
-      indexForUpper === -mok_Main_Best.length
+      indexForUpper === newItems.length ||
+      indexForUpper === -newItems.length
     ) {
       setTimeout(() => {
         setAnimateForUpper('');
@@ -92,7 +96,7 @@ function Main() {
     }
   }, [indexForUpper]);
 
-  //** 아랫쪽 슬라이드 이미지 **
+  //** 아랫쪽 슬라이드  **
   const [indexForLower, setIndexForLower] = useState(0);
   const [animateForLower, setAnimateForLower] = useState(' animate');
 
@@ -132,10 +136,36 @@ function Main() {
     alert('구라야^^');
   };
 
+  const makeHover = event => {
+    setMouseOver(Number(event.target.id));
+  };
+
+  const deleteHover = () => {
+    setMouseOver(-1);
+  };
+
+  const goNew = () => {
+    navigate('/category/new');
+  };
+
+  const goBest = () => {
+    navigate('/category/best');
+  };
+
+  const goSticker = () => {
+    navigate('/category?category=sub&id=12');
+  };
+
+  const goProduct = event => {
+    navigate(`/product/${Number(event.target.id)}`);
+  };
+
+  if (!bestItems) return;
+
   return (
     <div className="outerBox">
       <div className="couponBox">
-        <div className="movingTextBox" onDragLeave={test}>
+        <div className="movingTextBox" onClick={test}>
           <div className="movingText1">누르면 쿠폰지급^^</div>
           <div className="movingText2">누르면 쿠폰지급^^</div>
         </div>
@@ -144,28 +174,40 @@ function Main() {
         <div className="upperBox">
           <div className="spaceBox" />
           <div className="mainPicBox">
-            <div className={`newestItem${fadeInFirst}`}>
+            <div className={`newestItem${fadeInFirst}`} onClick={goNew}>
               <div
                 className={`upperSlideBox${animateForUpper}`}
                 style={{
                   transform: `translate(${
-                    -mok_Main_Best.length * 41 - moveUpperSlide
+                    -newItems.length * 41 - moveUpperSlide
                   }vw)`,
                 }}
               >
-                {mok_Main_Best.map(el => (
+                {newItems.map(el => (
                   <div className="pictureBox1 copied" key={el.id}>
-                    <img className="mainPic" src={el.imgURL2} alt="newest" />
+                    <img
+                      className="mainPic"
+                      src={el.thumbnail_url}
+                      alt="newest"
+                    />
                   </div>
                 ))}
-                {mok_Main_Best.map(el => (
+                {newItems.map(el => (
                   <div className="pictureBox1" key={el.id}>
-                    <img className="mainPic" src={el.imgURL2} alt="newest" />
+                    <img
+                      className="mainPic"
+                      src={el.thumbnail_url}
+                      alt="newest"
+                    />
                   </div>
                 ))}
-                {mok_Main_Best.map(el => (
+                {newItems.map(el => (
                   <div className="pictureBox1 copied" key={el.id}>
-                    <img className="mainPic" src={el.imgURL2} alt="newest" />
+                    <img
+                      className="mainPic"
+                      src={el.thumbnail_url}
+                      alt="newest"
+                    />
                   </div>
                 ))}
               </div>
@@ -187,14 +229,14 @@ function Main() {
                   src="/images/right-direction.png"
                   alt="direction"
                 />
-                <span> 2022 FW 1st Drop, "The Daily Traveler"</span>
+                <span> 2022 FW 1st Drop, "The Today Debugger"</span>
               </div>
             </div>
-            <div className={`bestItem${fadeInSecond}`}>
+            <div className={`bestItem${fadeInSecond}`} onClick={goBest}>
               <div className="pictureBox2">
                 <img
                   className="mainPic"
-                  src="/images/sample2.jpeg"
+                  src="/images/mainSecond.jpg"
                   alt="best"
                 />
               </div>
@@ -236,14 +278,28 @@ function Main() {
               <div className="slideContents copied" key={el.id}>
                 <div className="slideImageBox">
                   <img
-                    src={el.thumbnail_url[1]}
+                    src={
+                      el.id === isMouseOver
+                        ? el.thumbnail_url[1]
+                        : el.thumbnail_url[0]
+                    }
                     alt="sample"
-                    style={{ width: `${vwForSlide}vw` }}
+                    style={{
+                      width: `${vwForSlide}vw`,
+                      height: `${vwForSlide * 1.2}vw`,
+                      objectFit: 'cover',
+                    }}
+                    onMouseOver={makeHover}
+                    onMouseLeave={deleteHover}
+                    id={el.id}
+                    onClick={goProduct}
                   />
                 </div>
                 <div className="slideTextBox">
                   <div className="slideProductName">{el.name}</div>
-                  <div className="slideProductPrice">{el.price}</div>
+                  <div className="slideProductPrice">
+                    {el.price.toLocaleString()}원
+                  </div>
                 </div>
               </div>
             ))}
@@ -251,14 +307,28 @@ function Main() {
               <div className="slideContents" key={el.id}>
                 <div className="slideImageBox">
                   <img
-                    src={el.thumbnail_url[1]}
+                    src={
+                      el.id === isMouseOver
+                        ? el.thumbnail_url[1]
+                        : el.thumbnail_url[0]
+                    }
                     alt="sample"
-                    style={{ width: `${vwForSlide}vw` }}
+                    style={{
+                      width: `${vwForSlide}vw`,
+                      height: `${vwForSlide * 1.2}vw`,
+                      objectFit: 'cover',
+                    }}
+                    onMouseOver={makeHover}
+                    onMouseLeave={deleteHover}
+                    id={el.id}
+                    onClick={goProduct}
                   />
                 </div>
                 <div className="slideTextBox">
                   <div className="slideProductName">{el.name}</div>
-                  <div className="slideProductPrice">{el.price}</div>
+                  <div className="slideProductPrice">
+                    {el.price.toLocaleString()}원
+                  </div>
                 </div>
               </div>
             ))}
@@ -266,14 +336,28 @@ function Main() {
               <div className="slideContents copied" key={el.id}>
                 <div className="slideImageBox">
                   <img
-                    src={el.thumbnail_url[1]}
+                    src={
+                      el.id === isMouseOver
+                        ? el.thumbnail_url[1]
+                        : el.thumbnail_url[0]
+                    }
                     alt="sample"
-                    style={{ width: `${vwForSlide}vw` }}
+                    style={{
+                      width: `${vwForSlide}vw`,
+                      height: `${vwForSlide * 1.2}vw`,
+                      objectFit: 'cover',
+                    }}
+                    onMouseOver={makeHover}
+                    onMouseLeave={deleteHover}
+                    id={el.id}
+                    onClick={goProduct}
                   />
                 </div>
                 <div className="slideTextBox">
                   <div className="slideProductName">{el.name}</div>
-                  <div className="slideProductPrice">{el.price}</div>
+                  <div className="slideProductPrice">
+                    {el.price.toLocaleString()}원
+                  </div>
                 </div>
               </div>
             ))}
@@ -283,40 +367,44 @@ function Main() {
         <div className="middleBottomBox">
           <div className="spaceBox" />
           <div className="mainPicBox">
-            <div className={`middleBottomFirstBox${fadeInForth}`}>
-              <div className="pictureBox1">
-                <img
-                  className="mainPic"
-                  src="/images/sample1.jpeg"
-                  alt="newest"
-                />
+            <a href="https://wecode.co.kr/">
+              <div className={`middleBottomFirstBox${fadeInForth}`}>
+                <div className="pictureBox1">
+                  <img
+                    className="mainPic"
+                    src="/images/set4.jpeg"
+                    alt="newest"
+                  />
+                </div>
+                <div className="mainPicTextBox">
+                  <img
+                    className="direction"
+                    src="/images/right-direction.png"
+                    alt="direction"
+                  />
+                  <span> 새로운 프로젝트를 기다리는 설렘</span>
+                </div>
               </div>
-              <div className="mainPicTextBox">
-                <img
-                  className="direction"
-                  src="/images/right-direction.png"
-                  alt="direction"
-                />
-                <span> 새로운 계절을 기다리는 설렘</span>
+            </a>
+            <a href="https://wecode.co.kr/consult">
+              <div className={`middleBottomSecondBox${fadeInFifth}`}>
+                <div className="pictureBox2">
+                  <img
+                    className="mainPic"
+                    src="/images/wecode.jpg"
+                    alt="best"
+                  />
+                </div>
+                <div className="mainPicTextBox">
+                  <img
+                    className="direction"
+                    src="/images/right-direction.png"
+                    alt="direction"
+                  />
+                  <span> 수강생을 기다리는 위코드</span>
+                </div>
               </div>
-            </div>
-            <div className={`middleBottomSecondBox${fadeInFifth}`}>
-              <div className="pictureBox2">
-                <img
-                  className="mainPic"
-                  src="/images/sample2.jpeg"
-                  alt="best"
-                />
-              </div>
-              <div className="mainPicTextBox">
-                <img
-                  className="direction"
-                  src="/images/right-direction.png"
-                  alt="direction"
-                />
-                <span> 러브에디션</span>
-              </div>
-            </div>
+            </a>
           </div>
           <div className="spaceBox" />
         </div>
@@ -324,22 +412,26 @@ function Main() {
           <div className="eventContentsBox">
             <div className="eventInsideBox">
               <div className="innerContentsBox">
-                <div className="eventImgBox">
-                  <img src="/images/sample1.jpeg" alt="sample" />
+                <div className="eventImgBox" onClick={goSticker}>
+                  <img src="/images/sticker.jpg" alt="sample" />
                 </div>
-                <div>OCEAN EDITION</div>
+                <div>GET STICKER</div>
               </div>
               <div className="innerContentsBox">
                 <div className="eventImgBox">
-                  <img src="/images/sample1.jpeg" alt="sample" />
+                  <img
+                    className="extraOne"
+                    src="/images/cutYourMac.jpg"
+                    alt="sample"
+                  />
                 </div>
-                <div>PROCESS OF PLASTIC TURNING INTO PLEATSMAMA</div>
+                <div>CUT YOUR MAC</div>
               </div>
               <div className="innerContentsBox">
                 <div className="eventImgBox">
-                  <img src="/images/sample1.jpeg" alt="sample" />
+                  <img src="/images/gangNam.jpg" alt="sample" />
                 </div>
-                <div>PLMA_LAb edition</div>
+                <div>WECODE FREE BEER</div>
               </div>
             </div>
           </div>
@@ -349,114 +441,6 @@ function Main() {
       </div>
     </div>
   );
-  return <div>Main!</div>;
 }
 
 export default Main;
-
-const mok_Main_New = [
-  {
-    id: 1,
-    productName: 'good',
-    price: '59,000원',
-    imgURL1: '/images/sample1.jpeg',
-    imgURL2: '',
-  },
-  {
-    id: 2,
-    productName: 'good',
-    price: '59,000원',
-    imgURL1:
-      'https://velog.velcdn.com/images/rayong/post/a04a2a62-2352-4827-8190-eaa84dcbec7f/image.jpg',
-    imgURL2: '',
-  },
-  {
-    id: 3,
-    productName: 'good',
-    price: '59,000원',
-    imgURL1:
-      'https://velog.velcdn.com/images/rayong/post/a04a2a62-2352-4827-8190-eaa84dcbec7f/image.jpg',
-    imgURL2: '',
-  },
-  {
-    id: 4,
-    productName: 'good',
-    price: '59,000원',
-    imgURL1:
-      'https://velog.velcdn.com/images/rayong/post/a04a2a62-2352-4827-8190-eaa84dcbec7f/image.jpg',
-    imgURL2: '',
-  },
-  {
-    id: 5,
-    productName: 'good',
-    price: '59,000원',
-    imgURL1:
-      'https://velog.velcdn.com/images/rayong/post/a04a2a62-2352-4827-8190-eaa84dcbec7f/image.jpg',
-    imgURL2: '',
-  },
-  {
-    id: 6,
-    productName: 'good',
-    price: '59,000원',
-    imgURL1:
-      'https://velog.velcdn.com/images/rayong/post/a04a2a62-2352-4827-8190-eaa84dcbec7f/image.jpg',
-    imgURL2: '',
-  },
-  {
-    id: 7,
-    productName: 'good',
-    price: '59,000원',
-    imgURL1:
-      'https://velog.velcdn.com/images/rayong/post/a04a2a62-2352-4827-8190-eaa84dcbec7f/image.jpg',
-    imgURL2: '',
-  },
-  {
-    id: 8,
-    productName: 'good',
-    price: '59,000원',
-    imgURL1:
-      'https://velog.velcdn.com/images/rayong/post/a04a2a62-2352-4827-8190-eaa84dcbec7f/image.jpg',
-    imgURL2: '',
-  },
-  {
-    id: 9,
-    productName: 'good',
-    price: '59,000원',
-    imgURL1:
-      'https://velog.velcdn.com/images/rayong/post/a04a2a62-2352-4827-8190-eaa84dcbec7f/image.jpg',
-    imgURL2: '',
-  },
-  {
-    id: 10,
-    productName: 'good',
-    price: '59,000원',
-    imgURL1:
-      'https://velog.velcdn.com/images/rayong/post/a04a2a62-2352-4827-8190-eaa84dcbec7f/image.jpg',
-    imgURL2: '',
-  },
-  {
-    id: 11,
-    productName: 'good',
-    price: '59,000원',
-    imgURL1:
-      'https://velog.velcdn.com/images/rayong/post/a04a2a62-2352-4827-8190-eaa84dcbec7f/image.jpg',
-    imgURL2: '',
-  },
-  {
-    id: 12,
-    productName: 'good',
-    price: '59,000원',
-    imgURL1:
-      'https://velog.velcdn.com/images/rayong/post/a04a2a62-2352-4827-8190-eaa84dcbec7f/image.jpg',
-    imgURL2: '',
-  },
-];
-
-const mok_Main_Best = [
-  { id: 1, productName: 'bad', imgURL1: '', imgURL2: '/images/sample1.jpeg' },
-  { id: 2, productName: 'bad', imgURL1: '', imgURL2: '/images/sample2.jpeg' },
-  { id: 3, productName: 'bad', imgURL1: '', imgURL2: '/images/sample12.jpeg' },
-  { id: 4, productName: 'bad', imgURL1: '', imgURL2: '/images/sample4.jpeg' },
-  { id: 5, productName: 'bad', imgURL1: '', imgURL2: '/images/sample5.jpeg' },
-  { id: 6, productName: 'bad', imgURL1: '', imgURL2: '/images/sample6.jpeg' },
-];

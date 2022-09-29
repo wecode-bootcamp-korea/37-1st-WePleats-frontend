@@ -7,6 +7,7 @@ a {
 
 .navBox {
   position: fixed;
+  top: 0;
   width: 100%;
   height: 60px;
   margin: 0 auto;
@@ -15,6 +16,7 @@ a {
   font-size: $fontSmall;
   font-family: $Montserrat;
   font-weight: $weightBold;
+  z-index: 1;
 
   &:hover .navDropDown {
     height: 180px;
@@ -124,7 +126,6 @@ a {
     background-color: $colorWhite;
     transition: height 0.4s ease-out;
     font-weight: $weightRegular;
-    z-index: 1;
 
     .dropDown {
       display: flex;
