@@ -8,6 +8,7 @@
   height: 100vh;
   background-color: $colorBlack;
   opacity: 0.8;
+  z-index: 2;
 }
 #modal {
   position: fixed;
@@ -19,6 +20,7 @@
   padding: 30px;
   background-color: $colorWhite;
   text-align: center;
+  z-index: 3;
 
   .modalHeader {
     margin: 10px 0;

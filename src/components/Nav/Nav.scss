@@ -1,0 +1,172 @@
+@import '../../styles/variables.scss';
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.navBox {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  margin: 0 auto;
+  background-color: $colorWhite;
+  color: $colorBlack;
+  font-size: $fontSmall;
+  font-family: $Montserrat;
+  font-weight: $weightBold;
+  z-index: 1;
+
+  &:hover .navDropDown {
+    height: 180px;
+    border-bottom: 1px solid $colorBlack;
+  }
+
+  .nav {
+    @include flexSort(space-between, center);
+    height: 60px;
+    padding: 0 3%;
+    border-bottom: 1px solid $colorBlack;
+
+    .menu {
+      @include flexSort('', center);
+
+      .li {
+        margin: 0 20px;
+      }
+
+      .li:hover {
+        color: $colorGray;
+        cursor: pointer;
+      }
+
+      .logo {
+        margin-left: 0;
+        font-size: 28px;
+        font-family: $Josefin;
+        font-weight: $weightBold;
+      }
+
+      .logo:hover {
+        color: $colorBlack;
+      }
+    }
+
+    .userInfo {
+      @include flexSort('', center);
+
+      .li {
+        margin: 0 7px;
+      }
+
+      .line {
+        width: 1px;
+        height: 10px;
+        background-color: #d3d3d3;
+      }
+
+      .name {
+        font-size: $fontMicro;
+        font-weight: $weightRegular;
+        cursor: pointer;
+      }
+
+      .name:hover {
+        color: $colorGray;
+      }
+
+      .myPage {
+        font-size: $fontMedium;
+      }
+
+      .myPage:hover {
+        color: $colorGray;
+      }
+
+      .cart {
+        position: relative;
+        font-size: $fontMedium;
+      }
+
+      .cart:hover {
+        color: $colorGray;
+      }
+
+      .count {
+        position: absolute;
+        top: -10%;
+        left: 55%;
+        width: 15px;
+        height: 15px;
+        line-height: 15px;
+        text-align: center;
+        font-size: 8px;
+        color: $colorWhite;
+        background-color: $colorRed;
+        border-radius: 50%;
+      }
+
+      .search {
+        font-size: $fontMedium;
+      }
+
+      .search:hover {
+        color: $colorGray;
+      }
+    }
+  }
+
+  .navDropDown {
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    margin: 0;
+    height: 0;
+    background-color: $colorWhite;
+    transition: height 0.4s ease-out;
+    font-weight: $weightRegular;
+
+    .dropDown {
+      display: flex;
+      padding: 0 3%;
+
+      .li {
+        margin: 25px 20px;
+      }
+
+      .best {
+        margin-left: 164px;
+
+        &:hover {
+          color: $colorGray;
+          cursor: pointer;
+        }
+      }
+
+      .new {
+        &:hover {
+          color: $colorGray;
+          cursor: pointer;
+        }
+      }
+
+      .Mouse {
+        margin-left: 30px;
+      }
+
+      .etc {
+        margin-left: 12px;
+      }
+
+      .sub {
+        margin-bottom: 10px;
+
+        &:hover {
+          color: $colorGray;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
