@@ -1,0 +1,147 @@
+@import '../../../../../styles/variables.scss';
+
+.productBox {
+  .review {
+    text-align: center;
+
+    .header {
+      .title {
+        margin: 60px 0 20px;
+      }
+
+      .text {
+        margin: 10px 0 30px;
+      }
+
+      .reviewBtn {
+        font-size: $fontRegular;
+        color: $colorDarkGray;
+
+        .addBtn {
+          width: 150px;
+          height: 50px;
+          border: 1px solid $colorGray;
+          background-color: transparent;
+
+          &:hover {
+            color: $colorBlack;
+            border: 1px solid $colorBlack;
+          }
+        }
+      }
+
+      .filter {
+        @include flexSort(center, center);
+        margin: 60px 0 20px;
+        font-size: $fontRegular;
+
+        .text {
+          margin: 0;
+          padding-left: 10px;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .border {
+      width: 100%;
+      height: 1px;
+      background-color: $colorBlack;
+    }
+
+    .lists {
+      margin-bottom: 30px;
+
+      .list {
+        @include flexSort(space-between, center);
+        padding: 20px 10px;
+        border-bottom: 1px solid $colorLightGray;
+        text-align: left;
+
+        .content {
+          width: 100%;
+
+          .review {
+            width: 100%;
+            text-align: left;
+            font-size: $fontRegular;
+          }
+
+          .images {
+            @include flexSort('', center);
+
+            .image {
+              @include flexCenter;
+              width: 60px;
+              height: 60px;
+              margin-right: 5px;
+              overflow: hidden;
+
+              .img {
+                width: 100%;
+              }
+            }
+          }
+        }
+
+        .userInfo {
+          width: 30%;
+          color: $colorGray;
+          font-size: $fontMicro;
+
+          .editReviewBtn {
+            text-align: right;
+
+            .editBtn {
+              margin-right: 3px;
+              font-size: $fontRegular;
+              color: $colorGray;
+              background-color: transparent;
+              transition: all 500ms ease;
+
+              &:hover {
+                color: $colorBlack;
+              }
+            }
+
+            .deleteBtn {
+              width: 20px;
+              height: 20px;
+              background-color: rebeccapurple;
+              font-size: $fontRegular;
+              color: $colorGray;
+              background-color: transparent;
+              transition: all 500ms ease;
+
+              &:hover {
+                color: #ff6363;
+              }
+            }
+          }
+
+          .userId {
+            margin-bottom: 5px;
+          }
+        }
+      }
+    }
+
+    .page {
+      margin-bottom: 100px;
+      color: $colorGray;
+      cursor: pointer;
+
+      .pagination {
+        @include flexSort(center, center);
+
+        .pageNum {
+          margin: 0 13px;
+        }
+
+        .bold {
+          font-weight: $weightBold;
+        }
+      }
+    }
+  }
+}

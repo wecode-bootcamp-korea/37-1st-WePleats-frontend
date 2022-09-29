@@ -1,0 +1,62 @@
+{
+  "product": {
+    "id": 1,
+    "name": "모니터 레드",
+    "description": "가성비 모니터",
+    "color": "red",
+    "main_category": "모니터",
+    "sub_category": "일반",
+    "main_category_num": 3,
+    "sub_category_num": 9,
+    "price": 100000,
+    "size": "100x100x100",
+    "new": 0,
+    "image_url": [
+      {
+        "image": "https://bucket-pien6.s3.ap-northeast-1.amazonaws.com/1663814649764_dhru-j-1Ksz0Q1NU3k-unsplash.jpg"
+      },
+      {
+        "image": "https://velog.velcdn.com/images/rayong/post/cf999560-88c1-4bd5-aabc-91e621936e82/image.jpg"
+      },
+      {
+        "image": "https://velog.velcdn.com/images/rayong/post/95b53db9-e319-49b6-8c1e-0b1a141b4546/image.jpg"
+      },
+      {
+        "image": "https://velog.velcdn.com/images/rayong/post/ae80d4e8-47f2-4cf7-b30e-3b5744110650/image.jpg"
+      },
+      {
+        "image": "https://velog.velcdn.com/images/rayong/post/b298c719-8018-4b42-b866-67a4fd7254d4/image.jpg"
+      }
+    ]
+  },
+  "review": [
+    {
+      "id": 1,
+      "name": "배규남",
+      "comment": "그렇다",
+      "image_url": "https://velog.velcdn.com/images/rayong/post/95b53db9-e319-49b6-8c1e-0b1a141b4546/image.jpg",
+      "create_at": "2022-09-22T05:05:55.000Z"
+    },
+    {
+      "id": 2,
+      "name": "배규남",
+      "comment": "가볍고 좋아요 근대 너무 쳐지긴합니다",
+      "image_url": "null",
+      "create_at": "2022-09-22T05:05:55.000Z"
+    },
+    {
+      "id": 3,
+      "name": "배규남",
+      "comment": "가방 너무 예뻐요. ❤️❤️",
+      "image_url": "null",
+      "create_at": "2022-09-22T05:05:55.000Z"
+    },
+    {
+      "id": 4,
+      "name": "배규남",
+      "comment": "가벼워서 잘 매고 다녀요 배송이 빨라서 좋아요",
+      "image_url": "null",
+      "create_at": "2022-09-22T05:05:55.000Z"
+    }
+  ]
+}
