@@ -22,13 +22,13 @@ function Payment() {
       totalPrice += item.price;
     });
 
-  let savePoint = totalPrice * 0.5;
+  let savePoint = totalPrice * 0.1;
 
   const useCoupon = () => {
     setIsCoupon(!isCoupon);
   };
 
-  const rightHeight = isCoupon ? { height: '570px' } : { height: '537px' };
+  const rightHeight = isCoupon ? { height: '535px' } : { height: '508px' };
 
   const orderBtn = () => {
     alert('결제 완료되었습니다.');

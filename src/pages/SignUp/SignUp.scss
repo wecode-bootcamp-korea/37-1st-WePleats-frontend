@@ -1,1 +1,129 @@
+@import '../../styles/variables.scss';
 
+.signUp {
+  font-family: $NotoSans;
+
+  .signUpBox {
+    max-width: 500px;
+    margin: 50px auto 100px;
+    padding: 0 20px;
+    font-size: $fontSmall;
+    color: $colorDarkGray;
+
+    .title {
+      padding: 22px 0 13px;
+      font-weight: $weightSemiBold;
+    }
+
+    .mustInput {
+      &:after {
+        content: '';
+        display: inline-block;
+        width: 5px;
+        height: 5px;
+        margin: 0 0 3px 6px;
+        background: $colorRed;
+        border-radius: 50%;
+      }
+    }
+
+    .input {
+      width: 100%;
+      padding: 10px 15px;
+      border: 0.5px solid $colorGray;
+      font-size: $fontSmall;
+      outline: none;
+
+      &:nth-child(3) {
+        border-bottom: 0px;
+        border-top: 0px;
+      }
+
+      &:nth-child(4) {
+        margin-bottom: 5px;
+      }
+    }
+
+    .label {
+      display: flex;
+      padding-bottom: 4px;
+
+      .text {
+        padding-left: 5px;
+      }
+    }
+
+    .inputCheck {
+      padding: 5px 0 0 5px;
+      color: $colorRed;
+      font-size: $fontMicro;
+    }
+
+    .pwDoubleCheck {
+      border: 1px solid red;
+    }
+
+    .profileBox {
+      @include flexSort(center, center);
+      flex-direction: column;
+      margin-bottom: 30px;
+
+      .imgBoxLabel {
+        position: relative;
+        background: $colorLightGray;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+
+        .labelImg {
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+
+        .profileImgInput {
+          display: none;
+        }
+
+        .imgUploadBtn {
+          @include flexSort(center, center);
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          width: 30px;
+          height: 30px;
+          background: $colorDarkGray;
+          color: white;
+          border-radius: 50%;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .selectBox {
+      .select {
+        padding: 8px 20px;
+        margin-right: 5px;
+        border: 0.5px solid $colorGray;
+        font-size: $fontSmall;
+        outline: none;
+      }
+    }
+
+    .signupBtn {
+      padding: 10px 15px;
+      margin-top: 40px;
+      color: $colorWhite;
+      background: $colorDarkGray;
+      font-size: $fontSmall;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .disabled {
+      opacity: 0.3;
+      pointer-events: none;
+    }
+  }
+}

@@ -274,7 +274,7 @@
           .outerBox {
             .boxFlex {
               @include flexSort(space-between, center);
-              padding: 3px 0;
+              padding: 5px 0;
             }
 
             .orderProductPrice {
@@ -288,9 +288,9 @@
             .orderShipPrice,
             .orderPointPrice {
               font-size: $fontMicro;
-              padding: 5px 0 5px;
+              padding: 5px 0 3px;
               border-top: 0.5px solid $colorLightGray;
-              margin-top: 5px;
+              margin: 5px;
 
               .name {
                 color: $colorGray;
