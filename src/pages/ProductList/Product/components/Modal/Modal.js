@@ -79,8 +79,8 @@ function Modal({ clickedModal, productId, reviewInfo, selectModal }) {
       .then(response => response.json())
       .then(data => {
         if (data.message === 'Update Review Success') {
-          alert('수정 완료');
           clickedModal();
+          reviewInfo(data.review);
         } else {
           alert('수정 실패');
         }

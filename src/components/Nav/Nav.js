@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Nav.scss';
 
 function Nav() {
   const [cartCount, setCartCount] = useState(null);
   const [userId, setUserId] = useState('');
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch('http://172.20.10.10:3000/users', {
@@ -19,6 +20,11 @@ function Nav() {
         setUserId(data.nav.name);
       });
   }, [cartCount]);
+
+  const loginHandle = () => {
+    if (localStorage.getItem('TOKEN')) return;
+    navigate('/login');
+  };
 
   return (
     <nav className="navBox">
@@ -40,9 +46,7 @@ function Nav() {
           </li>
           <li className="li line" />
           <li className="li myPage">
-            <Link to="/login">
-              <i className="fa-solid fa-user" />
-            </Link>
+            <i className="fa-solid fa-user" onClick={loginHandle} />
           </li>
           <li className="li line" />
           <li className="li cart">
