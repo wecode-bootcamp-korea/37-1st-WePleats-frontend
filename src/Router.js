@@ -9,6 +9,7 @@ import SignUp from './pages/SignUp/SignUp';
 import ProductList from './pages/ProductList/ProductList';
 import Product from './pages/ProductList/Product/Product';
 import Payment from './pages/Payment/Payment';
+import BestNew from './pages/BestNew/BestNew';
 
 const Router = () => {
   return (
@@ -19,7 +20,8 @@ const Router = () => {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
         <Route path="/category" element={<ProductList />} />
-        <Route path="/product/:id" element={<Product />} />
+        <Route path="/category/:id" element={<BestNew />} />
+        <Route path="/product" element={<Product />} />
         <Route path="/Cart" element={<Cart />} />
         <Route path="/payment" element={<Payment />} />
       </Routes>
