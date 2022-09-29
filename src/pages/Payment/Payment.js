@@ -5,7 +5,6 @@ import './Payment.scss';
 
 function Payment() {
   const [orderedItem, setOrderedItem] = useState({});
-  const [orderInfo, setOrderInfo] = useState([]);
   const [isCoupon, setIsCoupon] = useState(false);
   const navigate = useNavigate();
 
@@ -17,20 +16,16 @@ function Payment() {
       },
     })
       .then(res => res.json())
-      .then(res => {
-        console.log(res);
-        setOrderInfo(res.order);
-        setOrderedItem(res.order.product);
-      });
+      .then(res => setOrderedItem(res.order));
   }, []);
-  console.log(orderInfo);
+
   console.log(orderedItem);
 
-  const couponMoney = orderInfo.coupon && orderInfo.coupon[0].coupon_money;
+  const couponMoney = orderedItem.coupon && orderedItem.coupon[0].coupon_money;
 
   let totalPrice = 0;
-  orderedItem !== undefined &&
-    orderedItem.forEach(item => {
+  orderedItem.product !== undefined &&
+    orderedItem.product.forEach(item => {
       totalPrice += item.price;
     });
 
@@ -57,8 +52,8 @@ function Payment() {
               <p className="title">주문 상품 정보</p>
               <ul className="itemListBox">
                 {/* <OrderedItem item={orderedItem.product} /> */}
-                {orderedItem !== undefined &&
-                  orderedItem.map(item => {
+                {orderedItem.product !== undefined &&
+                  orderedItem.product.map(item => {
                     return <OrderedItem key={item.id} item={item} />;
                   })}
               </ul>
@@ -83,7 +78,7 @@ function Payment() {
               <div className="userInfoBox">
                 <div className="userInfo">
                   <p className="name">{orderedItem.name}</p>
-                  <p className="phoneNum">{orderInfo.phone_number}</p>
+                  <p className="phoneNum">{orderedItem.phone_number}</p>
                   <p className="email">skdyds@naver.com</p>
                 </div>
                 <div
@@ -238,8 +233,8 @@ function Payment() {
             <div className="orderSummary box">
               <p className="title">주문 요약</p>
               <div className="outerBox">
-                {orderedItem !== undefined &&
-                  orderedItem.map((item, index) => {
+                {orderedItem.product !== undefined &&
+                  orderedItem.product.map((item, index) => {
                     return (
                       <div key={item.id} className="orderProductPrice boxFlex">
                         <p className="name">{index === 0 && '상품 가격'}</p>
