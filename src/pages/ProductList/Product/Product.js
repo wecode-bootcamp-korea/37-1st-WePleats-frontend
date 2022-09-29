@@ -19,6 +19,7 @@ function Product() {
   useEffect(() => {
     fetch(`http://172.20.10.10:3000/product/${id}`, {
       headers: {
+        authorization: localStorage.getItem('TOKEN'),
         'Content-Type': 'application/json;charset=utf-8',
       },
     })

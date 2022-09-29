@@ -9,7 +9,12 @@ function Payment() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('http://172.20.10.10:3000/order')
+    fetch('http://172.20.10.10:3000/order', {
+      headers: {
+        authorization: localStorage.getItem('TOKEN'),
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+    })
       .then(res => res.json())
       .then(res => setOrderedItem(res.order));
   }, []);

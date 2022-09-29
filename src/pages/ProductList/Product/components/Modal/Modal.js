@@ -43,8 +43,7 @@ function Modal({ clickedModal, productId, reviewInfo, selectModal }) {
     fetch('http://172.20.10.10:3000/review', {
       method: 'POST',
       headers: {
-        authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJpYXQiOjE2NjM4NDU3ODF9.2aFMvfGNMWWlBhf0MNQhiUCN5cHp3OceDIvZqf2JylA',
+        authorization: localStorage.getItem('TOKEN'),
         enctype: 'multipart/form-data',
       },
       body: formData,
@@ -72,8 +71,7 @@ function Modal({ clickedModal, productId, reviewInfo, selectModal }) {
     fetch('http://172.20.10.10:3000/review', {
       method: 'PATCH',
       headers: {
-        authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJpYXQiOjE2NjM4NDU3ODF9.2aFMvfGNMWWlBhf0MNQhiUCN5cHp3OceDIvZqf2JylA',
+        authorization: localStorage.getItem('TOKEN'),
         enctype: 'multipart/form-data',
       },
       body: formData,
