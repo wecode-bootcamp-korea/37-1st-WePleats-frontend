@@ -5,20 +5,32 @@ import './Payment.scss';
 
 function Payment() {
   const [orderedItem, setOrderedItem] = useState({});
+  const [orderInfo, setOrderInfo] = useState([]);
   const [isCoupon, setIsCoupon] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('http://172.20.10.10:3000/order')
+    fetch('http://172.20.10.10:3000/order', {
+      headers: {
+        authorization: localStorage.getItem('TOKEN'),
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+    })
       .then(res => res.json())
-      .then(res => setOrderedItem(res.order));
+      .then(res => {
+        console.log(res);
+        setOrderInfo(res.order);
+        setOrderedItem(res.order.product);
+      });
   }, []);
+  console.log(orderInfo);
+  console.log(orderedItem);
 
-  const couponMoney = orderedItem.coupon && orderedItem.coupon[0].coupon_money;
+  const couponMoney = orderInfo.coupon && orderInfo.coupon[0].coupon_money;
 
   let totalPrice = 0;
-  orderedItem.product !== undefined &&
-    orderedItem.product.forEach(item => {
+  orderedItem !== undefined &&
+    orderedItem.forEach(item => {
       totalPrice += item.price;
     });
 
@@ -32,7 +44,7 @@ function Payment() {
 
   const orderBtn = () => {
     alert('결제 완료되었습니다.');
-    navigate('/main');
+    navigate('/');
   };
 
   return (
@@ -45,8 +57,8 @@ function Payment() {
               <p className="title">주문 상품 정보</p>
               <ul className="itemListBox">
                 {/* <OrderedItem item={orderedItem.product} /> */}
-                {orderedItem.product !== undefined &&
-                  orderedItem.product.map(item => {
+                {orderedItem !== undefined &&
+                  orderedItem.map(item => {
                     return <OrderedItem key={item.id} item={item} />;
                   })}
               </ul>
@@ -71,7 +83,7 @@ function Payment() {
               <div className="userInfoBox">
                 <div className="userInfo">
                   <p className="name">{orderedItem.name}</p>
-                  <p className="phoneNum">{orderedItem.phone_number}</p>
+                  <p className="phoneNum">{orderInfo.phone_number}</p>
                   <p className="email">skdyds@naver.com</p>
                 </div>
                 <div
@@ -226,8 +238,8 @@ function Payment() {
             <div className="orderSummary box">
               <p className="title">주문 요약</p>
               <div className="outerBox">
-                {orderedItem.product !== undefined &&
-                  orderedItem.product.map((item, index) => {
+                {orderedItem !== undefined &&
+                  orderedItem.map((item, index) => {
                     return (
                       <div key={item.id} className="orderProductPrice boxFlex">
                         <p className="name">{index === 0 && '상품 가격'}</p>

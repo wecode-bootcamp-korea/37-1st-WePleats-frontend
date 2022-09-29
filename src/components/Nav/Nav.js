@@ -9,8 +9,7 @@ function Nav() {
   useEffect(() => {
     fetch('http://172.20.10.10:3000/users', {
       headers: {
-        authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJpYXQiOjE2NjM4NDU3ODF9.2aFMvfGNMWWlBhf0MNQhiUCN5cHp3OceDIvZqf2JylA',
+        authorization: localStorage.getItem('TOKEN'),
         'Content-Type': 'application/json;charset=utf-8',
       },
     })
@@ -19,7 +18,7 @@ function Nav() {
         setCartCount(data.nav.count);
         setUserId(data.nav.name);
       });
-  }, []);
+  }, [cartCount]);
 
   return (
     <nav className="navBox">

@@ -43,8 +43,7 @@ function CartFilled(props) {
       fetch(`http://172.20.10.10:3000/cart/check?${newString}`, {
         method: 'PATCH',
         headers: {
-          authorization:
-            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJpYXQiOjE2NjM4NDU3ODF9.2aFMvfGNMWWlBhf0MNQhiUCN5cHp3OceDIvZqf2JylA',
+          authorization: localStorage.getItem('TOKEN'),
           'Content-Type': 'application/json;charset=utf-8',
         },
       })
@@ -69,8 +68,7 @@ function CartFilled(props) {
       fetch(`http://172.20.10.10:3000/cart/check?${newString}`, {
         method: 'PATCH',
         headers: {
-          authorization:
-            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJpYXQiOjE2NjM4NDU3ODF9.2aFMvfGNMWWlBhf0MNQhiUCN5cHp3OceDIvZqf2JylA',
+          authorization: localStorage.getItem('TOKEN'),
           'Content-Type': 'application/json;charset=utf-8',
         },
       })
@@ -99,8 +97,7 @@ function CartFilled(props) {
       fetch(`http://172.20.10.10:3000/cart/check?${newString}`, {
         method: 'PATCH',
         headers: {
-          authorization:
-            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJpYXQiOjE2NjM4NDU3ODF9.2aFMvfGNMWWlBhf0MNQhiUCN5cHp3OceDIvZqf2JylA',
+          authorization: localStorage.getItem('TOKEN'),
           'Content-Type': 'application/json;charset=utf-8',
         },
       })
@@ -112,8 +109,7 @@ function CartFilled(props) {
       fetch(`http://172.20.10.10:3000/cart/check`, {
         method: 'PATCH',
         headers: {
-          authorization:
-            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJpYXQiOjE2NjM4NDU3ODF9.2aFMvfGNMWWlBhf0MNQhiUCN5cHp3OceDIvZqf2JylA',
+          authorization: localStorage.getItem('TOKEN'),
           'Content-Type': 'application/json;charset=utf-8',
         },
       })
@@ -176,7 +172,7 @@ function CartFilled(props) {
     if (checkedArr.length === 0) {
       alert('주문할 상품이 없습니다.');
     } else {
-      navigate('/payment');
+      navigate('/order');
     }
   };
 
@@ -186,8 +182,7 @@ function CartFilled(props) {
       {
         method: 'DELETE',
         headers: {
-          authorization:
-            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJpYXQiOjE2NjM4NDU3ODF9.2aFMvfGNMWWlBhf0MNQhiUCN5cHp3OceDIvZqf2JylA',
+          authorization: localStorage.getItem('TOKEN'),
           'Content-Type': 'application/json;charset=utf-8',
         },
       }
@@ -213,8 +208,7 @@ function CartFilled(props) {
     fetch(`http://172.20.10.10:3000/cart?${newString}`, {
       method: 'DELETE',
       headers: {
-        authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJpYXQiOjE2NjM4NDU3ODF9.2aFMvfGNMWWlBhf0MNQhiUCN5cHp3OceDIvZqf2JylA',
+        authorization: localStorage.getItem('TOKEN'),
         'Content-Type': 'application/json;charset=utf-8',
       },
     })
@@ -240,8 +234,7 @@ function CartFilled(props) {
       {
         method: 'PATCH',
         headers: {
-          authorization:
-            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJpYXQiOjE2NjM4NDU3ODF9.2aFMvfGNMWWlBhf0MNQhiUCN5cHp3OceDIvZqf2JylA',
+          authorization: localStorage.getItem('TOKEN'),
           'Content-Type': 'application/json;charset=utf-8',
         },
         body: JSON.stringify({
@@ -269,8 +262,7 @@ function CartFilled(props) {
       {
         method: 'PATCH',
         headers: {
-          authorization:
-            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJpYXQiOjE2NjM4NDU3ODF9.2aFMvfGNMWWlBhf0MNQhiUCN5cHp3OceDIvZqf2JylA',
+          authorization: localStorage.getItem('TOKEN'),
           'Content-Type': 'application/json;charset=utf-8',
         },
       }

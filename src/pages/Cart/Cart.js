@@ -9,8 +9,7 @@ function Cart() {
   useEffect(() => {
     fetch('http://172.20.10.10:3000/cart', {
       headers: {
-        authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJpYXQiOjE2NjM4NDU3ODF9.2aFMvfGNMWWlBhf0MNQhiUCN5cHp3OceDIvZqf2JylA',
+        authorization: localStorage.getItem('TOKEN'),
         'Content-Type': 'application/json;charset=utf-8',
       },
     })

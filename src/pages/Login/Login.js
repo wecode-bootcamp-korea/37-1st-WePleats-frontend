@@ -48,7 +48,7 @@ function Login() {
         if (data.accessToken) {
           localStorage.setItem('TOKEN', data.accessToken);
           alert('로그인 성공');
-          navigate('/main');
+          navigate('/');
         } else {
           alert('로그인 실패');
         }
