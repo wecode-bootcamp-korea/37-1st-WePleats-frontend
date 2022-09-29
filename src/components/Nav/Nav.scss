@@ -16,6 +16,7 @@ a {
   font-size: $fontSmall;
   font-family: $Montserrat;
   font-weight: $weightBold;
+  z-index: 1;
 
   &:hover .navDropDown {
     height: 180px;
