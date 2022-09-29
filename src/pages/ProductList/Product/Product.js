@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import Navigate from './components/Navigate/Navigate';
 import Form from './components/Form/Form';
 import Accordions from './components/Accordions/Accordions';
@@ -6,6 +7,8 @@ import Review from './components/Review/Review';
 import './Product.scss';
 
 function Product() {
+  const params = useParams();
+  const id = params.id;
   const [product, setProduct] = useState({});
   const [currentUrl, setCurrentUrl] = useState('');
 
@@ -14,7 +17,7 @@ function Product() {
   };
 
   useEffect(() => {
-    fetch('data/product.json', {
+    fetch(`http://172.20.10.10:3000/product/${id}`, {
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
       },
@@ -24,7 +27,9 @@ function Product() {
         setProduct(data.product);
         setCurrentUrl(data.product.image_url[0].image);
       });
-  }, []);
+  }, [id]);
+
+  if (!product.id) return;
 
   return (
     <div className="productBox">
@@ -91,7 +96,7 @@ function Product() {
           </article>
           <Accordions product={product} />
         </section>
-        <Review productId={product.id} />
+        <Review product={product} />
       </main>
       <Form product={product} />
     </div>
