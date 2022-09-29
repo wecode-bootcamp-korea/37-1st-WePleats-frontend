@@ -3,6 +3,7 @@ import './Modal.scss';
 
 function Modal({ clickedModal, productId, reviewInfo, selectModal }) {
   const [imageUrl, setImageUrl] = useState(reviewInfo.image_url);
+  const [imageFile, setImageFile] = useState();
   const [registComment, setRegistComment] = useState('');
   const [editComment, setEditComment] = useState(reviewInfo.comment);
 
@@ -13,6 +14,7 @@ function Modal({ clickedModal, productId, reviewInfo, selectModal }) {
 
   const onChangeImage = e => {
     e.preventDefault();
+    setImageFile(e.target.files[0]);
 
     const reader = new FileReader();
     reader.readAsDataURL(e.target.files[0]);
@@ -35,7 +37,7 @@ function Modal({ clickedModal, productId, reviewInfo, selectModal }) {
 
     const formData = new FormData();
     formData.append('productId', productId);
-    formData.append('image', imageUrl);
+    formData.append('image', imageFile);
     formData.append('comment', registComment);
 
     fetch('http://172.20.10.10:3000/review', {
@@ -64,7 +66,7 @@ function Modal({ clickedModal, productId, reviewInfo, selectModal }) {
     const formData = new FormData();
     formData.append('productId', productId);
     formData.append('reviewId', reviewInfo.id);
-    formData.append('image', imageUrl);
+    formData.append('image', imageFile);
     formData.append('comment', editComment);
 
     fetch('http://172.20.10.10:3000/review', {
@@ -78,7 +80,7 @@ function Modal({ clickedModal, productId, reviewInfo, selectModal }) {
     })
       .then(response => response.json())
       .then(data => {
-        if (data.message === 'Update Review Sucess') {
+        if (data.message === 'Update Review Success') {
           alert('수정 완료');
           clickedModal();
         } else {

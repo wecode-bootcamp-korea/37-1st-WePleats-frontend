@@ -7,7 +7,7 @@ function Nav() {
   const [userId, setUserId] = useState('');
 
   useEffect(() => {
-    fetch('data/nav.json', {
+    fetch('http://172.20.10.10:3000/users', {
       headers: {
         authorization:
           'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJpYXQiOjE2NjM4NDU3ODF9.2aFMvfGNMWWlBhf0MNQhiUCN5cHp3OceDIvZqf2JylA',
@@ -16,8 +16,8 @@ function Nav() {
     })
       .then(res => res.json())
       .then(data => {
-        setCartCount(data.cartCount);
-        setUserId(data.userId);
+        setCartCount(data.nav.count);
+        setUserId(data.nav.name);
       });
   }, []);
 
