@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 
 function CartFilled(props) {
   const navigate = useNavigate();
-  const [isChecked, setIsChecked] = useState([]);
   const [checkAll, setCheckAll] = useState(false);
   const [totalPrices, setTotalPrices] = useState(0);
   const [totalDeliver, setTotalDeliver] = useState(0);
@@ -13,13 +12,13 @@ function CartFilled(props) {
 
   const products = props.products;
   const setCartProducts = props.setProducts;
+
   const checkedArr = [];
   for (let i in products) {
     if (products[i].checkIn === 1) {
       checkedArr.push(products[i].productId);
     }
   }
-  console.log(checkedArr);
 
   useEffect(() => {
     setTotalQuantity(products.length);
@@ -117,11 +116,6 @@ function CartFilled(props) {
         .then(json => {
           setCartProducts(json.cart);
         });
-
-      // if (isChecked.length === products.length) {
-      //   setIsChecked([]);
-      // }
-      // isChecked.length !== products.length ? setIsChecked() : null;
     }
   };
 
@@ -215,7 +209,6 @@ function CartFilled(props) {
       .then(response => response.json())
       .then(json => {
         setCartProducts(json.cart);
-        // setIsChecked([]);
       });
   };
 
@@ -304,7 +297,6 @@ function CartFilled(props) {
                   className="checkThis"
                   type="checkbox"
                   checked={products.checkIn}
-                  // {isChecked.includes(String(products.productId))}
                   onChange={pushChecked}
                   id={products.productId}
                 />
