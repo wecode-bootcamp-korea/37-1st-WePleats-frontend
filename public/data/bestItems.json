@@ -1,0 +1,172 @@
+{
+  "category": [
+    {
+      "id": 2,
+      "name": "모니터 오렌지",
+      "price": 100000,
+      "color": "orange",
+      "main_category": "모니터",
+      "sub_category": "일반",
+      "category": 1,
+      "new": 0,
+      "thumbnail_url": [
+        "https://bucket-pien6.s3.ap-northeast-1.amazonaws.com/1663814649764_dhru-j-1Ksz0Q1NU3k-unsplash.jpg",
+        "https://bucket-pien6.s3.ap-northeast-1.amazonaws.com/1663648907764_826730-1663476112863.png"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "모니터 옐로우",
+      "price": 100000,
+      "color": "yellow",
+      "main_category": "모니터",
+      "sub_category": "일반",
+      "category": 1,
+      "new": 0,
+      "thumbnail_url": [
+        "https://bucket-pien6.s3.ap-northeast-1.amazonaws.com/1663814649764_dhru-j-1Ksz0Q1NU3k-unsplash.jpg",
+        "https://bucket-pien6.s3.ap-northeast-1.amazonaws.com/1663648907764_826730-1663476112863.png"
+      ]
+    },
+    {
+      "id": 9,
+      "name": "고해상도 모니터 오렌지",
+      "price": 300000,
+      "color": "orange",
+      "main_category": "모니터",
+      "sub_category": "고해상도",
+      "category": 2,
+      "new": 0,
+      "thumbnail_url": [
+        "https://bucket-pien6.s3.ap-northeast-1.amazonaws.com/1663814706312_linus-mimietz-01hQvBUC7rI-unsplash.jpg",
+        "https://bucket-pien6.s3.ap-northeast-1.amazonaws.com/1663648907764_826730-1663476112863.png"
+      ]
+    },
+    {
+      "id": 10,
+      "name": "고해상도 모니터 옐로우",
+      "price": 300000,
+      "color": "yellow",
+      "main_category": "모니터",
+      "sub_category": "고해상도",
+      "category": 2,
+      "new": 0,
+      "thumbnail_url": [
+        "https://bucket-pien6.s3.ap-northeast-1.amazonaws.com/1663814706312_linus-mimietz-01hQvBUC7rI-unsplash.jpg",
+        "https://bucket-pien6.s3.ap-northeast-1.amazonaws.com/1663648907764_826730-1663476112863.png"
+      ]
+    },
+    {
+      "id": 11,
+      "name": "고해상도 모니터 그린",
+      "price": 300000,
+      "color": "green",
+      "main_category": "모니터",
+      "sub_category": "고해상도",
+      "category": 2,
+      "new": 0,
+      "thumbnail_url": [
+        "https://bucket-pien6.s3.ap-northeast-1.amazonaws.com/1663814706312_linus-mimietz-01hQvBUC7rI-unsplash.jpg",
+        "https://bucket-pien6.s3.ap-northeast-1.amazonaws.com/1663648907764_826730-1663476112863.png"
+      ]
+    },
+    {
+      "id": 13,
+      "name": "고해상도 모니터 네이비",
+      "price": 300000,
+      "color": "navy",
+      "main_category": "모니터",
+      "sub_category": "고해상도",
+      "category": 2,
+      "new": 0,
+      "thumbnail_url": [
+        "https://bucket-pien6.s3.ap-northeast-1.amazonaws.com/1663814706312_linus-mimietz-01hQvBUC7rI-unsplash.jpg",
+        "https://bucket-pien6.s3.ap-northeast-1.amazonaws.com/1663648907764_826730-1663476112863.png"
+      ]
+    },
+    {
+      "id": 17,
+      "name": "유선 키보드 옐로우",
+      "price": 50000,
+      "color": "yellow",
+      "main_category": "키보드",
+      "sub_category": "유선",
+      "category": 5,
+      "new": 0,
+      "thumbnail_url": [
+        "https://bucket-pien6.s3.ap-northeast-1.amazonaws.com/1663814760897_joey-r-XUdUrw4fJWU-unsplash.jpg",
+        "https://bucket-pien6.s3.ap-northeast-1.amazonaws.com/1663648907764_826730-1663476112863.png"
+      ]
+    },
+    {
+      "id": 27,
+      "name": "무선 키보드 네이비",
+      "price": 150000,
+      "color": "navy",
+      "main_category": "키보드",
+      "sub_category": "무선",
+      "category": 6,
+      "new": 0,
+      "thumbnail_url": [
+        "https://bucket-pien6.s3.ap-northeast-1.amazonaws.com/1663814727769_hugo-barbosa-TnG2q8FtXsg-unsplash.jpg",
+        "https://bucket-pien6.s3.ap-northeast-1.amazonaws.com/1663648907764_826730-1663476112863.png"
+      ]
+    },
+    {
+      "id": 31,
+      "name": "유선 마우스 옐로우",
+      "price": 25000,
+      "color": "yellow",
+      "main_category": "마우스",
+      "sub_category": "유선",
+      "category": 9,
+      "new": 0,
+      "thumbnail_url": [
+        "https://bucket-pien6.s3.ap-northeast-1.amazonaws.com/1663814780205_auguras-pipiras-wBGV52CGY5w-unsplash.jpg",
+        "https://bucket-pien6.s3.ap-northeast-1.amazonaws.com/1663648907764_826730-1663476112863.png"
+      ]
+    },
+    {
+      "id": 37,
+      "name": "무선 마우스 오렌지",
+      "price": 90000,
+      "color": "orange",
+      "main_category": "마우스",
+      "sub_category": "무선",
+      "category": 10,
+      "new": 0,
+      "thumbnail_url": [
+        "https://bucket-pien6.s3.ap-northeast-1.amazonaws.com/1663814791780_markus-spiske-givZa50I9HA-unsplash.jpg",
+        "https://bucket-pien6.s3.ap-northeast-1.amazonaws.com/1663648907764_826730-1663476112863.png"
+      ]
+    },
+    {
+      "id": 39,
+      "name": "무선 마우스 그린",
+      "price": 90000,
+      "color": "green",
+      "main_category": "마우스",
+      "sub_category": "무선",
+      "category": 10,
+      "new": 0,
+      "thumbnail_url": [
+        "https://bucket-pien6.s3.ap-northeast-1.amazonaws.com/1663814791780_markus-spiske-givZa50I9HA-unsplash.jpg",
+        "https://bucket-pien6.s3.ap-northeast-1.amazonaws.com/1663648907764_826730-1663476112863.png"
+      ]
+    },
+    {
+      "id": 41,
+      "name": "무선 마우스 네이비",
+      "price": 90000,
+      "color": "navy",
+      "main_category": "마우스",
+      "sub_category": "무선",
+      "category": 10,
+      "new": 0,
+      "thumbnail_url": [
+        "https://bucket-pien6.s3.ap-northeast-1.amazonaws.com/1663814791780_markus-spiske-givZa50I9HA-unsplash.jpg",
+        "https://bucket-pien6.s3.ap-northeast-1.amazonaws.com/1663648907764_826730-1663476112863.png"
+      ]
+    }
+  ]
+}
