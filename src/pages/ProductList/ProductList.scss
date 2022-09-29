@@ -1,0 +1,34 @@
+@import '../../styles/variables.scss';
+
+.productlist {
+  .colorBar {
+    height: 5px;
+    margin: 0 3px 55px;
+    background: linear-gradient(
+      90deg,
+      #e34466 0%,
+      #f9de52 20%,
+      #7cc344 40%,
+      #4386d6 60%,
+      #a866d2 80%,
+      #b0977e 100%
+    );
+    background-position: center;
+  }
+
+  .outerBox {
+    max-width: 90vw;
+    margin: 0 auto;
+
+    .colorBox {
+      @include flexSort(center, '');
+      max-width: 600px;
+      margin: 40px auto 30px;
+    }
+
+    .listBox {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+}
