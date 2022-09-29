@@ -1,0 +1,24 @@
+{
+  "cart": [
+    {
+      "id": 8,
+      "productId": 5,
+      "name": "모니터 블루",
+      "price": 200000,
+      "quantity": 2,
+      "thumbnailUrl": "https://bucket-pien6.s3.ap-northeast-1.amazonaws.com/1663814649764_dhru-j-1Ksz0Q1NU3k-unsplash.jpg",
+      "checkIn": 1,
+      "deliveryfee": 0
+    },
+    {
+      "id": 7,
+      "productId": 10,
+      "name": "고해상도 모니터 옐로우",
+      "price": 300000,
+      "quantity": 1,
+      "thumbnailUrl": "https://bucket-pien6.s3.ap-northeast-1.amazonaws.com/1663814706312_linus-mimietz-01hQvBUC7rI-unsplash.jpg",
+      "checkIn": 1,
+      "deliveryfee": 0
+    }
+  ]
+}
