@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useSearchParams, Link } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import Card from './Card/Card';
 import Filter from './Filter/Filter';
 import { COLOR_CATE } from './COLOR_CATE';
@@ -43,11 +43,7 @@ function ProductList() {
       <div className="outerBox">
         <ul className="listBox">
           {products.map(product => {
-            return (
-              <Link key={product.id} to={`/product/${product.id}`}>
-                <Card product={product} />
-              </Link>
-            );
+            return <Card product={product} key={product.id} />;
           })}
         </ul>
       </div>
