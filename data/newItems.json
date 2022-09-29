@@ -1,0 +1,81 @@
+{
+  "category": [
+    {
+      "id": 2,
+      "name": "모니터 오렌지",
+      "price": 100000,
+      "color": "orange",
+      "main_category": "모니터",
+      "sub_category": "일반",
+      "category": 1,
+      "new": 0,
+      "thumbnail_url": "/images/newItem1.png"
+    },
+    {
+      "id": 3,
+      "name": "모니터 옐로우",
+      "price": 100000,
+      "color": "yellow",
+      "main_category": "모니터",
+      "sub_category": "일반",
+      "category": 1,
+      "new": 0,
+      "thumbnail_url": "/images/newItem2.png"
+    },
+    {
+      "id": 9,
+      "name": "고해상도 모니터 오렌지",
+      "price": 300000,
+      "color": "orange",
+      "main_category": "모니터",
+      "sub_category": "고해상도",
+      "category": 2,
+      "new": 0,
+      "thumbnail_url": "/images/newItem3.png"
+    },
+    {
+      "id": 10,
+      "name": "고해상도 모니터 옐로우",
+      "price": 300000,
+      "color": "yellow",
+      "main_category": "모니터",
+      "sub_category": "고해상도",
+      "category": 2,
+      "new": 0,
+      "thumbnail_url": "/images/newItem4.png"
+    },
+    {
+      "id": 11,
+      "name": "고해상도 모니터 그린",
+      "price": 300000,
+      "color": "green",
+      "main_category": "모니터",
+      "sub_category": "고해상도",
+      "category": 2,
+      "new": 0,
+      "thumbnail_url": "/images/newItem5.png"
+    },
+    {
+      "id": 11,
+      "name": "고해상도 모니터 그린",
+      "price": 300000,
+      "color": "green",
+      "main_category": "모니터",
+      "sub_category": "고해상도",
+      "category": 2,
+      "new": 0,
+      "thumbnail_url": "/images/newItem6.png"
+    },
+    {
+      "id": 11,
+      "name": "고해상도 모니터 그린",
+      "price": 300000,
+      "color": "green",
+      "main_category": "모니터",
+      "sub_category": "고해상도",
+      "category": 2,
+      "new": 0,
+      "thumbnail_url": "/images/newItem7.png"
+    }
+  ]
+}

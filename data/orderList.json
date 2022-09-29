@@ -1,0 +1,41 @@
+{
+  "order": {
+    "id": 3,
+    "name": "장기석",
+    "email": "Godgisuk@test.com",
+    "phone_number": "010-3333-3333",
+    "address": "서울시 강서구",
+    "grade": 3,
+    "point": 3000000,
+    "product": [
+      {
+        "id": 31,
+        "name": "유선 마우스 옐로우",
+        "quantity": 493,
+        "price": 24650,
+        "thumbnail_url": "https://bucket-pien6.s3.ap-northeast-1.amazonaws.com/1663814780205_auguras-pipiras-wBGV52CGY5w-unsplash.jpg"
+      },
+      {
+        "id": 39,
+        "name": "무선 마우스 그린",
+        "quantity": 493,
+        "price": 1650,
+        "thumbnail_url": "https://bucket-pien6.s3.ap-northeast-1.amazonaws.com/1663814791780_markus-spiske-givZa50I9HA-unsplash.jpg"
+      },
+      {
+        "id": 41,
+        "name": "무선 마우스 네이비",
+        "quantity": 493,
+        "price": 50050,
+        "thumbnail_url": "https://bucket-pien6.s3.ap-northeast-1.amazonaws.com/1663814791780_markus-spiske-givZa50I9HA-unsplash.jpg"
+      }
+    ],
+    "coupon": [
+      {
+        "id": 1,
+        "coupon_money": 5000,
+        "quantity": 0
+      }
+    ]
+  }
+}
