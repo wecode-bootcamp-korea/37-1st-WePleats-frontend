@@ -12,7 +12,7 @@ function Review({ product }) {
 
   useEffect(() => {
     fetch(
-      `http://172.20.10.10:3000/review/${product.id}?offset=${offset}&limit=5`,
+      `http://3.35.54.156:3000/review/${product.id}?offset=${offset}&limit=5`,
       {
         headers: {
           authorization: localStorage.getItem('TOKEN'),
@@ -65,7 +65,7 @@ function Review({ product }) {
 
   const deleteThis = e => {
     fetch(
-      `http://172.20.10.10:3000/review/?productId=${
+      `http://3.35.54.156:3000/review/?productId=${
         product.id
       }&reviewId=${Number(e.target.id)}`,
       {

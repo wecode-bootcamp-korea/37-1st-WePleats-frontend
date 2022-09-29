@@ -39,7 +39,7 @@ function CartFilled(props) {
         return string;
       })(rest);
 
-      fetch(`http://172.20.10.10:3000/cart/check?${newString}`, {
+      fetch(`http://3.35.54.156:3000/cart/check?${newString}`, {
         method: 'PATCH',
         headers: {
           authorization: localStorage.getItem('TOKEN'),
@@ -64,7 +64,7 @@ function CartFilled(props) {
         return string;
       })(addition);
 
-      fetch(`http://172.20.10.10:3000/cart/check?${newString}`, {
+      fetch(`http://3.35.54.156:3000/cart/check?${newString}`, {
         method: 'PATCH',
         headers: {
           authorization: localStorage.getItem('TOKEN'),
@@ -93,7 +93,7 @@ function CartFilled(props) {
         return string;
       })(newArr);
 
-      fetch(`http://172.20.10.10:3000/cart/check?${newString}`, {
+      fetch(`http://3.35.54.156:3000/cart/check?${newString}`, {
         method: 'PATCH',
         headers: {
           authorization: localStorage.getItem('TOKEN'),
@@ -105,7 +105,7 @@ function CartFilled(props) {
           setCartProducts(json.cart);
         });
     } else {
-      fetch(`http://172.20.10.10:3000/cart/check`, {
+      fetch(`http://3.35.54.156:3000/cart/check`, {
         method: 'PATCH',
         headers: {
           authorization: localStorage.getItem('TOKEN'),
@@ -171,16 +171,13 @@ function CartFilled(props) {
   };
 
   const deleteThis = event => {
-    fetch(
-      `http://172.20.10.10:3000/cart?productId=${Number(event.target.id)}`,
-      {
-        method: 'DELETE',
-        headers: {
-          authorization: localStorage.getItem('TOKEN'),
-          'Content-Type': 'application/json;charset=utf-8',
-        },
-      }
-    )
+    fetch(`http://3.35.54.156:3000/cart?productId=${Number(event.target.id)}`, {
+      method: 'DELETE',
+      headers: {
+        authorization: localStorage.getItem('TOKEN'),
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+    })
       .then(response => response.json())
       .then(json => {
         setCartProducts(json.cart);
@@ -199,7 +196,7 @@ function CartFilled(props) {
       return string;
     })(checkedArr);
 
-    fetch(`http://172.20.10.10:3000/cart?${newString}`, {
+    fetch(`http://3.35.54.156:3000/cart?${newString}`, {
       method: 'DELETE',
       headers: {
         authorization: localStorage.getItem('TOKEN'),
@@ -221,7 +218,7 @@ function CartFilled(props) {
     }
 
     fetch(
-      `http://172.20.10.10:3000/cart?productId=${Number(
+      `http://3.35.54.156:3000/cart?productId=${Number(
         event.target.id
       )}&quantity=${quantityForRequest + 1}`,
       {
@@ -249,7 +246,7 @@ function CartFilled(props) {
     }
 
     fetch(
-      `http://172.20.10.10:3000/cart?productId=${Number(
+      `http://3.35.54.156:3000/cart?productId=${Number(
         event.target.id
       )}&quantity=${quantityForRequest - 1}`,
       {

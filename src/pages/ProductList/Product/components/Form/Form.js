@@ -33,7 +33,7 @@ function Form({ product }) {
   const buyProduct = e => {
     e.preventDefault();
 
-    fetch('http://172.20.10.10:3000/order/product', {
+    fetch('http://3.35.54.156:3000/order/product', {
       method: 'POST',
       headers: {
         authorization: localStorage.getItem('TOKEN'),
@@ -52,7 +52,7 @@ function Form({ product }) {
   const goToCart = e => {
     e.preventDefault();
 
-    fetch('http://172.20.10.10:3000/cart', {
+    fetch('http://3.35.54.156:3000/cart', {
       method: 'POST',
       headers: {
         authorization: localStorage.getItem('TOKEN'),

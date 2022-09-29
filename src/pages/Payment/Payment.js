@@ -9,7 +9,7 @@ function Payment() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('http://172.20.10.10:3000/order', {
+    fetch('http://3.35.54.156:3000/order', {
       headers: {
         authorization: localStorage.getItem('TOKEN'),
         'Content-Type': 'application/json;charset=utf-8',
@@ -18,6 +18,31 @@ function Payment() {
       .then(res => res.json())
       .then(res => setOrderedItem(res.order));
   }, []);
+
+  const orderFinal = () => {
+    fetch('http://3.35.54.156:3000/order', {
+      method: 'POST',
+      headers: {
+        authorization: localStorage.getItem('TOKEN'),
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      body: JSON.stringify({
+        price: 2000,
+        address: 'askdkn',
+        point: 0,
+        couponId: 0,
+      }),
+    })
+      .then(response => response.json())
+      .then(json => {
+        if (json.message === 'order Success') {
+          alert('리뷰 남겨');
+          navigate('/');
+        } else {
+          return;
+        }
+      });
+  };
 
   const couponMoney = orderedItem.coupon && orderedItem.coupon[0].coupon_money;
 
@@ -34,12 +59,6 @@ function Payment() {
   };
 
   const rightHeight = isCoupon ? { height: '535px' } : { height: '508px' };
-
-  const orderBtn = () => {
-    alert('결제 완료되었습니다.');
-    navigate('/');
-  };
-
   return (
     <div className="payment">
       <div className="paymentBox">
@@ -333,7 +352,7 @@ function Payment() {
                   <span className="text">구매조건 확인 및 결제진행에 동의</span>
                 </label>
               </div>
-              <div className="payBtn" onClick={orderBtn}>
+              <div className="payBtn" onClick={orderFinal}>
                 결제하기
               </div>
             </div>

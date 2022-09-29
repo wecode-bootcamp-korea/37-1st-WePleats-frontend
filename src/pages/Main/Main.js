@@ -15,7 +15,7 @@ function Main() {
   const [newItems, setNewItems] = useState([]);
   const navigate = useNavigate();
   useEffect(() => {
-    fetch('http://172.20.10.10:3000/category/best', {
+    fetch('http://3.35.54.156:3000/category/best', {
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
       },

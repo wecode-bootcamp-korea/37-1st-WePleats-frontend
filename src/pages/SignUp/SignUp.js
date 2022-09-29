@@ -77,7 +77,7 @@ function SignUp() {
   const checkSignUp = e => {
     e.preventDefault();
 
-    fetch('http://172.20.10.10:3000/users/signup', {
+    fetch('http://3.35.54.156:3000/users/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',

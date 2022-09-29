@@ -27,7 +27,7 @@ function Login() {
   // 로그인 통신 성공, wecode@wecode.com / Wecode!1
   const login = e => {
     e.preventDefault();
-    fetch('http://172.20.10.10:3000/users/signin', {
+    fetch('http://3.35.54.156:3000/users/signin', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -49,6 +49,7 @@ function Login() {
           localStorage.setItem('TOKEN', data.accessToken);
           alert('로그인 성공');
           navigate('/');
+          window.location.reload();
         } else {
           alert('로그인 실패');
         }

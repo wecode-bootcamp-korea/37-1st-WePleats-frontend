@@ -7,7 +7,7 @@ function Cart() {
   const [cartProducts, setCartProducts] = useState({});
 
   useEffect(() => {
-    fetch('http://172.20.10.10:3000/cart', {
+    fetch('http://3.35.54.156:3000/cart', {
       headers: {
         authorization: localStorage.getItem('TOKEN'),
         'Content-Type': 'application/json;charset=utf-8',

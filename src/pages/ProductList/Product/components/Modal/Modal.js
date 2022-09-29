@@ -46,7 +46,7 @@ function Modal({
     formData.append('image', imageFile);
     formData.append('comment', registComment);
 
-    fetch('http://172.20.10.10:3000/review', {
+    fetch('http://3.35.54.156:3000/review', {
       method: 'POST',
       headers: {
         authorization: localStorage.getItem('TOKEN'),
@@ -74,7 +74,7 @@ function Modal({
     formData.append('image', imageFile);
     formData.append('comment', editComment);
 
-    fetch('http://172.20.10.10:3000/review', {
+    fetch('http://3.35.54.156:3000/review', {
       method: 'PATCH',
       headers: {
         authorization: localStorage.getItem('TOKEN'),

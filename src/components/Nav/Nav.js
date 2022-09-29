@@ -8,7 +8,7 @@ function Nav() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('http://172.20.10.10:3000/users', {
+    fetch('http://3.35.54.156:3000/users', {
       headers: {
         authorization: localStorage.getItem('TOKEN'),
         'Content-Type': 'application/json;charset=utf-8',
@@ -19,11 +19,18 @@ function Nav() {
         setCartCount(data.nav.count);
         setUserId(data.nav.name);
       });
-  }, [cartCount]);
+  }, []);
 
   const loginHandle = () => {
     if (localStorage.getItem('TOKEN')) return;
     navigate('/login');
+  };
+
+  const logout = () => {
+    localStorage.clear();
+    setUserId(null);
+    setCartCount(null);
+    navigate('/');
   };
 
   return (
@@ -57,7 +64,7 @@ function Nav() {
           </li>
           <li className="li line" />
           <li className="li search">
-            <i className="fa-solid fa-magnifying-glass" />
+            <i class="fa-solid fa-right-from-bracket" onClick={logout} />
           </li>
         </ul>
       </div>
