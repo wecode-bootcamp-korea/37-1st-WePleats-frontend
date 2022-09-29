@@ -8,6 +8,7 @@ import Main from './pages/Main/Main';
 import SignUp from './pages/SignUp/SignUp';
 import ProductList from './pages/ProductList/ProductList';
 import Product from './pages/ProductList/Product/Product';
+import Payment from './pages/Payment/Payment';
 
 const Router = () => {
   return (
@@ -18,8 +19,9 @@ const Router = () => {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
         <Route path="/category" element={<ProductList />} />
-        <Route path="/product" element={<Product />} />
+        <Route path="/product/:id" element={<Product />} />
         <Route path="/Cart" element={<Cart />} />
+        <Route path="/payment" element={<Payment />} />
       </Routes>
       <Footer />
     </BrowserRouter>
