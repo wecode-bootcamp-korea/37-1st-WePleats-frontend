@@ -28,6 +28,8 @@ function Payment() {
     setIsCoupon(!isCoupon);
   };
 
+  const rightHeight = isCoupon ? { height: '570px' } : { height: '537px' };
+
   const orderBtn = () => {
     alert('결제 완료되었습니다.');
     navigate('/main');
@@ -220,7 +222,7 @@ function Payment() {
               </p>
             </div>
           </div>
-          <div className="payRight">
+          <div className="payRight" style={rightHeight}>
             <div className="orderSummary box">
               <p className="title">주문 요약</p>
               <div className="outerBox">
