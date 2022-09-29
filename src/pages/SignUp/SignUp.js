@@ -99,7 +99,7 @@ function SignUp() {
       })
       .catch(error => alert(error))
       .then(data => {
-        if (data.message === 'Signup Success!') {
+        if (data.message === 'signup success') {
           alert('회원가입 성공');
           navigate('/login');
         } else {

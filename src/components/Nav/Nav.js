@@ -18,7 +18,7 @@ function Nav() {
         setCartCount(data.nav.count);
         setUserId(data.nav.name);
       });
-  }, []);
+  }, [cartCount]);
 
   return (
     <nav className="navBox">

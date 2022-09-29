@@ -172,7 +172,7 @@ function CartFilled(props) {
     if (checkedArr.length === 0) {
       alert('주문할 상품이 없습니다.');
     } else {
-      navigate('/payment');
+      navigate('/order');
     }
   };
 
