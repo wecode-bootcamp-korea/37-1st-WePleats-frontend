@@ -18,6 +18,8 @@ function ProductList() {
       .then(res => setProducts(res.getProducts));
   }, [category, id]);
 
+  console.log(products);
+
   const sortColor = colorNum => {
     searchParams.set('color', colorNum);
     setSearchParams(searchParams);

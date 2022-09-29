@@ -6,7 +6,7 @@ export const COLOR_CATE = [
   },
   {
     id: 2,
-    name: 'Yellow',
+    name: 'Orange',
     color: '#F9DE52',
   },
   {
