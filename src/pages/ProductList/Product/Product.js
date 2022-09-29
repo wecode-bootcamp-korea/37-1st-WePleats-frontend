@@ -28,8 +28,8 @@ function Product() {
 
   return (
     <div className="productBox">
-      <Navigate product={product} />
       <main className="product">
+        <Navigate product={product} />
         <section className="img">
           <div className="main">
             <img className="mainImg" src={currentUrl} alt="productMainImg" />
@@ -51,45 +51,49 @@ function Product() {
             </ul>
           </div>
         </section>
-        <Form product={product} />
+        <section className="content">
+          <article className="details">
+            <div className="brand">
+              <img
+                className="brandImg"
+                src="images/brandImg.jpg"
+                alt="brandImg"
+              />
+            </div>
+            <div className="description">
+              <h3 className="title">개성을 살려주는 WePleats</h3>
+              블랙, 그레이 모노톤으로만 이루어진 칙칙한 책상은 이제 그만!
+              위플리츠는 하루에 대부분을 책상 앞에서 일하는 개발자들의 개성을
+              표현해 줄 수 있는 색깔있는 프로덕트를 추천해줍니다.
+            </div>
+            <div className="detail">
+              <h1 className="title">{product.name}</h1>
+              <h6 className="text">{product.description}</h6>
+              <h6 className="color">color : {product.color}</h6>
+              <ul className="detailImgs">
+                {product.image_url &&
+                  product.image_url.map((item, index) => {
+                    return (
+                      <li onMouseOver={getUrl} key={index} className="subImg">
+                        <img
+                          className="img"
+                          src={item.image}
+                          alt="상세 이미지"
+                        />
+                      </li>
+                    );
+                  })}
+              </ul>
+              <span className="caution">
+                모니터에 따라 약간의 색상차이가 발생할 수 있습니다.
+              </span>
+            </div>
+          </article>
+          <Accordions product={product} />
+        </section>
+        <Review productId={product.id} />
       </main>
-      <section className="content">
-        <article className="details">
-          <div className="brand">
-            <img
-              className="brandImg"
-              src="images/brandImg.jpg"
-              alt="brandImg"
-            />
-          </div>
-          <div className="description">
-            <h3 className="title">개성을 살려주는 WePleats</h3>
-            블랙, 그레이 모노톤으로만 이루어진 칙칙한 책상은 이제 그만!
-            위플리츠는 하루에 대부분을 책상 앞에서 일하는 개발자들의 개성을
-            표현해 줄 수 있는 색깔있는 프로덕트를 추천해줍니다.
-          </div>
-          <div className="detail">
-            <h1 className="title">{product.name}</h1>
-            <h6 className="text">{product.description}</h6>
-            <h6 className="color">color : {product.color}</h6>
-            <ul className="detailImgs">
-              {product.image_url &&
-                product.image_url.map((item, index) => {
-                  return (
-                    <li onMouseOver={getUrl} key={index} className="subImg">
-                      <img className="img" src={item.image} alt="상세 이미지" />
-                    </li>
-                  );
-                })}
-            </ul>
-            <span className="caution">
-              모니터에 따라 약간의 색상차이가 발생할 수 있습니다.
-            </span>
-          </div>
-        </article>
-        <Accordions product={product} />
-      </section>
-      <Review productId={product.id} />
+      <Form product={product} />
     </div>
   );
 }

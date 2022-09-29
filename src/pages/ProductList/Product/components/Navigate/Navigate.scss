@@ -6,30 +6,32 @@ a:-webkit-any-link {
 }
 
 .productBox {
-  .nav {
-    width: 100%;
-    margin: 70px 0 20px 0;
-    color: $colorGray;
-    font-size: $fontSmall;
+  .product {
+    .nav {
+      width: 100%;
+      margin: 70px 0 20px 0;
+      color: $colorGray;
+      font-size: $fontSmall;
 
-    .subMenu {
-      display: flex;
+      .subMenu {
+        display: flex;
 
-      .li {
-        margin: 0 5px;
-      }
+        .li {
+          margin: 0 5px;
+        }
 
-      .home {
-        cursor: pointer;
-      }
+        .home {
+          cursor: pointer;
+        }
 
-      .productLists {
-        cursor: pointer;
-      }
+        .productLists {
+          cursor: pointer;
+        }
 
-      .product {
-        color: $colorBlack;
-        cursor: pointer;
+        .product {
+          color: $colorBlack;
+          cursor: pointer;
+        }
       }
     }
   }

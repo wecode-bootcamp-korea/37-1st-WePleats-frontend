@@ -1,19 +1,19 @@
 @import '../../../styles/variables.scss';
 
 .productBox {
+  display: flex;
   width: 80%;
   margin: 0 auto;
   font-family: $Montserrat, $NotoSans;
 
   .product {
-    @include flexSort(space-between, center);
+    flex: 1;
 
     .img {
       width: 100%;
       min-width: 450px;
 
       .main {
-        width: 50%;
         height: 800px;
         margin-bottom: 10px;
         background-color: $colorLightGray;
@@ -27,8 +27,6 @@
       }
 
       .sub {
-        width: 50%;
-
         .subImgs {
           display: flex;
           width: 100%;
@@ -48,66 +46,64 @@
         }
       }
     }
-  }
 
-  .content {
-    width: 50%;
+    .content {
+      .details {
+        margin-top: 80px;
 
-    .details {
-      margin-top: 80px;
+        .brand {
+          @include flexCenter;
 
-      .brand {
-        @include flexCenter;
-
-        .brandImg {
-          width: 100%;
-        }
-      }
-
-      .description {
-        padding: 50px 60px 80px;
-        font-size: $fontMedium;
-        text-align: center;
-
-        .title {
-          font-size: 40px;
-          margin-bottom: 25px;
-        }
-      }
-
-      .detail {
-        margin-top: 20px;
-        text-align: center;
-
-        .title {
-          font-size: 30px;
-          margin-bottom: 25px;
-        }
-
-        .text {
-          margin: 20px 0;
-          font-size: $fontMedium;
-        }
-
-        .color {
-          font-size: $fontMedium;
-          font-weight: $weightRegular;
-          margin-bottom: 30px;
-        }
-
-        .detailImgs {
-          .img {
+          .brandImg {
             width: 100%;
-            margin: auto;
           }
         }
 
-        .caution {
-          display: block;
-          margin: 10px 0 20px;
-          padding: 20px 10px;
-          background-color: #f5f5f5;
-          font-size: $colorGray;
+        .description {
+          padding: 50px 60px 80px;
+          font-size: $fontMedium;
+          text-align: center;
+
+          .title {
+            font-size: 40px;
+            margin-bottom: 25px;
+          }
+        }
+
+        .detail {
+          margin-top: 20px;
+          text-align: center;
+
+          .title {
+            font-size: 30px;
+            margin-bottom: 25px;
+          }
+
+          .text {
+            margin: 20px 0;
+            font-size: $fontMedium;
+          }
+
+          .color {
+            font-size: $fontMedium;
+            font-weight: $weightRegular;
+            margin-bottom: 30px;
+          }
+
+          .detailImgs {
+            .img {
+              width: 100%;
+              margin: auto;
+            }
+          }
+
+          .caution {
+            display: block;
+            margin: 10px 0 20px;
+            padding: 20px 10px;
+            background-color: #f5f5f5;
+            font-size: $colorGray;
+          }
         }
       }
     }
