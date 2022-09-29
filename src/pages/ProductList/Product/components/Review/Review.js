@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
 import Modal from '../Modal/Modal';
 import './Review.scss';
 
 function Review({ productId }) {
   const [reviews, setReviews] = useState([]);
-  const [searchParams, setSearchParams] = useSearchParams();
   const [isClicked, setIsClicked] = useState(false);
   const [isEdit, setIsEdit] = useState(false);
   const [isFiltered, setIsFiltered] = useState(false);
   const [selectModal, setSelectModal] = useState(true);
-  const offset = searchParams.get('offset');
+  const [offset, setOffset] = useState(0);
 
+  // `http://172.20.10.10:3000/review/offset=${offset}&limit=5`
   useEffect(() => {
-    fetch('data/reviews.json', {
+    fetch('/data/reviews.json', {
       headers: {
         authorization:
           'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJpYXQiOjE2NjM4NDU3ODF9.2aFMvfGNMWWlBhf0MNQhiUCN5cHp3OceDIvZqf2JylA',
@@ -26,10 +25,9 @@ function Review({ productId }) {
       });
   }, [offset]);
 
+  const maxNumber = Math.ceil(reviews.length / 5);
   const pageCountArr = (reviews => {
     let result = [];
-
-    const maxNumber = Math.ceil(reviews.length / 5);
 
     for (let i = 1; i <= maxNumber; i++) {
       result.push(i);
@@ -39,20 +37,20 @@ function Review({ productId }) {
   })(reviews);
 
   const movePage = pageNumber => {
-    searchParams.set('offset', (pageNumber - 1) * 5);
-    setSearchParams(searchParams);
+    setOffset((pageNumber - 1) * 5);
   };
 
   const pageNumberNow = offset / 5 + 1;
 
   const movePrevious = () => {
-    searchParams.set('offset', (pageNumberNow - 2) * 5);
-    setSearchParams(searchParams);
+    if (pageNumberNow === 1) return;
+
+    setOffset((pageNumberNow - 2) * 5);
   };
 
   const moveNext = () => {
-    searchParams.set('offset', pageNumberNow * 5);
-    setSearchParams(searchParams);
+    if (pageNumberNow === maxNumber) return;
+    setOffset(pageNumberNow * 5);
   };
 
   const clickedModal = () => {
@@ -171,7 +169,7 @@ function Review({ productId }) {
           {pageCountArr.map(number => (
             <li
               key={number}
-              className="pageNum"
+              className={pageNumberNow === number ? 'pageNum bold' : 'pageNum'}
               onClick={() => movePage(number)}
             >
               {number}
