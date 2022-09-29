@@ -158,6 +158,7 @@ function Review({ product }) {
             productId={product.id}
             reviewInfo={reviews.find(({ control }) => control)}
             selectModal={selectModal}
+            reviewSet={setReviews}
           />
         )}
       </ul>

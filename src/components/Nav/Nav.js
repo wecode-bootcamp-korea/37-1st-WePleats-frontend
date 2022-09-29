@@ -103,7 +103,7 @@ function Nav() {
             </ul>
           </li>
           <li className="li etc">
-            <Link to="/category?category=sub&id=12">스티커</Link>
+            <Link to="/category?category=sub&id=13">스티커</Link>
           </li>
         </ul>
       </div>

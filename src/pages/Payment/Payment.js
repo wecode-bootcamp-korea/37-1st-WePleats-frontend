@@ -19,8 +19,6 @@ function Payment() {
       .then(res => setOrderedItem(res.order));
   }, []);
 
-  console.log(orderedItem);
-
   const couponMoney = orderedItem.coupon && orderedItem.coupon[0].coupon_money;
 
   let totalPrice = 0;

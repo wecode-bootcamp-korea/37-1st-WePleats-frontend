@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import './Modal.scss';
 
-function Modal({ clickedModal, productId, reviewInfo, selectModal }) {
+function Modal({
+  clickedModal,
+  productId,
+  reviewInfo,
+  selectModal,
+  reviewSet,
+}) {
   const [imageUrl, setImageUrl] = useState(reviewInfo.image_url);
   const [imageFile, setImageFile] = useState();
   const [registComment, setRegistComment] = useState('');
@@ -80,7 +86,7 @@ function Modal({ clickedModal, productId, reviewInfo, selectModal }) {
       .then(data => {
         if (data.message === 'Update Review Success') {
           clickedModal();
-          reviewInfo(data.review);
+          reviewSet(data.review);
         } else {
           alert('수정 실패');
         }
