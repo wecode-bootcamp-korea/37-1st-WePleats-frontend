@@ -15,7 +15,6 @@ function Card({ product }) {
             <img
               onMouseOver={e => {
                 setIsHover(true);
-                console.log(e.target.src);
               }}
               onMouseLeave={() => setIsHover(false)}
               className="img"
