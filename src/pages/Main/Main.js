@@ -151,7 +151,7 @@ function Main() {
   };
 
   const goSticker = () => {
-    navigate('/category?category=sub&id=12');
+    navigate('/category?category=sub&id=13');
   };
 
   const goProduct = event => {
@@ -172,7 +172,7 @@ function Main() {
         <div className="upperBox">
           <div className="spaceBox" />
           <div className="mainPicBox">
-            <div className={`newestItem${fadeInFirst}`} onClick={goNew}>
+            <div className={`newestItem${fadeInFirst}`}>
               <div
                 className={`upperSlideBox${animateForUpper}`}
                 style={{
@@ -187,6 +187,7 @@ function Main() {
                       className="mainPic"
                       src={el.thumbnail_url}
                       alt="newest"
+                      onClick={goNew}
                     />
                   </div>
                 ))}
@@ -196,6 +197,7 @@ function Main() {
                       className="mainPic"
                       src={el.thumbnail_url}
                       alt="newest"
+                      onClick={goNew}
                     />
                   </div>
                 ))}
@@ -205,6 +207,7 @@ function Main() {
                       className="mainPic"
                       src={el.thumbnail_url}
                       alt="newest"
+                      onClick={goNew}
                     />
                   </div>
                 ))}
