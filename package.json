@@ -17,11 +17,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "eject": "react-scripts eject"
   },
-  "homepage": "https://gamangee.github.io/37-1st-WePleats-frontend/",
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -43,7 +40,6 @@
   "devDependencies": {
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "gh-pages": "^4.0.0",
     "prettier": "^2.7.1"
   }
 }
