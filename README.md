@@ -30,6 +30,10 @@
 ### 구현 페이지
 
 1. Nav, Footer
+![nav](https://user-images.githubusercontent.com/84329979/193393550-cafb8a2b-aa6a-4826-9ffb-cd43e47f1548.gif)
+![image](https://user-images.githubusercontent.com/84329979/193393566-d8bec7f6-d49b-448e-9650-c87b8cbdf55d.png)
+
+
 
 2. 회원가입 & 로그인
 ![signup-login](https://user-images.githubusercontent.com/84329979/193393340-f1ce0258-8beb-4e09-85c6-ebbbff382f69.gif)
