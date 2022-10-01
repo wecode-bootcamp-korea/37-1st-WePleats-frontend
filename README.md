@@ -30,12 +30,30 @@
 ### 구현 페이지
 
 1. Nav, Footer
-2. 회원가입/로그인
-3. 리스트
-4. 상세
-5. 장바구니
-6. 결제
-7. 리뷰
+
+2. 회원가입 & 로그인
+![signup-login](https://user-images.githubusercontent.com/84329979/193393340-f1ce0258-8beb-4e09-85c6-ebbbff382f69.gif)
+
+
+3. 메인
+![main-min](https://user-images.githubusercontent.com/84329979/193393407-e6015e16-540d-45ee-8a14-df259709d5ff.gif)
+
+
+4. 제품 리스트(상품 카테고리/색상 필터)
+![list](https://user-images.githubusercontent.com/84329979/193393383-f1ad1398-5ac3-4474-816a-3fc55c1a6946.gif)
+
+
+5. 제품 상세 & 리뷰
+![detail-review](https://user-images.githubusercontent.com/84329979/193393386-4a6a6562-762b-4775-bb9c-ae391d9f8dd7.gif)
+
+
+6. 장바구니
+![cart](https://user-images.githubusercontent.com/84329979/193393390-888a1199-d5c3-457f-88fd-1fa530517302.gif)
+
+
+7. 결제
+![order](https://user-images.githubusercontent.com/84329979/193393397-e8420349-bacb-43ef-8c7a-e7968af02c7f.gif)
+
 
 <br>
 
