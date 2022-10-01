@@ -15,7 +15,7 @@
 
 ### 데모 영상(이미지 클릭)
 
-https://www.youtube.com/watch?v=Mao03-WqfxQ
+[프로젝트 영상](https://www.youtube.com/watch?v=Mao03-WqfxQ)
 
 <br>
 
