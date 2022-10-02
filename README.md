@@ -19,11 +19,11 @@
 
 ## 팀원
 
-[장문정](https://github.com/gamangee/37-1st-WePleats-frontend/blob/master/README.md)
-[라용]()
-[최주원]()
-[위정우]()
-[장기석]()
+[장문정](https://github.com/gamangee/37-1st-WePleats-frontend/blob/master/README.md) <br>
+[라용]() <br>
+[최주원]() <br>
+[위정우]() <br>
+[장기석]() <br>
 
 <br>
 
@@ -31,9 +31,9 @@
 
 ### 적용 기술
 
-> - Front-End : React.js, sass
-> - Back-End : Node.js, Express, JSON Web TOKEN, Bcrypt, My SQL, Multer
-> - Common : AWS(EC2,RDS), RESTful API
+> - Front-End : <img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=white"> <img src="https://img.shields.io/badge/sass-CC6699?style=for-the-badge&logo=sass&logoColor=white">
+> - Back-End : <img src="https://img.shields.io/badge/node.js-339933?style=for-the-badge&logo=Node.js&logoColor=white"> <img src="https://img.shields.io/badge/express-D22128?style=for-the-badge&logo=express&logoColor=white"> <img src="https://img.shields.io/badge/JSON Web TOKENS-FDEE21?style=for-the-badge&logo=JSON Web TOKENS&logoColor=white"> <img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white">,  Bcrypt, Multer
+> - Common : <img src="https://img.shields.io/badge/aws-232F3E?style=for-the-badge&logo=aws&logoColor=white">(EC2,RDS), RESTful API
 
 ### 구현 페이지
 
