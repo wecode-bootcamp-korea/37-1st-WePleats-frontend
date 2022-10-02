@@ -1,4 +1,4 @@
-## WePleats 프로젝트 Front-end/Back-end 소개
+## WePleats 프로젝트 Front-end 소개
 
 - 개발자들의 개성있는 책상을 만들 수 있도록 보다 다채로운 색상의 프로덕트 판매하는 사이트를 기획하였습니다.
 - 밋밋하고 칙칙한 개발자 책상이라는 편견은 이제 그만, `WePleats`는 하루종일 에서 일하는 개발자들의 개성을 표현해줄 수 있는 아이템을 추천해주는 곳입니다.
@@ -7,7 +7,7 @@
 
 - 개발기간 : 2022/9/19 ~ 2022/9/30
 - 개발 인원 : 프론트엔드 3명, 백엔드 2명
-- [백엔드 github 링크]()
+- [백엔드 github 링크](https://github.com/wecode-bootcamp-korea/37-1st-WePleats-backend)
 
 ### 프로젝트 선정이유
 
@@ -48,11 +48,14 @@
 
 ### 적용 기술
 
-> - `Front-End` : <img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=white"> <img src="https://img.shields.io/badge/sass-CC6699?style=for-the-badge&logo=sass&logoColor=white">
+- Front-End : <img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=white"> <img src="https://img.shields.io/badge/sass-CC6699?style=for-the-badge&logo=sass&logoColor=white">
 
-> - `Back-End` : <img src="https://img.shields.io/badge/node.js-339933?style=for-the-badge&logo=Node.js&logoColor=white"> <img src="https://img.shields.io/badge/express-D22128?style=for-the-badge&logo=express&logoColor=white"> <img src="https://img.shields.io/badge/JSON Web TOKENS-FDEE21?style=for-the-badge&logo=JSON Web TOKENS&logoColor=white"> <img src="https://img.shields.io/badge/Bcrypt-003A70?style=for-the-badge&logo=Let's Encrypt&logoColor=white"> <img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white"> <img src="https://img.shields.io/badge/multer-1BB76E?style=for-the-badge&logo=Imgur&logoColor=white"> 
+- Back-End : <img src="https://img.shields.io/badge/node.js-339933?style=for-the-badge&logo=Node.js&logoColor=white"> <img src="https://img.shields.io/badge/express-D22128?style=for-the-badge&logo=express&logoColor=white"> <img src="https://img.shields.io/badge/JSON Web TOKENS-FDEE21?style=for-the-badge&logo=JSON Web TOKENS&logoColor=white"> <img src="https://img.shields.io/badge/Bcrypt-003A70?style=for-the-badge&logo=Let's Encrypt&logoColor=white"> <img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white"> <img src="https://img.shields.io/badge/multer-1BB76E?style=for-the-badge&logo=Imgur&logoColor=white"> 
  
-> - `Common` : <img src="https://img.shields.io/badge/aws-232F3E?style=for-the-badge&logo=Amazon AWS&logoColor=white"> <img src="https://img.shields.io/badge/RestFul API-009688?style=for-the-badge&logo=FastAPI&logoColor=white">
+- Common : <img src="https://img.shields.io/badge/aws-232F3E?style=for-the-badge&logo=Amazon AWS&logoColor=white"> <img src="https://img.shields.io/badge/RestFul API-009688?style=for-the-badge&logo=FastAPI&logoColor=white">
+
+### 회고
+[기술블로그](https://velog.io/@gamangee/series/Projects)
 
 ### 전체 페이지 소개
 
