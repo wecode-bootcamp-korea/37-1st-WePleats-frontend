@@ -5,7 +5,7 @@
 
 ### 개발 인원 및 기간
 
-- 개발기간 : 2030/1/1 ~ 2030/1/14
+- 개발기간 : 2022/9/19 ~ 2022/9/30
 - 개발 인원 : 프론트엔드 3명, 백엔드 2명
 - [백엔드 github 링크]()
 
@@ -16,6 +16,14 @@
 ### 데모 영상(이미지 클릭)
 
 [프로젝트 영상](https://www.youtube.com/watch?v=Mao03-WqfxQ)
+
+## 팀원
+
+[장문정](https://github.com/gamangee/37-1st-WePleats-frontend/blob/master/README.md)
+[라용]()
+[최주원]()
+[위정우]()
+[장기석]()
 
 <br>
 
