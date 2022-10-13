@@ -62,7 +62,7 @@ function Product() {
             <div className="brand">
               <img
                 className="brandImg"
-                src="images/brandImg.jpg"
+                src="/images/brandImg.jpg"
                 alt="brandImg"
               />
             </div>
