@@ -20,7 +20,7 @@
 ## 팀원
 
 [장문정](https://github.com/gamangee/37-1st-WePleats-frontend/blob/master/README.md) <br>
-[라용]() <br>
+[라용](https://github.com/contextand) <br>
 [최주원]() <br>
 [위정우]() <br>
 [장기석](https://github.com/pienkk) <br>
