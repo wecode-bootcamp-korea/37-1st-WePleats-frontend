@@ -55,6 +55,10 @@ function Review({ product }) {
   };
 
   const clickedModal = () => {
+    if (!localStorage.getItem('TOKEN')) {
+      alert('구매 후 작성이 가능합니다.');
+      return;
+    }
     setIsClicked(current => !current);
   };
 
